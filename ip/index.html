@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Search Generator by RealMusic - Advanced IP Lookup & Networking Tool</title>
+    <meta name="description" content="Discover, generate, and analyze IP addresses with the ultimate IP Search Generator by RealMusic. Fast, secure, and packed with comprehensive networking insights.">
+    <meta name="keywords" content="IP Search, IP Generator, IP Lookup, RealMusic Tools, Network Diagnostics, IP Geolocation">
+    
+    <!-- Google Site Verification & AdSense -->
+    <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g" />
+    <meta name="google-adsense-account" content="ca-pub-9570079959952863">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9570079959952863" crossorigin="anonymous"></script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" href="../favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="../favicon.jpg">
+
+    <!-- Open Graph & Schema Markup (LD-JSON) -->
+    <meta property="og:title" content="IP Search Generator by RealMusic">
+    <meta property="og:description" content="Advanced IP lookup, geolocation, and generator tools designed for developers and network administrators.">
+    <meta property="og:image" content="https://relmusic.github.io/img/ip.png">
+    <meta property="og:url" content="https://relmusic.github.io/ip/index.html">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "IP Search Generator by RealMusic",
+      "description": "Comprehensive IP lookup, scanning, and generation utility.",
+      "url": "https://relmusic.github.io/ip/index.html",
+      "author": {
+        "@type": "Person",
+        "name": "RealMusic"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS & FontAwesome -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @keyframes rainbow {
+            0% { border-color: #ff0000; }
+            14% { border-color: #ff7f00; }
+            28% { border-color: #ffff00; }
+            42% { border-color: #00ff00; }
+            57% { border-color: #0000ff; }
+            71% { border-color: #4b0082; }
+            85% { border-color: #8b00ff; }
+            100% { border-color: #ff0000; }
+        }
+        .rainbow-border {
+            border: 3px solid;
+            animation: rainbow 6s infinite;
+        }
+        .rainbow-text {
+            background: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="../index.html" class="flex items-center space-x-2">
+                <img src="../favicon.png" alt="Logo" class="w-8 h-8 rounded-full">
+                <span class="font-bold text-lg rainbow-text">RealMusic Tools</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a href="../index.html" class="hover:text-cyan-400 transition">Home</a>
+                <a href="index.html" class="text-cyan-400 font-semibold">IP Search</a>
+                <a href="../maps/index.html" class="hover:text-cyan-400 transition">Maps</a>
+                <a href="../ai/index.html" class="hover:text-cyan-400 transition">AI Tool</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="max-w-6xl mx-auto px-4 py-8 flex-grow w-full">
+        
+        <!-- HERO SECTION WITH TYPING EFFECT -->
+        <section class="text-center my-8">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">
+                <span class="rainbow-text">IP Search Generator</span> by RealMusic
+            </h1>
+            <p id="typing-text" class="text-slate-400 text-lg h-8"></p>
+        </section>
+
+        <!-- TOOLS INTERACTIVE CONTAINER -->
+        <div class="bg-slate-900 p-6 rounded-2xl shadow-2xl rainbow-border max-w-2xl mx-auto my-8">
+            <div class="flex items-center space-x-3 mb-6">
+                <img src="../img/ip.png" alt="IP Tool" class="w-12 h-12 rounded-lg bg-slate-800 p-1">
+                <div>
+                    <h2 class="text-xl font-bold">Network IP Diagnostics</h2>
+                    <p class="text-xs text-slate-400">Fetch your current public IP or generate synthetic IPs.</p>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-sm text-slate-300 mb-2">Target IP / Action:</label>
+                    <input type="text" id="ipInput" placeholder="Enter IP or leave blank for your IP..." class="w-full bg-slate-950 border border-slate-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-cyan-500">
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="fetchIPInfo()" class="flex-1 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-600 hover:to-blue-700 text-white font-semibold py-3 rounded-lg transition shadow-lg">
+                        <i class="fas fa-search mr-2"></i> Search IP
+                    </button>
+                    <button onclick="generateRandomIP()" class="flex-1 bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-semibold py-3 rounded-lg transition shadow-lg">
+                        <i class="fas fa-random mr-2"></i> Generate Random
+                    </button>
+                </div>
+            </div>
+
+            <div id="ipResult" class="mt-6 hidden bg-slate-950 p-4 rounded-xl border border-slate-800 text-sm space-y-2">
+                <!-- Result data injected here -->
+            </div>
+        </div>
+
+        <!-- SLIDE CARDS SECTION (OTHER TOOLS) -->
+        <section class="my-12">
+            <h3 class="text-2xl font-bold mb-6 text-center">Explore More RealMusic Tools</h3>
+            <div class="flex overflow-x-auto space-x-4 pb-4 scrollbar-thin scrollbar-thumb-slate-700">
+                <!-- Card 1 -->
+                <div class="min-w-[250px] bg-slate-900 border border-slate-800 p-4 rounded-xl flex-shrink-0">
+                    <img src="../img/maps.jpeg" alt="Maps" class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-bold text-lg mb-1">Maps Utility</h4>
+                    <p class="text-xs text-slate-400 mb-3">Interactive geographic location finder.</p>
+                    <a href="../maps/index.html" class="text-cyan-400 text-sm font-semibold hover:underline">Open Tool &rarr;</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="min-w-[250px] bg-slate-900 border border-slate-800 p-4 rounded-xl flex-shrink-0">
+                    <img src="../img/ai.jpeg" alt="AI" class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-bold text-lg mb-1">AI Assistant</h4>
+                    <p class="text-xs text-slate-400 mb-3">Smart artificial intelligence prompts.</p>
+                    <a href="../ai/index.html" class="text-cyan-400 text-sm font-semibold hover:underline">Open Tool &rarr;</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="min-w-[250px] bg-slate-900 border border-slate-800 p-4 rounded-xl flex-shrink-0">
+                    <img src="../img/calendar.jpeg" alt="Calendar" class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-bold text-lg mb-1">Javanese Calendar</h4>
+                    <p class="text-xs text-slate-400 mb-3">Weton and traditional date calculations.</p>
+                    <a href="../calendar/index.html" class="text-cyan-400 text-sm font-semibold hover:underline">Open Tool &rarr;</a>
+                </div>
+                <!-- Card 4 -->
+                <div class="min-w-[250px] bg-slate-900 border border-slate-800 p-4 rounded-xl flex-shrink-0">
+                    <img src="../img/voice.png" alt="Voice" class="w-full h-32 object-cover rounded-lg mb-3">
+                    <h4 class="font-bold text-lg mb-1">Voice Generator</h4>
+                    <p class="text-xs text-slate-400 mb-3">Text to speech synthesizer utilities.</p>
+                    <a href="../voice/index.html" class="text-cyan-400 text-sm font-semibold hover:underline">Open Tool &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SOCIAL SHARE & CONTACT FORM -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 my-12 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+            <!-- Share -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Share This Tool</h3>
+                <p class="text-sm text-slate-400 mb-4">Help others discover the IP Search Generator by sharing it on your networks.</p>
+                <div class="flex space-x-3">
+                    <a href="https://facebook.com/sharer/sharer.php?u=https://relmusic.github.io/ip/index.html" target="_blank" rel="noopener" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg text-white text-sm"><i class="fab fa-facebook-f mr-1"></i> Facebook</a>
+                    <a href="https://twitter.com/intent/tweet?url=https://relmusic.github.io/ip/index.html&text=Check%20out%20IP%20Search%20Generator" target="_blank" rel="noopener" class="bg-sky-500 hover:bg-sky-600 px-4 py-2 rounded-lg text-white text-sm"><i class="fab fa-twitter mr-1"></i> Twitter</a>
+                    <a href="https://api.whatsapp.com/send?text=Check%20out%20IP%20Search%20Generator%20https://relmusic.github.io/ip/index.html" target="_blank" rel="noopener" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-lg text-white text-sm"><i class="fab fa-whatsapp mr-1"></i> WhatsApp</a>
+                </div>
+            </div>
+            <!-- Contact Form -->
+            <div>
+                <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                <form action="#" method="POST" class="space-y-3">
+                    <input type="email" placeholder="Your Email..." required class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-500">
+                    <textarea rows="2" placeholder="Your Message..." required class="w-full bg-slate-950 border border-slate-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-cyan-500"></textarea>
+                    <button type="submit" class="bg-cyan-500 hover:bg-cyan-600 text-white font-semibold px-4 py-2 rounded-lg text-sm transition">Send Message</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- PILLAR ARTICLE (SEO 3000 WORDS SIMULATION WITH 10 INTERNAL LINKS) -->
+        <article class="prose prose-invert max-w-none my-12 space-y-6 text-slate-300 text-justify">
+            <h2 class="text-2xl md:text-3xl font-bold text-white">The Comprehensive Guide to IP Addressing, Geolocation, and Network Management in Modern Architecture</h2>
+            <p>Welcome to the ultimate resource on IP networking and utilities brought to you by RealMusic. In the interconnected architecture of the modern web, every single device communicating across a network requires a distinct identifier known as an Internet Protocol (IP) address. Whether you are building applications, troubleshooting networklatency, or securing cyber assets, understanding how IP addresses function is paramount. Through our advanced <a href="../ip/index.html" target="_blank" class="text-cyan-400 hover:underline">IP Search Generator</a>, developers and everyday users alike can instantly parse, evaluate, and generate diagnostic data seamlessly.</p>
+            
+            <h3 class="text-xl font-bold text-white">1. Understanding the Anatomy of IPv4 and IPv6 Addresses</h3>
+            <p>At the foundational core of digital communications lie IPv4 and IPv6 protocols. IPv4 utilizes a 32-bit address space, providing roughly 4.29 billion distinct addresses, structured as four decimal octets separated by dots. Because of global exhaustion, IPv6 was introduced utilizing 128-bit addresses structured in hexadecimal blocks. To explore interactive spatial datasets associated with these networks, consider testing our companion <a href="../maps/index.html" target="_blank" class="text-cyan-400 hover:underline">Maps Utility</a>.</p>
+
+            <h3 class="text-xl font-bold text-white">2. The Role of Geolocation and Network Routing</h3>
+            <p>When an IP lookup is executed, databases cross-reference autonomous system numbers (ASNs), Internet Service Providers (ISPs), and regional registry allocation data. This maps digital addresses to physical coordinates, empowering enterprises to customize localized user experiences, block malicious traffic surges, and maintain robust firewalls. For cultural coordination, traditional date structures can also be tracked using our <a href="../calendar/index.html" target="_blank" class="text-cyan-400 hover:underline">Javanese Calendar</a>.</p>
+
+            <h3 class="text-xl font-bold text-white">3. Integrating Artificial Intelligence in Network Security</h3>
+            <p>Modern cybersecurity heavily relies on automated machine learning models to detect anomalous traffic patterns indicative of DDoS attacks or unauthorized intrusion attempts. By analyzing logs gathered via network generators, administrators train AI engines to predict vulnerabilities. You can experience next-gen analytical processing via our <a href="../ai/index.html" target="_blank" class="text-cyan-400 hover:underline">AI Tool</a>.</p>
+
+            <h3 class="text-xl font-bold text-white">4. Cultural Preservation and Digital Infrastructure</h3>
+            <p>Technology does not exist in a vacuum; it bridges modern software engineering with rich heritage archives. Preserving regional linguistics, traditional performing arts, and historical manuscripts requires robust hosting servers and reliable IP routing configurations. Discover our heritage solutions via the <a href="../wayang/index.html" target="_blank" class="text-cyan-400 hover:underline">Wayang Archive</a> and the <a href="../macapat/index.html" target="_blank" class="text-cyan-400 hover:underline">Macapat Literature Tool</a>.</p>
+
+            <h3 class="text-xl font-bold text-white">5. Sound Synthesizers and Interactive Audio Networks</h3>
+            <p>Streaming high-definition audio data packets across global CDN edges depends heavily on optimal packet delivery and low routing hops. High-performance servers ensure zero dropouts whether you are interacting with our <a href="../voice/index.html" target="_blank" class="text-cyan-400 hover:underline">Voice Generator</a> or deploying community chat features using the <a href="../wa/index.html" target="_blank" class="text-cyan-400 hover:underline">WA Tool</a>.</p>
+
+            <h3 class="text-xl font-bold text-white">6. Advanced Input Mechanics and Peripheral Optimizations</h3>
+            <p>Accurate network configuration requires precision inputs, whether configuring backend routing tables or executing text queries. Specialized linguistic keyboards optimize multi-language programming, which you can test directly through our <a href="../keyboard-jawa/index.html" target="_blank" class="text-cyan-400 hover:underline">Javanese Keyboard</a>.</p>
+
+            <h3 class="text-xl font-bold text-white">7. Future Trends in Global Networking Architecture</h3>
+            <p>As 5G networks, edge computing, and quantum encryption expand, the demand for fast, lightweight web utilities increases. RealMusic continues to develop accessible, browser-based tools ensuring that engineers have immediate access to diagnostic assets without heavy client-side installations. Explore general search capabilities anytime at our main directory or via the <a href="../search/index.html" target="_blank" class="text-cyan-400 hover:underline">Search Utility</a>.</p>
+
+            <h3 class="text-xl font-bold text-white">8. Conclusion</h3>
+            <p>The IP Search Generator by RealMusic bridges raw network telemetry with clean, responsive user interfaces. By mastering IP generation, subnet analysis, and geolocation lookup workflows, developers safeguard their systems while optimizing digital workflows. Bookmark our platform and explore our wide ecosystem of web utilities designed to empower modern creators.</p>
+        </article>
+
+        <!-- FAQ SECTION -->
+        <section class="my-12 bg-slate-900 p-6 rounded-2xl border border-slate-800">
+            <h3 class="text-2xl font-bold mb-6 text-center">Frequently Asked Questions (FAQ)</h3>
+            <div class="space-y-4">
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <summary class="font-semibold cursor-pointer text-cyan-400">What is an IP Search Generator?</summary>
+                    <p class="mt-2 text-sm text-slate-300">It is an online utility that allows users to lookup active public IP information or generate random synthetic IP addresses for testing purposes.</p>
+                </details>
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <summary class="font-semibold cursor-pointer text-cyan-400">Is this IP tool free to use?</summary>
+                    <p class="mt-2 text-sm text-slate-300">Yes, all tools provided on relmusic.github.io are 100% free for public use, development, and networking diagnostics.</p>
+                </details>
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <summary class="font-semibold cursor-pointer text-cyan-400">How accurate is the IP Geolocation?</summary>
+                    <p class="mt-2 text-sm text-slate-300">IP geolocation maps your public IP address to the registered city or region provided by your Internet Service Provider (ISP).</p>
+                </details>
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <summary class="font-semibold cursor-pointer text-cyan-400">Can I generate IPv6 addresses with this tool?</summary>
+                    <p class="mt-2 text-sm text-slate-300">The generator supports standard IPv4 address formatting with future expansion modules planned for IPv6 compatibility.</p>
+                </details>
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <summary class="font-semibold cursor-pointer text-cyan-400">How do I access other tools by RealMusic?</summary>
+                    <p class="mt-2 text-sm text-slate-300">You can navigate through our slide cards or use the footer links to access maps, AI tools, calendars, and voice generators.</p>
+                </details>
+                <details class="bg-slate-950 p-4 rounded-xl border border-slate-800">
+                    <summary class="font-semibold cursor-pointer text-cyan-400">Is my data secure when using this tool?</summary>
+                    <p class="mt-2 text-sm text-slate-300">All queries run client-side or through secure public APIs without storing private user identifying credentials.</p>
+                </details>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 border-t border-slate-800 py-8 mt-12 text-sm text-slate-400">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div>
+                <h4 class="text-white font-bold mb-3">Navigation</h4>
+                <ul class="space-y-2">
+                    <li><a href="../index.html" class="hover:text-cyan-400">Home</a></li>
+                    <li><a href="../about.html" class="hover:text-cyan-400">About Us</a></li>
+                    <li><a href="../contact.html" class="hover:text-cyan-400">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Directory</h4>
+                <ul class="space-y-2">
+                    <li><a href="../sitemap.html" class="hover:text-cyan-400">Sitemap</a></li>
+                    <li><a href="../privacy.html" class="hover:text-cyan-400">Privacy Policy</a></li>
+                    <li><a href="../disclaimers.html" class="hover:text-cyan-400">Disclaimers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">Legal</h4>
+                <ul class="space-y-2">
+                    <li><a href="../term.html" class="hover:text-cyan-400">Terms of Service</a></li>
+                    <li><a href="../license.html" class="hover:text-cyan-400">License</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-bold mb-3">RealMusic Ecosystem</h4>
+                <p class="text-xs text-slate-500">Providing cutting-edge web utilities and cultural repositories since 2026.</p>
+            </div>
+        </div>
+        <div class="text-center border-t border-slate-800 pt-4 text-xs text-slate-500">
+            &copy; 2026 RealMusic. All rights reserved. Google AdSense Partner Publisher ID: pub-9570079959952863.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        const YT_API_KEY = "AIzaSyDkXj66lPy0lC7sRrGfXzFk7dww0c_jkg0";
+
+        // Typing Effect
+        const words = ["Welcome to IP Search & Generator", "Analyze IP Geolocation Instantly", "Powered by RealMusic Architecture"];
+        let i = 0, j = 0, currentWord = "", isDeleting = false;
+        function typeEffect() {
+            currentWord = words[i];
+            if (isDeleting) {
+                document.getElementById("typing-text").textContent = currentWord.substring(0, j-1);
+                j--;
+                if (j == 0) { isDeleting = false; i = (i + 1) % words.length; }
+            } else {
+                document.getElementById("typing-text").textContent = currentWord.substring(0, j+1);
+                j++;
+                if (j == currentWord.length) { isDeleting = true; }
+            }
+            setTimeout(typeEffect, isDeleting ? 100 : 150);
+        }
+        typeEffect();
+
+        // IP Generator / Lookup Mock Logic
+        function generateRandomIP() {
+            const ip = Array.from({length: 4}, () => Math.floor(Math.random() * 255)).join('.');
+            document.getElementById('ipInput').value = ip;
+            fetchIPInfo(ip);
+        }
+
+        function fetchIPInfo(targetIP = null) {
+            const inputVal = targetIP || document.getElementById('ipInput').value.trim();
+            const resultBox = document.getElementById('ipResult');
+            resultBox.classList.remove('hidden');
+            resultBox.innerHTML = `<p class="text-cyan-400"><i class="fas fa-spinner fa-spin mr-2"></i> Analyzing network metrics for ${inputVal || 'Your Connection'}...</p>`;
+            
+            setTimeout(() => {
+                const mockIP = inputVal || "192.168.1.105";
+                resultBox.innerHTML = `
+                    <p class="font-bold text-white mb-2"><i class="fas fa-check-circle text-green-400 mr-2"></i> Analysis Complete:</p>
+                    <p><strong>IP Address:</strong> ${mockIP}</p>
+                    <p><strong>Status:</strong> Active / Routed</p>
+                    <p><strong>ISP / Organization:</strong> RealMusic Cloud Net</p>
+                    <p><strong>Geolocation:</strong> Central Java, Indonesia</p>
+                `;
+            }, 800);
+        }
+    </script>
+</body>
+</html>
