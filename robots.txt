@@ -1,0 +1,30 @@
+# Robots.txt for relmusic.github.io
+# Optimized for Googlebot, AdSense crawler, and search engine indexation
+
+User-agent: *
+Allow: /
+Allow: /ip/
+Allow: /maps/
+Allow: /macapat/
+Allow: /wayang/
+Allow: /keyboard-jawa/
+Allow: /calendar/
+Allow: /ai/
+Allow: /3d/
+Allow: /voice/
+Allow: /wa/
+Allow: /search/
+
+# Explicitly allow Google AdSense bots for proper ad serving and consent verification
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /img/
+
+# Sitemaps references for fast crawler discovery
+Sitemap: https://relmusic.github.io/sitemap.xml
+Sitemap: https://relmusic.github.io/sitemap.txt
