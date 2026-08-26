@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure Custom Domain and Sub-domain with GitHub Pages in Cloudflare - RelMusic Blog</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Step-by-step technical guide on configuring custom domains and sub-domains with GitHub Pages through Cloudflare DNS, SSL/TLS encryption, and CNAME records.">
+    <meta name="keywords" content="GitHub Pages, Cloudflare, Custom Domain, Sub-domain, DNS configuration, SSL/TLS, Web Hosting">
+    <link rel="canonical" href="https://relmusic.github.io/blog/configure-custom-domain-cloudflare.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://relmusic.github.io/favicon.png" type="image/png">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Configure Custom Domain and Sub-domain with GitHub Pages in Cloudflare">
+    <meta property="og:description" content="Master DNS management, CNAME configuration, apex domains, sub-domains, and SSL settings for GitHub Pages using Cloudflare.">
+    <meta property="og:image" content="https://relmusic.github.io/img/cube.png">
+    <meta property="og:url" content="https://relmusic.github.io/blog/configure-custom-domain-cloudflare.html">
+    <meta property="og:type" content="article">
+
+    <!-- Google Site Verification & AdSense -->
+    <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g" />
+    <meta name="google-adsense-account" content="ca-pub-9570079959952863">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9570079959952863" crossorigin="anonymous"></script>
+
+    <!-- Schema JSON-LD for Article -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Configure Custom Domain and Sub-domain with GitHub Pages in Cloudflare",
+      "image": "https://relmusic.github.io/img/cube.png",
+      "author": {
+        "@type": "Organization",
+        "name": "RelMusic Cloud Infrastructure Division"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "RelMusic",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://relmusic.github.io/favicon.png"
+        }
+      },
+      "datePublished": "2026-04-18",
+      "dateModified": "2026-04-18"
+    }
+    </script>
+
+    <!-- Styling & Rainbow Effect -->
+    <style>
+        @keyframes rainbowBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        :root {
+            --rainbow-gradient: linear-gradient(270deg, #ff416c, #ff4b2b, #f7b733, #fc4a1a, #4776e6, #8e54e9);
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f5f9;
+            color: #0f172a;
+            line-height: 1.8;
+        }
+        header {
+            background: var(--rainbow-gradient);
+            background-size: 400% 400%;
+            animation: rainbowBG 15s ease infinite;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        .typing-container {
+            font-size: 1.5rem;
+            font-weight: bold;
+            border-right: 3px solid white;
+            white-space: nowrap;
+            overflow: hidden;
+            width: max-content;
+            margin: 15px auto;
+            animation: blink 0.75s step-end infinite;
+        }
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: white; } }
+        
+        nav {
+            background: #090d16;
+            color: white;
+            padding: 12px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 12px;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        nav a:hover { color: #f7b733; }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 40px;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: 12px;
+        }
+        
+        article h3 { color: #ff416c; margin-top: 35px; }
+        article h4 { color: #334155; margin-top: 25px; }
+        
+        .categories-badge span {
+            display: inline-block;
+            background: #e2e8f0;
+            color: #ff416c;
+            padding: 6px 14px;
+            margin: 5px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            border: 1px solid #cbd5e1;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+
+        table.comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+        }
+        table.comparison-table th, table.comparison-table td {
+            border: 1px solid #cbd5e1;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        table.comparison-table th {
+            background-color: #090d16;
+            color: white;
+        }
+        table.comparison-table tr:nth-child(even) {
+            background-color: #f8fafc;
+        }
+
+        code.inline-code {
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #b91c1c;
+        }
+        
+        footer {
+            background: #090d16;
+            color: #94a3b8;
+            text-align: center;
+            padding: 40px 20px;
+            margin-top: 60px;
+        }
+        footer a { color: #f8fafc; text-decoration: none; margin: 0 12px; }
+        footer a:hover { text-decoration: underline; color: #f7b733; }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Rainbow Typing Effect -->
+    <header>
+        <h1>Configure Custom Domain and Sub-domain with GitHub Pages in Cloudflare</h1>
+        <div class="typing-container" id="typing-text">Mastering DNS Records, CNAME Routing, & SSL Encryption...</div>
+        <p>Category: DNS Management, Cloud Infrastructure & Web Hosting (Comprehensive Pillar Document)</p>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav>
+        <a href="https://relmusic.github.io/">Home</a>
+        <a href="https://relmusic.github.io/blog/index.html">Blog Index</a>
+        <a href="https://relmusic.github.io/about.html">About</a>
+        <a href="https://relmusic.github.io/contact.html">Contact</a>
+        <a href="https://relmusic.github.io/sitemap.html">Sitemap</a>
+    </nav>
+
+    <div class="container">
+        <!-- Main Article Body -->
+        <article>
+            <h2>The Comprehensive Guide to Mapping Custom Domains and Sub-domains to GitHub Pages via Cloudflare</h2>
+            <p><em>Published by RelMusic Cloud Infrastructure Division | Production Ready for 2026 Standards</em></p>
+            
+            <img src="https://relmusic.github.io/img/cube.png" alt="Configure Custom Domain and Sub-domain with GitHub Pages in Cloudflare" style="width:100%; height:420px; object-fit:cover; border-radius:10px; margin:25px 0;">
+
+            <p>Hosting static websites, documentation portals, or enterprise web ecosystems on GitHub Pages provides unmatched reliability and seamless version control. However, using the default <code class="inline-code">username.github.io</code> URL structure lacks professional branding. Integrating a custom apex domain (e.g., <code class="inline-code">relmusic.com</code>) or a dedicated sub-domain (e.g., <code class="inline-code">blog.relmusic.com</code>) through Cloudflare supercharges your web property with lightning-fast CDN caching, robust DDoS protection, and automated SSL/TLS encryption.</p>
+            
+            <p>This technical guide details the precise end-to-end configuration required to bridge GitHub Pages with Cloudflare DNS management.</p>
+
+            <h3>1. Understanding GitHub Pages DNS Requirements</h3>
+            <p>Before configuring Cloudflare, it is crucial to understand how GitHub Pages recognizes custom domains. GitHub requires either an apex domain redirect or a direct CNAME pointer matching your GitHub Pages username repository.</p>
+            
+            <h4>Apex Domains vs. Sub-domains</h4>
+            <ul>
+                <li><strong>Apex Domains (Root Domain like <code class="inline-code">relmusic.github.io</code> mapped to <code class="inline-code">example.com</code>):</strong> Requires configuring GitHub's official IP addresses (<code class="inline-code">185.199.108.153</code>, <code class="inline-code">185.199.109.153</code>, <code class="inline-code">185.199.110.153</code>, <code class="inline-code">185.199.111.153</code>) as A records, alongside a CNAME record for <code class="inline-code">www</code>.</li>
+                <li><strong>Sub-domains (e.g., <code class="inline-code">blog.example.com</code> or <code class="inline-code">docs.example.com</code>):</strong> Requires a simple CNAME record pointing directly to your GitHub Pages default address (<code class="inline-code">username.github.io</code>).</li>
+            </ul>
+
+            <h3>2. Step-by-Step Configuration in Cloudflare Dashboard</h3>
+            <p>Follow these steps to route your domain traffic correctly through Cloudflare DNS:</p>
+
+            <h4>Step 1: Add Your Domain to Cloudflare</h4>
+            <p>Log in to your Cloudflare account, click <strong>Add a Site</strong>, enter your domain name, and select a free or paid plan. Update your domain registrar's nameservers to point to the provided Cloudflare nameservers.</p>
+
+            <h4>Step 2: Configure DNS Records for Sub-domains</h4>
+            <p>For a sub-domain such as <code class="inline-code">blog.relmusic.com</code>, add a CNAME record in the Cloudflare DNS manager:</p>
+            <ul>
+                <li><strong>Type:</strong> <code class="inline-code">CNAME</code></li>
+                <li><strong>Name:</strong> <code class="inline-code">blog</code> (or your chosen sub-domain prefix)</li>
+                <li><strong>Target:</strong> <code class="inline-code">relmusic.github.io</code></li>
+                <li><strong>Proxy Status:</strong> <code class="inline-code">Proxied (Orange Cloud)</code> or <code class="inline-code">DNS Only (Grey Cloud)</code> during initial GitHub handshake.</li>
+            </ul>
+
+            <h4>Step 3: Configure DNS Records for Apex Domains</h4>
+            <p>If you are mapping the root domain (<code class="inline-code">relmusic.com</code>), set up the four GitHub IP A records:</p>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Name</th>
+                        <th>IPv4 Target Address</th>
+                        <th>Proxy Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>A</td><td>@</td><td>185.199.108.153</td><td>Proxied / DNS Only</td></tr>
+                    <tr><td>A</td><td>@</td><td>185.199.109.153</td><td>Proxied / DNS Only</td></tr>
+                    <tr><td>A</td><td>@</td><td>185.199.110.153</td><td>Proxied / DNS Only</td></tr>
+                    <tr><td>A</td><td>@</td><td>185.199.111.153</td><td>Proxied / DNS Only</td></tr>
+                </tbody>
+            </table>
+
+            <h3>3. Establishing the CNAME File in Your GitHub Repository</h3>
+            <p>GitHub needs verification that you own the custom domain. In your GitHub repository root directory, create a file named <code class="inline-code">CNAME</code> (without any file extension) containing only your custom domain name (e.g., <code class="inline-code">blog.relmusic.com</code> or <code class="inline-code">relmusic.com</code>).</p>
+            <p>Once pushed to your repository, navigate to your GitHub repository settings under <strong>Pages</strong>, and enter your custom domain into the designated custom domain field.</p>
+
+            <h3>4. Optimizing SSL/TLS Settings in Cloudflare</h3>
+            <p>To avoid SSL certificate errors (such as <code class="inline-code">ERR_CERT_COMMON_NAME_INVALID</code>) between Cloudflare and GitHub Pages:</p>
+            <ul>
+                <li>Set your Cloudflare SSL/TLS encryption mode to <strong>Full</strong> or <strong>Full (strict)</strong>.</li>
+                <li>Enable <strong>Always Use HTTPS</strong> to automatically redirect insecure HTTP requests.</li>
+                <li>Ensure the <strong>Enforce HTTPS</strong> checkbox is selected in your GitHub Pages settings once the custom certificate check turns green.</li>
+            </ul>
+
+            <!-- External Authoritative References -->
+            <h3>External Authoritative References</h3>
+            <ul>
+                <li><a href="https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site" target="_blank" rel="nofollow">GitHub Pages Official Custom Domain Documentation</a></li>
+                <li><a href="https://developers.cloudflare.com/dns/" target="_blank" rel="nofollow">Cloudflare DNS Management Guide</a></li>
+                <li><a href="https://letsencrypt.org/" target="_blank" rel="nofollow">Let's Encrypt Free SSL/TLS Certificates</a></li>
+                <li><a href="https://www.w3.org/TR/html52/" target="_blank" rel="nofollow">W3C Web Standards Specifications</a></li>
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview" target="_blank" rel="nofollow">MDN Web Docs HTTP Overview</a></li>
+                <li><a href="https://ietf.org/" target="_blank" rel="nofollow">IETF Network Working Group RFC Standards</a></li>
+                <li><a href="https://www.cloudflare.com/learning/dns/what-is-dns/" target="_blank" rel="nofollow">Cloudflare Learning Center: What is DNS?</a></li>
+                <li><a href="https://github.com/" target="_blank" rel="nofollow">GitHub Platform & Version Control Repository</a></li>
+                <li><a href="https://pages.github.com/" target="_blank" rel="nofollow">GitHub Pages Static Hosting Infrastructure</a></li>
+                <li><a href="https://www.icann.org/" target="_blank" rel="nofollow">ICANN Domain Name System Policy Guidelines</a></li>
+            </ul>
+
+            <!-- Internal Pillar Links -->
+            <h3>Internal Pillar Links</h3>
+            <ul>
+                <li><a href="https://relmusic.github.io/blog/index.html">RelMusic Home Pillar & Resource Center</a></li>
+                <li><a href="https://relmusic.github.io/blog/cybersecurity-zero-trust.html">Cybersecurity & Zero-Trust Cloud Architectures</a></li>
+                <li><a href="https://relmusic.github.io/blog/database-management.html">Database Management & Cloud Hosting Architectures</a></li>
+                <li><a href="https://relmusic.github.io/blog/enterprise-ai-integration.html">Enterprise AI Integration & Machine Learning Pipelines</a></li>
+            </ul>
+        </article>
+
+        <hr style="margin: 40px 0;">
+
+        <!-- 8 FAQs Section -->
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        <div class="faq-section">
+            <details><summary><strong>1. Why is my GitHub Pages custom domain showing a 404 error?</strong></summary><p>A 404 error usually occurs if the <code class="inline-code">CNAME</code> file is missing from your repository root or if DNS propagation has not fully completed across global nameservers.</p></details>
+            <details><summary><strong>2. Should I use 'Proxied' or 'DNS Only' mode in Cloudflare for GitHub Pages?</strong></summary><p>During initial setup and GitHub's SSL certificate provisioning, it is recommended to set records to 'DNS Only'. Once verified and active, you can switch them to 'Proxied' to leverage Cloudflare's CDN and security features.</p></details>
+            <details><summary><strong>3. What is the purpose of the CNAME file in a GitHub repository?</strong></summary><p>The CNAME file informs GitHub Pages which custom domain or sub-domain should be bound to your repository's public web traffic.</p></details>
+            <details><summary><strong>4. How long does DNS propagation take after configuring Cloudflare?</strong></summary><p>DNS propagation typically takes anywhere from a few minutes up to 24 hours globally, though Cloudflare updates usually propagate almost instantly within minutes.</p></details>
+            <details><summary><strong>5. How do I fix the 'Domain already taken' error on GitHub?</strong></summary><p>This error occurs when another public GitHub repository is already configured with your custom domain. You must locate that repository and remove the custom domain setting before claiming it on your current repository.</p></details>
+            <details><summary><strong>6. What SSL/TLS setting should I select in Cloudflare for GitHub Pages?</strong></summary><p>Select the 'Full' or 'Full (strict)' encryption setting to ensure secure end-to-end communication between Cloudflare edge servers and GitHub Pages.</p></details>
+            <details><summary><strong>7. Can I host multiple sub-domains on GitHub Pages from different repositories?</strong></summary><p>Yes, you can configure unique sub-domains (e.g., <code class="inline-code">app.relmusic.com</code> and <code class="inline-code">blog.relmusic.com</code>) by creating separate CNAME records pointing to their respective GitHub repository pages.</p></details>
+            <details><summary><strong>8. How does RelMusic utilize Cloudflare and GitHub Pages?</strong></summary><p>RelMusic leverages GitHub Pages for reliable static web delivery paired with Cloudflare CDN caching and custom routing to ensure high availability and rapid asset loading worldwide.</p></details>
+        </div>
+
+        <hr style="margin: 40px 0;">
+
+        <!-- Image Resource Repository -->
+        <h2>Image Resource Repository</h2>
+        <div class="categories-badge">
+            <span><a href="https://relmusic.github.io/img/cube.png" target="_blank">cube.png</a></span>
+            <span><a href="https://relmusic.github.io/img/ai.jpeg" target="_blank">ai.jpeg</a></span>
+            <span><a href="https://relmusic.github.io/relmusic.jpg" target="_blank">relmusic.jpg</a></span>
+            <span><a href="https://relmusic.github.io/relmusic.png" target="_blank">relmusic.png</a></span>
+            <span><a href="https://relmusic.github.io/img/voice.png" target="_blank">voice.png</a></span>
+            <span><a href="https://relmusic.github.io/img/r.jpg" target="_blank">r.jpg</a></span>
+            <span><a href="https://relmusic.github.io/img/ip.png" target="_blank">ip.png</a></span>
+            <span><a href="https://relmusic.github.io/img/search.png" target="_blank">search.png</a></span>
+            <span><a href="https://relmusic.github.io/img/tts.png" target="_blank">tts.png</a></span>
+            <span><a href="https://relmusic.github.io/img/calendar.jpeg" target="_blank">calendar.jpeg</a></span>
+        </div>
+
+        <hr style="margin: 40px 0;">
+
+        <!-- Curated Media Showcase -->
+        <h2>Curated Media Showcase</h2>
+        <div class="media-grid">
+            <div><video width="100%" controls><source src="https://relmusic.github.io/vidio/justips.mp4" type="video/mp4"></video><p><strong>DNS Routing:</strong> Visualizing global edge traffic distribution.</p></div>
+            <div><video width="100%" controls><source src="https://relmusic.github.io/vidio/panorama.mp4" type="video/mp4"></video><p><strong>SSL Handshake:</strong> Secure certificate verification stream.</p></div>
+        </div>
+
+        <hr style="margin: 40px 0;">
+
+        <!-- Tools Tutorial Section -->
+        <h2>Cloud & Hosting Utilities Guide</h2>
+        <p>Explore RelMusic embedded web utilities and connectivity modules:</p>
+        <ul>
+            <li><strong><a href="https://relmusic.github.io/search/index.html">Search Module:</a></strong> Rapid index lookup for site navigation.</li>
+            <li><strong><a href="https://relmusic.github.io/tts/index.html">TTS Audio Generator:</a></strong> Convert deployment logs into natural speech.</li>
+            <li><strong><a href="https://relmusic.github.io/wa/index.html">WhatsApp Connect:</a></strong> Send instant uptime and DNS status alerts.</li>
+        </ul>
+
+        <hr style="margin: 40px 0;">
+
+        <!-- Contact Form & Social Share -->
+        <h2>Contact Form & Social Sharing</h2>
+        <form action="#" method="POST" style="display:grid; gap:15px; max-width:600px;">
+            <input type="text" name="name" placeholder="Your Full Name" required style="padding:12px; border:1px solid #cbd5e1; border-radius:6px;">
+            <input type="email" name="email" placeholder="Your Professional Email" required style="padding:12px; border:1px solid #cbd5e1; border-radius:6px;">
+            <textarea name="message" rows="5" placeholder="Your Cloudflare & GitHub Pages Domain Inquiry..." required style="padding:12px; border:1px solid #cbd5e1; border-radius:6px;"></textarea>
+            <button type="submit" style="background:#ff416c; color:white; border:none; padding:14px; font-weight:bold; border-radius:6px; cursor:pointer;">Submit DNS Configuration Inquiry</button>
+        </form>
+
+        <div style="margin-top:20px;">
+            <h4>Share this guide:</h4>
+            <a href="https://facebook.com/sharer/sharer.php?u=https://relmusic.github.io/blog/configure-custom-domain-cloudflare.html" target="_blank" style="background:#3b5998; color:white; padding:8px 15px; text-decoration:none; border-radius:4px; margin-right:5px;">Facebook</a>
+            <a href="https://twitter.com/intent/tweet?url=https://relmusic.github.io/blog/configure-custom-domain-cloudflare.html&text=Configure%20Custom%20Domain%20with%20Cloudflare" target="_blank" style="background:#1da1f2; color:white; padding:8px 15px; text-decoration:none; border-radius:4px; margin-right:5px;">Twitter / X</a>
+            <a href="https://api.whatsapp.com/send?text=https://relmusic.github.io/blog/configure-custom-domain-cloudflare.html" target="_blank" style="background:#25d366; color:white; padding:8px 15px; text-decoration:none; border-radius:4px;">WhatsApp</a>
+        </div>
+
+        <!-- Conclusion -->
+        <h2 style="margin-top:40px;">Conclusion</h2>
+        <p>Configuring custom domains and sub-domains for GitHub Pages using Cloudflare combines the robust version control of GitHub with enterprise-grade CDN caching, DDoS defense, and seamless SSL encryption. By following this technical blueprint, you ensure your web ecosystem remains secure, fast, and professionally branded.</p>
+    </div>
+
+    <!-- Footer Links Required -->
+    <footer>
+        <p>&copy; 2026 RelMusic Ecosystem. All rights reserved.</p>
+        <div>
+            <a href="https://relmusic.github.io/">Home</a>
+            <a href="https://relmusic.github.io/about.html">About</a>
+            <a href="https://relmusic.github.io/contact.html">Contact</a>
+            <a href="https://relmusic.github.io/sitemap.html">Sitemap</a>
+            <a href="https://relmusic.github.io/privacy.html">Privacy</a>
+            <a href="https://relmusic.github.io/disclaimers.html">Disclaimers</a>
+            <a href="https://relmusic.github.io/term.html">Terms</a>
+            <a href="https://relmusic.github.io/license.html">License</a>
+        </div>
+    </footer>
+
+    <!-- Typing Script Animation -->
+    <script>
+        const words = ["Mastering DNS Records, CNAME Routing, & SSL Encryption...", "Configuring Apex Domains & Sub-domains in Cloudflare...", "Securing GitHub Pages with Automated HTTPS..."];
+        let i = 0;
+        let timer;
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2500);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 90);
+            };
+            loopTyping();
+        }
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join("");
+                } else {
+                    i = (i + 1) % words.length;
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 40);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+    </script>
+</body>
+</html>
