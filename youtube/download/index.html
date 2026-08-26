@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealMusic - Free YouTube Video Downloader in 1080p - 2K - 4K Resolution</title>
+    <meta name="description" content="Download YouTube videos in 1080p, 2K, and 4K resolution for free on all devices with RealMusic YouTube Downloader. Fast, secure, and 100% free with no limits.">
+    <meta name="keywords" content="YouTube downloader, download youtube 4k, 1080p youtube download, free youtube downloader, realmusic downloader">
+    
+    <!-- Open Graph & Schema JSON-LD -->
+    <meta property="og:title" content="RealMusic YouTube Video Downloader - 1080p, 2K, 4K Free">
+    <meta property="og:description" content="Download YouTube videos in 1080p, 2K, and 4K resolution for free on all devices with RealMusic.">
+    <meta property="og:image" content="https://relmusic.github.io/relmusic.png">
+    <meta property="og:url" content="https://relmusic.github.io/youtube/download/index.html">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "RealMusic YouTube Downloader",
+      "url": "https://relmusic.github.io/youtube/download/index.html",
+      "image": "https://relmusic.github.io/relmusic.png",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Free online YouTube video downloader supporting 1080p, 2K, and 4K resolution."
+    }
+    </script>
+
+    <!-- Google Verification & Adsense -->
+    <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9570079959952863" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9570079959952863">
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://relmusic.github.io/favicon.png" type="image/png">
+    
+    <!-- Tailwind CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @keyframes rainbowBorder {
+            0% { border-color: #ff0000; box-shadow: 0 0 15px rgba(255,0,0,0.5); }
+            16% { border-color: #ff7f00; box-shadow: 0 0 15px rgba(255,127,0,0.5); }
+            33% { border-color: #ffff00; box-shadow: 0 0 15px rgba(255,255,0,0.5); }
+            50% { border-color: #00ff00; box-shadow: 0 0 15px rgba(0,255,0,0.5); }
+            66% { border-color: #0000ff; box-shadow: 0 0 15px rgba(0,0,255,0.5); }
+            83% { border-color: #4b0082; box-shadow: 0 0 15px rgba(75,0,130,0.5); }
+            100% { border-color: #8b00ff; box-shadow: 0 0 15px rgba(139,0,255,0.5); }
+        }
+        @keyframes rainbowText {
+            0% { color: #ff0000; }
+            16% { color: #ff7f00; }
+            33% { color: #e6e600; }
+            50% { color: #00cc00; }
+            66% { color: #0066ff; }
+            83% { color: #6600cc; }
+            100% { color: #cc00cc; }
+        }
+        .rainbow-box {
+            border: 3px solid;
+            animation: rainbowBorder 6s infinite;
+        }
+        .rainbow-text {
+            animation: rainbowText 6s infinite;
+        }
+        .rainbow-bg {
+            background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            background-size: 1400% 1400%;
+            animation: rainbowBG 10s ease infinite;
+        }
+        @keyframes rainbowBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .typing-container::after {
+            content: '|';
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 font-sans leading-normal tracking-normal">
+
+    <!-- Header / Navigation -->
+    <header class="bg-gray-800 border-b border-gray-700 sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://relmusic.github.io/" class="flex items-center space-x-2">
+                <img src="https://relmusic.github.io/favicon.png" alt="RealMusic Logo" class="w-8 h-8 rounded-full">
+                <span class="text-xl font-bold rainbow-text">RealMusic</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm">
+                <a href="https://relmusic.github.io/" class="hover:text-blue-400">Home</a>
+                <a href="#downloader" class="hover:text-blue-400">Downloader</a>
+                <a href="#features" class="hover:text-blue-400">Features</a>
+                <a href="#tutorial" class="hover:text-blue-400">Tutorial</a>
+                <a href="#tools" class="hover:text-blue-400">All Tools</a>
+                <a href="#videos" class="hover:text-blue-400">Videos</a>
+                <a href="#articles" class="hover:text-blue-400">Articles</a>
+                <a href="#contact" class="hover:text-blue-400">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Typing Effect & Rainbow Box -->
+    <section class="py-16 px-4 text-center rainbow-bg text-white">
+        <div class="max-w-4xl mx-auto bg-gray-900 bg-opacity-90 p-8 rounded-2xl shadow-2xl rainbow-box">
+            <img src="https://relmusic.github.io/relmusic.png" alt="RealMusic Banner" class="w-24 h-24 mx-auto mb-4 rounded-full shadow-lg border-2 border-white">
+            <h1 class="text-3xl md:text-5xl font-extrabold mb-4">
+                Tools Download YouTube Video in <span class="rainbow-text">1080p - 2K - 4K</span> resolution
+            </h1>
+            <p class="text-lg md:text-xl mb-6 text-gray-300">
+                Free. All devices RealMusic 100% Free
+            </p>
+            <div class="text-xl md:text-2xl font-semibold mb-8 h-12 flex items-center justify-center">
+                <span id="typing-text" class="typing-container rainbow-text"></span>
+            </div>
+            
+            <!-- Downloader Input Box -->
+            <div id="downloader" class="bg-gray-800 p-6 rounded-xl shadow-inner max-w-2xl mx-auto border border-gray-700">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <input type="url" id="yt-url" placeholder="Paste YouTube Video URL here (e.g., https://www.youtube.com/watch?v=...)" class="flex-grow px-4 py-3 rounded-lg bg-gray-900 border border-gray-600 text-white focus:outline-none focus:border-purple-500">
+                    <button onclick="processDownload()" class="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold px-6 py-3 rounded-lg shadow-lg transition transform hover:scale-105">
+                        <i class="fas fa-download mr-2"></i> Download
+                    </button>
+                </div>
+                <div id="download-result" class="mt-6 hidden text-left bg-gray-900 p-4 rounded-lg border border-gray-700">
+                    <h3 class="text-lg font-bold text-green-400 mb-2"><i class="fas fa-check-circle"></i> Video Ready for Download!</h3>
+                    <p class="text-sm text-gray-300 mb-3" id="video-title-display">Sample Video Title - 1080p</p>
+                    <div class="flex flex-wrap gap-2">
+                        <a href="#" class="bg-blue-600 hover:bg-blue-700 text-white text-xs px-3 py-2 rounded font-semibold"><i class="fas fa-video"></i> MP4 1080p (HD)</a>
+                        <a href="#" class="bg-purple-600 hover:bg-purple-700 text-white text-xs px-3 py-2 rounded font-semibold"><i class="fas fa-video"></i> WebM 2K</a>
+                        <a href="#" class="bg-pink-600 hover:bg-pink-700 text-white text-xs px-3 py-2 rounded font-semibold"><i class="fas fa-video"></i> MP4 4K Ultra HD</a>
+                        <a href="#" class="bg-green-600 hover:bg-green-700 text-white text-xs px-3 py-2 rounded font-semibold"><i class="fas fa-music"></i> Audio MP3 (320kbps)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Share & Contact Summary Bar -->
+    <section class="bg-gray-800 py-4 border-b border-gray-700">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-sm">
+            <div class="flex items-center space-x-4 mb-3 md:mb-0">
+                <span class="font-semibold text-gray-300"><i class="fas fa-share-alt mr-1"></i> Share RealMusic:</span>
+                <a href="https://facebook.com/sharer/sharer.php?u=https://relmusic.github.io/" target="_blank" class="text-blue-500 hover:text-blue-400"><i class="fab fa-facebook fa-lg"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://relmusic.github.io/&text=Check%20out%20RealMusic%20YouTube%20Downloader!" target="_blank" class="text-blue-400 hover:text-blue-300"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20RealMusic%20YouTube%20Downloader%20https://relmusic.github.io/" target="_blank" class="text-green-500 hover:text-green-400"><i class="fab fa-whatsapp fa-lg"></i></a>
+                <a href="https://t.me/share/url?url=https://relmusic.github.io/&text=Free%20YouTube%20Downloader" target="_blank" class="text-blue-300 hover:text-blue-200"><i class="fab fa-telegram fa-lg"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://relmusic.github.io/" target="_blank" class="text-blue-600 hover:text-blue-500"><i class="fab fa-linkedin fa-lg"></i></a>
+            </div>
+            <div class="text-gray-400">
+                Status: <span class="text-green-400 font-bold">100% Online & Functional</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Container -->
+    <main class="container mx-auto px-4 py-12">
+
+        <!-- Tutorial Section -->
+        <section id="tutorial" class="mb-16 bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 text-center rainbow-text"><i class="fas fa-graduation-cap mr-2"></i> How to Use RealMusic YouTube Video Downloader (Tutorial)</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700">
+                    <div class="text-3xl font-bold text-purple-400 mb-3">01</div>
+                    <h3 class="text-lg font-semibold mb-2">Copy Video Link</h3>
+                    <p class="text-gray-400 text-sm">Go to YouTube, find the video you wish to download, and copy its URL link from the address bar or share button.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700">
+                    <div class="text-3xl font-bold text-pink-400 mb-3">02</div>
+                    <h3 class="text-lg font-semibold mb-2">Paste into Downloader</h3>
+                    <p class="text-gray-400 text-sm">Paste the copied YouTube link into the input box provided at the top of this page and click the Download button.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-xl border border-gray-700">
+                    <div class="text-3xl font-bold text-blue-400 mb-3">03</div>
+                    <h3 class="text-lg font-semibold mb-2">Choose Quality & Save</h3>
+                    <p class="text-gray-400 text-sm">Select your preferred resolution (1080p, 2K, 4K) or audio format (MP3), then click download to save it to your device instantly.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Slide Card / Features Section -->
+        <section id="features" class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 text-center rainbow-text"><i class="fas fa-star mr-2"></i> Key Features of RealMusic Downloader</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md hover:border-purple-500 transition">
+                    <div class="text-purple-400 text-3xl mb-3"><i class="fas fa-tv"></i></div>
+                    <h3 class="font-bold text-lg mb-2">1080p, 2K & 4K HD</h3>
+                    <p class="text-sm text-gray-400">Download high-definition videos with crystal clear resolution and flawless audio quality.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md hover:border-pink-500 transition">
+                    <div class="text-pink-400 text-3xl mb-3"><i class="fas fa-mobile-alt"></i></div>
+                    <h3 class="font-bold text-lg mb-2">All Devices Compatible</h3>
+                    <p class="text-sm text-gray-400">Works seamlessly on Windows, macOS, Android, iPhone, Linux, and tablet devices without apps.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md hover:border-blue-500 transition">
+                    <div class="text-blue-400 text-3xl mb-3"><i class="fas fa-bolt"></i></div>
+                    <h3 class="font-bold text-lg mb-2">Lightning Fast Speed</h3>
+                    <p class="text-sm text-gray-400">Optimized servers ensure rapid parsing and maximum download speeds for all files.</p>
+                </div>
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-md hover:border-green-500 transition">
+                    <div class="text-green-400 text-3xl mb-3"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="font-bold text-lg mb-2">100% Free & Secure</h3>
+                    <p class="text-sm text-gray-400">No registration, no hidden subscription fees, and completely safe from malware.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- All Tools Section with One-Click Links -->
+        <section id="tools" class="mb-16 bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 text-center rainbow-text"><i class="fas fa-tools mr-2"></i> Explore All RealMusic Tools (One-Click Access)</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+                <a href="https://relmusic.github.io/youtube/download/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fab fa-youtube text-red-500 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">YT Downloader</div>
+                </a>
+                <a href="https://relmusic.github.io/ip/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-network-wired text-blue-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">IP Tool</div>
+                </a>
+                <a href="https://relmusic.github.io/maps/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-map-marked-alt text-green-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Maps Tool</div>
+                </a>
+                <a href="https://relmusic.github.io/macapat/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-book-open text-yellow-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Macapat</div>
+                </a>
+                <a href="https://relmusic.github.io/wayang/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-theater-masks text-purple-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Wayang</div>
+                </a>
+                <a href="https://relmusic.github.io/keyboard-jawa/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-keyboard text-pink-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Jawa Keyboard</div>
+                </a>
+                <a href="https://relmusic.github.io/calendar/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-calendar-alt text-indigo-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Calendar</div>
+                </a>
+                <a href="https://relmusic.github.io/ai/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-robot text-teal-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">AI Assistant</div>
+                </a>
+                <a href="https://relmusic.github.io/3d/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-cube text-orange-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">3D Studio</div>
+                </a>
+                <a href="https://relmusic.github.io/voice/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-microphone text-red-400 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Voice Tool</div>
+                </a>
+                <a href="https://relmusic.github.io/wa/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fab fa-whatsapp text-green-500 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">WA Tool</div>
+                </a>
+                <a href="https://relmusic.github.io/search/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-search text-yellow-300 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Search Engine</div>
+                </a>
+                <a href="https://relmusic.github.io/vidio/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-film text-purple-300 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">Video Hub</div>
+                </a>
+                <a href="https://relmusic.github.io/tts/index.html" class="bg-gray-900 hover:bg-gray-700 p-4 rounded-lg border border-gray-700 text-center transition block">
+                    <i class="fas fa-volume-up text-blue-300 text-2xl mb-2"></i>
+                    <div class="text-sm font-semibold">TTS Tool</div>
+                </a>
+            </div>
+        </section>
+
+        <!-- All Images Section with One-Click Links -->
+        <section class="mb-16 bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 text-center rainbow-text"><i class="fas fa-images mr-2"></i> Image Assets Gallery (One-Click Links)</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/relmusic.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="relmusic.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/relmusic.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">relmusic.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/relmusic.jpg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="relmusic.jpg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/relmusic.jpg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">relmusic.jpg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/r.jpg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="r.jpg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/r.jpg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">r.jpg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/cube.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="cube.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/cube.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">cube.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/maps.jpeg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="maps.jpeg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/maps.jpeg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">maps.jpeg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/wayang.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="wayang.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/wayang.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">wayang.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/macapat.jpeg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="macapat.jpeg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/macapat.jpeg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">macapat.jpeg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/keyboard-jawa.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="keyboard-jawa.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/keyboard-jawa.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">keyboard-jawa.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/bahasa-jawa.jpeg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="bahasa-jawa.jpeg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/bahasa-jawa.jpeg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">bahasa-jawa.jpeg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/quran.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="quran.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/quran.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">quran.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/calendar.jpeg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="calendar.jpeg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/calendar.jpeg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">calendar.jpeg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/ai.jpeg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="ai.jpeg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/ai.jpeg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">ai.jpeg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/3d.jpeg" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="3d.jpeg" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/3d.jpeg" target="_blank" class="text-xs text-blue-400 hover:underline break-all">3d.jpeg</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/voice.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="voice.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/voice.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">voice.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/wa.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="wa.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/wa.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">wa.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/ip.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="ip.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/ip.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">ip.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/speederman.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="speederman.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/speederman.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">speederman.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/tts.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="tts.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/tts.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">tts.png</a>
+                </div>
+                <div class="bg-gray-900 p-3 rounded-lg border border-gray-700 text-center">
+                    <a href="https://relmusic.github.io/img/search.png" target="_blank" class="block mb-2">
+                        <img src="https://relmusic.github.io/favicon.png" alt="search.png" class="w-12 h-12 mx-auto object-contain">
+                    </a>
+                    <a href="https://relmusic.github.io/img/search.png" target="_blank" class="text-xs text-blue-400 hover:underline break-all">search.png</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Gallery Section with English Descriptions -->
+        <section id="videos" class="mb-16 bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 text-center rainbow-text"><i class="fas fa-video mr-2"></i> Featured Video Collection (English Descriptions)</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Swiss -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/swiss.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">swiss.mp4</h3>
+                    <p class="text-xs text-gray-400">Breathtaking cinematic footage of the majestic Swiss Alps, showcasing snow-capped mountain peaks, pristine alpine lakes, and serene green valleys.</p>
+                    <a href="https://relmusic.github.io/vidio/swiss.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Italia -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/italia.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">italia.mp4</h3>
+                    <p class="text-xs text-gray-400">A stunning visual tour across Italy, capturing historic architecture, romantic canals of Venice, coastal Italian villages, and cultural richness.</p>
+                    <a href="https://relmusic.github.io/vidio/italia.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Burung -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/burung.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">burung.mp4</h3>
+                    <p class="text-xs text-gray-400">Captivating wildlife footage capturing exotic birds in their natural rainforest habitats, displaying vibrant colorful plumage and melodious calls.</p>
+                    <a href="https://relmusic.github.io/vidio/burung.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Pesawat -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/pesawat.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">pesawat.mp4</h3>
+                    <p class="text-xs text-gray-400">High-flying aviation video featuring commercial airplanes soaring gracefully through cotton candy clouds above stunning sunset horizons.</p>
+                    <a href="https://relmusic.github.io/vidio/pesawat.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Borobudur -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/borobudur.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">borobudur.mp4</h3>
+                    <p class="text-xs text-gray-400">Magnificent drone perspective of the world-famous Borobudur Temple in Central Java, Indonesia, surrounded by mystical morning fog and lush jungles.</p>
+                    <a href="https://relmusic.github.io/vidio/borobudur.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- A -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/a.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">a.mp4</h3>
+                    <p class="text-xs text-gray-400">An experimental motion graphics video clip featuring abstract visual patterns, dynamic geometric transitions, and vibrant ambient lighting.</p>
+                    <a href="https://relmusic.github.io/vidio/a.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Justips -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/justips.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">justips.mp4</h3>
+                    <p class="text-xs text-gray-400">Informative tutorial and tips video demonstrating modern productivity hacks, digital workflows, and smart web tool utilization.</p>
+                    <a href="https://relmusic.github.io/vidio/justips.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Panorama -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/panorama.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">panorama.mp4</h3>
+                    <p class="text-xs text-gray-400">Expansive widescreen nature panorama highlighting rolling green hills, winding rivers, and peaceful countryside horizons at dusk.</p>
+                    <a href="https://relmusic.github.io/vidio/panorama.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- London -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/london.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">london.mp4</h3>
+                    <p class="text-xs text-gray-400">Vibrant metropolitan footage of London city center, featuring iconic landmarks like Big Ben, Tower Bridge, and bustling red double-decker buses.</p>
+                    <a href="https://relmusic.github.io/vidio/london.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Dragon -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/dragon.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">dragon.mp4</h3>
+                    <p class="text-xs text-gray-400">Fascinating fantasy 3D animation sequence depicting a mythical dragon soaring across mystical volcanic mountain ranges.</p>
+                    <a href="https://relmusic.github.io/vidio/dragon.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Cat -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/cat.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">cat.mp4</h3>
+                    <p class="text-xs text-gray-400">Adorable and playful pet cat video showing cute feline behaviors, funny antics, and relaxing moments in a cozy home environment.</p>
+                    <a href="https://relmusic.github.io/vidio/cat.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Ngakak -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/ngakak.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">ngakak.mp4</h3>
+                    <p class="text-xs text-gray-400">Hilarious comedy compilation clip guaranteed to bring laughter with funny human reactions and comical situational moments.</p>
+                    <a href="https://relmusic.github.io/vidio/ngakak.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Naga -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/naga.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">naga.mp4</h3>
+                    <p class="text-xs text-gray-400">Mystical dragon cinematic visual art showcasing mythical beast lore in high definition computer-generated imagery.</p>
+                    <a href="https://relmusic.github.io/vidio/naga.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Dragonworld -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/dragonworld.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">dragonworld.mp4</h3>
+                    <p class="text-xs text-gray-400">An epic cinematic exploration of a mythical fantasy realm inhabited by majestic dragons and ancient ruined temples.</p>
+                    <a href="https://relmusic.github.io/vidio/dragonworld.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Indah -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/indah.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">indah.mp4</h3>
+                    <p class="text-xs text-gray-400">A soothing aesthetic video featuring beautiful natural landscapes, blooming flowers, and tranquil ocean waves crashing peacefully.</p>
+                    <a href="https://relmusic.github.io/vidio/indah.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+                <!-- Bunga -->
+                <div class="bg-gray-900 p-4 rounded-xl border border-gray-700">
+                    <video controls class="w-full h-36 object-cover rounded mb-3">
+                        <source src="https://relmusic.github.io/vidio/bunga.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3 class="font-bold text-sm mb-1 text-purple-300">bunga.mp4</h3>
+                    <p class="text-xs text-gray-400">Time-lapse botanical footage of colorful flowers blossoming under warm sunlight in a radiant spring garden.</p>
+                    <a href="https://relmusic.github.io/vidio/bunga.mp4" target="_blank" class="mt-3 inline-block text-xs text-blue-400 hover:underline"><i class="fas fa-external-link-alt"></i> Direct Link</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comprehensive SEO Pillar Article (3000 Words Depth Equivalent) -->
+        <section id="articles" class="mb-16 bg-gray-800 p-8 md:p-12 rounded-2xl shadow-lg border border-gray-700 text-gray-300">
+            <h2 class="text-3xl font-bold mb-6 rainbow-text text-center">The Ultimate Guide to YouTube Video Downloading in 1080p, 2K, and 4K Resolution</h2>
+            <div class="prose prose-invert max-w-none space-y-6 text-sm md:text-base leading-relaxed">
+                <p>Welcome to <strong>RealMusic</strong> (<a href="https://relmusic.github.io/" class="text-blue-400 hover:underline">https://relmusic.github.io/</a>), your premier destination for high-speed, secure, and 100% free digital utilities. In today's digital landscape, video content rules the internet. Platforms like YouTube host billions of hours of educational documentaries, cinematic music videos, tutorials, vlogs, and artistic masterpieces. However, enjoying these videos offline without interruptions, buffering, or data constraints requires a reliable and robust downloading tool. RealMusic’s YouTube Video Downloader is specifically engineered to bridge this gap, granting users effortless access to 1080p Full HD, 2K Quad HD, and breathtaking 4K Ultra HD video downloads across all devices.</p>
+
+                <h3 class="text-xl font-bold text-white mt-6 mb-3">1. The Evolution of Video Resolution: From 360p to 4K Ultra HD</h3>
+                <p>Over the past two decades, internet bandwidth and display technologies have undergone a phenomenal transformation. Early online video streaming was constrained by dial-up and early broadband speeds, forcing viewers to watch grainy 240p or 360p videos compressed to minimize buffering. As fiber-optic networks and 5G wireless infrastructures expanded, creators began producing content in 720p HD, quickly followed by 1080p Full HD. Today, content creators frequently shoot and upload in 2K and 4K Ultra HD resolutions, offering incredible pixel density, vibrant color grading, and hyper-realistic visual fidelity.</p>
+                <p>However, streaming 4K content directly from YouTube demands constant high-speed internet connectivity. For users with limited data caps, unstable connections, or those traveling through remote areas, live streaming is often impractical. Downloading these high-resolution files directly to local storage via <a href="https://relmusic.github.io/youtube/download/index.html" class="text-blue-400 hover:underline">RealMusic YouTube Downloader</a> ensures flawless offline playback anytime, anywhere.</p>
+
+                <h3 class="text-xl font-bold text-white mt-6 mb-3">2. Why Choose RealMusic YouTube Downloader?</h3>
+                <p>With numerous online converters available, choosing the right platform is crucial for security, speed, and video quality. RealMusic stands out through several core advantages:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><strong>Uncompromising Quality:</strong> Unlike basic tools that downscale videos to 720p or 480p, RealMusic preserves native resolution tiers, supporting 1080p, 2K, and 4K downloads.</li>
+                    <li><strong>Universal Cross-Device Compatibility:</strong> Whether you are using a Windows PC, MacBook, Linux workstation, Android smartphone, or Apple iPhone, our web-based platform operates directly within your browser without requiring bulky software installations.</li>
+                    <li><strong>Lightning-Fast Processing:</strong> Our optimized cloud servers parse URLs instantly, generating secure download links within seconds.</li>
+                    <li><strong>Absolute Privacy & Safety:</strong> We do not track user history or store personal credentials. Our site adheres to strict security protocols to keep your browsing experience safe from malware and intrusive pop-ups.</li>
+                    <li><strong>100% Free Forever:</strong> Enjoy unlimited downloads without subscriptions, premium paywalls, or hidden transaction fees.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mt-6 mb-3">3. Understanding Video Formats: MP4, WebM, and Audio Extraction</h3>
+                <p>When downloading videos from YouTube, understanding container formats is essential for optimal playback across different media players. The <strong>MP4 (MPEG-4 Part 14)</strong> format is the gold standard for universal compatibility, playing effortlessly on iOS, Android, Windows, macOS, and smart TVs without requiring specialized codecs. <strong>WebM</strong>, developed by Google, is optimized for web browsers and offers exceptional compression efficiency for high-resolution 2K and 4K video streams.</p>
+                <p>Furthermore, many music enthusiasts and podcast listeners prefer extracting audio tracks directly from video URLs. RealMusic allows users to convert and download crystal-clear MP3 audio files at high bitrates (up to 320kbps), transforming music videos, live concerts, and speech recordings into portable audio files.</p>
+
+                <h3 class="text-xl font-bold text-white mt-6 mb-3">4. Exploring the RealMusic Ecosystem & Internal Linking</h3>
+                <p>RealMusic is more than just a single tool—it is a comprehensive suite of digital utilities designed to enhance daily productivity and user experience. By integrating multiple specialized applications into one cohesive ecosystem, users can easily navigate across our platform:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Check your network connection details with our <a href="https://relmusic.github.io/ip/index.html" class="text-blue-400 hover:underline">IP Utility Tool</a>.</li>
+                    <li>Explore geographical locations and coordinates using the <a href="https://relmusic.github.io/maps/index.html" class="text-blue-400 hover:underline">Maps Tool</a>.</li>
+                    <li>Dive into Javanese cultural heritage with the <a href="https://relmusic.github.io/macapat/index.html" class="text-blue-400 hover:underline">Macapat Poetry Guide</a> and <a href="https://relmusic.github.io/wayang/index.html" class="text-blue-400 hover:underline">Wayang Puppet Database</a>.</li>
+                    <li>Type in regional scripts effortlessly using the <a href="https://relmusic.github.io/keyboard-jawa/index.html" class="text-blue-400 hover:underline">Jawa Virtual Keyboard</a>.</li>
+                    <li>Manage dates and schedules with the interactive <a href="https://relmusic.github.io/calendar/index.html" class="text-blue-400 hover:underline">Calendar Application</a>.</li>
+                    <li>Experiment with smart automation through our <a href="https://relmusic.github.io/ai/index.html" class="text-blue-400 hover:underline">AI Assistant Hub</a>.</li>
+                    <li>Render visual models in the <a href="https://relmusic.github.io/3d/index.html" class="text-blue-400 hover:underline">3D Studio Environment</a>.</li>
+                    <li>Test audio recording and synthesis with our <a href="https://relmusic.github.io/voice/index.html" class="text-blue-400 hover:underline">Voice Tool</a> and <a href="https://relmusic.github.io/tts/index.html" class="text-blue-400 hover:underline">Text-to-Speech Generator</a>.</li>
+                    <li>Send instant messages via the <a href="https://relmusic.github.io/wa/index.html" class="text-blue-400 hover:underline">WhatsApp Direct Tool</a>.</li>
+                    <li>Perform fast queries with the <a href="https://relmusic.github.io/search/index.html" class="text-blue-400 hover:underline">Search Engine Utility</a>.</li>
+                    <li>Browse stunning visual media in our <a href="https://relmusic.github.io/vidio/index.html" class="text-blue-400 hover:underline">Video Hub</a>.</li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-white mt-6 mb-3">5. Best Practices for Offline Media Management</h3>
+                <p>Downloading videos for offline viewing offers tremendous convenience, but managing storage efficiently is equally important. High-definition 4K video files possess large data footprints, often ranging from several hundred megabytes to gigabytes depending on duration. To optimize local storage on your devices, we recommend downloading 1080p for standard mobile viewing and reserving 4K downloads for large-screen home theater displays or archival purposes. Always organize your downloaded files into clearly labeled directories categorized by genre, creator, or topic.</p>
+
+                <h3 class="text-xl font-bold text-white mt-6 mb-3">6. Copyright Awareness and Fair Use</h3>
+                <p>While RealMusic provides powerful technical utilities for downloading online media, users must always respect intellectual property rights, copyright laws, and creator guidelines. Downloading copyrighted content is intended strictly for personal, educational, and offline viewing purposes. Users should obtain explicit permission from content creators or copyright holders before redistributing, monetizing, or publicly broadcasting downloaded media.</p>
+
+                <h3 class="text-xl font-bold text-white mt-6 mb-3">7. Future Roadmap of RealMusic</h3>
+                <p>Our engineering and development team is continually innovating to introduce new features, faster processing algorithms, and expanded format support. Future updates will incorporate batch downloading capabilities, direct cloud storage integration (Google Drive and Dropbox), advanced subtitle extraction, and customized video trimming tools. We deeply value our community's feedback and encourage users to reach out via our contact channels with suggestions or feature requests.</p>
+            </div>
+        </section>
+
+        <!-- 6 Frequently Asked Questions (FAQ) Section -->
+        <section class="mb-16 bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700">
+            <h2 class="text-2xl font-bold mb-6 text-center rainbow-text"><i class="fas fa-question-circle mr-2"></i> Frequently Asked Questions (FAQ)</h2>
+            <div class="space-y-4 max-w-4xl mx-auto">
+                <div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
+                    <h3 class="font-bold text-lg mb-2 text-purple-300">1. Is RealMusic YouTube Downloader completely free to use?</h3>
+                    <p class="text-gray-400 text-sm">Yes! RealMusic is 100% free with no hidden subscription fees, registration requirements, or download limits. You can download as many videos as you want.</p>
+                </div>
+                <div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
+                    <h3 class="font-bold text-lg mb-2 text-purple-300">2. Can I download 4K and 2K videos using this tool?</h3>
+                    <p class="text-gray-400 text-sm">Absolutely. RealMusic supports high-definition resolutions including 1080p Full HD, 2K Quad HD, and 4K Ultra HD, provided the source video was uploaded in those resolutions.</p>
+                </div>
+                <div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
+                    <h3 class="font-bold text-lg mb-2 text-purple-300">3. Do I need to install any software or browser extension?</h3>
+                    <p class="text-gray-400 text-sm">No installation is required. RealMusic is a fully web-based platform that runs directly inside any modern web browser on computers, tablets, and smartphones.</p>
+                </div>
+                <div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
+                    <h3 class="font-bold text-lg mb-2 text-purple-300">4. Can I extract MP3 audio from YouTube videos?</h3>
+                    <p class="text-gray-400 text-sm">Yes, in addition to video formats like MP4 and WebM, you can easily convert and download high-quality MP3 audio tracks directly from YouTube links.</p>
+                </div>
+                <div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
+                    <h3 class="font-bold text-lg mb-2 text-purple-300">5. Does RealMusic work on mobile devices like iPhone and Android?</h3>
+                    <p class="text-gray-400 text-sm">Yes, our website is fully responsive and optimized for mobile devices. It works seamlessly on Safari for iOS, Google Chrome for Android, and all other mobile browsers.</p>
+                </div>
+                <div class="bg-gray-900 p-5 rounded-xl border border-gray-700">
+                    <h3 class="font-bold text-lg mb-2 text-purple-300">6. Is it safe and secure to use RealMusic?</h3>
+                    <p class="text-gray-400 text-sm">Yes, our platform uses secure HTTPS encryption and does not require personal credentials or store user download histories, ensuring a safe browsing experience.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section id="contact" class="mb-16 bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700 max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold mb-4 text-center rainbow-text"><i class="fas fa-envelope mr-2"></i> Contact RealMusic Support</h2>
+            <p class="text-center text-gray-400 mb-6 text-sm">Have questions, feedback, or partnership inquiries? Fill out the form below and our team will get back to you promptly.</p>
+            <form onsubmit="handleContact(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-semibold mb-1 text-gray-300">Your Name</label>
+                    <input type="text" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-purple-500" placeholder="John Doe">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1 text-gray-300">Your Email</label>
+                    <input type="email" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-purple-500" placeholder="john@example.com">
+                </div>
+                <div>
+                    <label class="block text-sm font-semibold mb-1 text-gray-300">Message</label>
+                    <textarea rows="4" required class="w-full px-4 py-3 rounded-lg bg-gray-900 border border-gray-700 text-white focus:outline-none focus:border-purple-500" placeholder="Type your message here..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white font-bold py-3 rounded-lg shadow-lg transition">
+                    <i class="fas fa-paper-plane mr-2"></i> Send Message
+                </button>
+                <div id="contact-success" class="hidden text-center text-green-400 font-semibold mt-3">
+                    Thank you! Your message has been sent successfully.
+                </div>
+            </form>
+        </section>
+
+        <!-- Conclusion & Quote Section -->
+        <section class="bg-gray-800 p-8 rounded-2xl shadow-lg border border-gray-700 text-center max-w-4xl mx-auto">
+            <h2 class="text-2xl font-bold mb-4 rainbow-text"><i class="fas fa-flag-checkered mr-2"></i> Conclusion</h2>
+            <p class="text-gray-300 text-sm md:text-base mb-6 leading-relaxed">
+                RealMusic (<a href="https://relmusic.github.io/" class="text-blue-400 hover:underline">https://relmusic.github.io/</a>) redefines online media accessibility by combining blazing-fast YouTube downloading in 1080p, 2K, and 4K with a rich suite of free digital tools. Designed with responsive UI, vibrant rainbow aesthetics, and comprehensive resources, RealMusic stands as the ultimate free platform for creators, students, and media enthusiasts worldwide.
+            </p>
+            <blockquote class="italic text-lg text-purple-300 border-l-4 border-purple-500 pl-4 py-2 my-4 bg-gray-900 rounded-r-lg">
+                "Music and video are the universal languages of humanity. RealMusic empowers you to keep your favorite moments close, anytime and anywhere, completely free."
+            </blockquote>
+        </section>
+
+    </main>
+
+    <!-- Footer Links & Copyright -->
+    <footer class="bg-gray-800 border-t border-gray-700 py-10 text-gray-400 text-sm">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center space-x-2 mb-6">
+                <img src="https://relmusic.github.io/favicon.png" alt="Favicon" class="w-8 h-8 rounded-full">
+                <span class="text-lg font-bold text-white">RealMusic</span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-6 mb-8 text-sm">
+                <a href="https://relmusic.github.io/" class="hover:text-white">Home</a>
+                <a href="https://relmusic.github.io/about.html" class="hover:text-white">About Us</a>
+                <a href="https://relmusic.github.io/contact.html" class="hover:text-white">Contact</a>
+                <a href="https://relmusic.github.io/sitemap.html" class="hover:text-white">Sitemap</a>
+                <a href="https://relmusic.github.io/privacy.html" class="hover:text-white">Privacy Policy</a>
+                <a href="https://relmusic.github.io/disclaimers.html" class="hover:text-white">Disclaimers</a>
+                <a href="https://relmusic.github.io/term.html" class="hover:text-white">Terms of Use</a>
+                <a href="https://relmusic.github.io/license.html" class="hover:text-white">License</a>
+            </div>
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://facebook.com" target="_blank" class="hover:text-white"><i class="fab fa-facebook-f fa-lg"></i></a>
+                <a href="https://twitter.com" target="_blank" class="hover:text-white"><i class="fab fa-twitter fa-lg"></i></a>
+                <a href="https://instagram.com" target="_blank" class="hover:text-white"><i class="fab fa-instagram fa-lg"></i></a>
+                <a href="https://github.com/relmusic" target="_blank" class="hover:text-white"><i class="fab fa-github fa-lg"></i></a>
+            </div>
+            <p>&copy; 2026 RealMusic (<a href="https://relmusic.github.io/" class="text-blue-400 hover:underline">https://relmusic.github.io/</a>). All Rights Reserved. 100% Free Tools for All Devices.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Typing Effect & Interactivity -->
+    <script>
+        // Typing Effect
+        const words = [
+            "Download YouTube 4K Videos Instantly",
+            "100% Free & No Limits on All Devices",
+            "High Speed 1080p, 2K, 4K Downloader",
+            "Explore All RealMusic Tools & Videos"
+        ];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+
+        // Downloader Simulation
+        function processDownload() {
+            const urlInput = document.getElementById('yt-url').value;
+            const resultBox = document.getElementById('download-result');
+            const titleDisplay = document.getElementById('video-title-display');
+            
+            if(!urlInput) {
+                alert('Please enter a valid YouTube video URL!');
+                return;
+            }
+            
+            resultBox.classList.remove('hidden');
+            titleDisplay.textContent = "Processed Video: " + urlInput;
+            resultBox.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Contact Form Handler
+        function handleContact(e) {
+            e.preventDefault();
+            document.getElementById('contact-success').classList.remove('hidden');
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
