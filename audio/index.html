@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Editor Online & Free Audio Control Tools — Relmusic</title>
+    
+    <!-- SEO & Meta Tags -->
+    <meta name="description" content="Discover the ultimate Free Online Audio Control Tools by Relmusic. Edit audio, use multi-track tracks, dynamic audio visualizers, record visualizer video, and customize background images, GIFs, and stunning motion videos with zero sign-up required.">
+    <meta name="keywords" content="audio editor online, free audio control tools, audio visualizer, video recorder canvas, multi-track audio, relmusic audio tools">
+    <link rel="canonical" href="https://relmusic.github.io/audio/index.html">
+    <link rel="icon" href="https://relmusic.github.io/favicon.png" type="image/png">
+    
+    <!-- Open Graph / JSON-LD / Schema -->
+    <meta property="og:title" content="Audio Editor Online & Free Audio Control Tools — Relmusic">
+    <meta property="og:description" content="Professional free online audio editing, visualizer canvas, recording tools, and customizable video backgrounds. No sign up needed!">
+    <meta property="og:image" content="https://relmusic.github.io/relmusic.jpg">
+    <meta property="og:url" content="https://relmusic.github.io/audio/index.html">
+    <meta property="og:type" content="website">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "Audio Editor Online & Free Audio Control Tools",
+      "url": "https://relmusic.github.io/audio/index.html",
+      "description": "Free web-based audio control tool with visualizer, background controls, video recording, and comprehensive guides.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Relmusic",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://relmusic.github.io/relmusic.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- Google AdSense & Verification -->
+    <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9570079959952863" crossorigin="anonymous"></script>
+    <meta name="google-adsense-account" content="ca-pub-9570079959952863">
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes rainbowGlow {
+            0% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+            14% { border-color: #ff7f00; box-shadow: 0 0 15px #ff7f00; }
+            28% { border-color: #ffff00; box-shadow: 0 0 15px #ffff00; }
+            42% { border-color: #00ff00; box-shadow: 0 0 15px #00ff00; }
+            57% { border-color: #0000ff; box-shadow: 0 0 15px #0000ff; }
+            71% { border-color: #4b0082; box-shadow: 0 0 15px #4b0082; }
+            85% { border-color: #8b00ff; box-shadow: 0 0 15px #8b00ff; }
+            100% { border-color: #ff0000; box-shadow: 0 0 15px #ff0000; }
+        }
+        @keyframes rainbowText {
+            0% { color: #ff0000; }
+            20% { color: #ff7f00; }
+            40% { color: #ffff00; }
+            60% { color: #00ff00; }
+            80% { color: #0000ff; }
+            100% { color: #8b00ff; }
+        }
+        .rainbow-border {
+            animation: rainbowGlow 6s infinite;
+        }
+        .rainbow-text {
+            animation: rainbowText 5s infinite;
+        }
+        .rainbow-bg {
+            background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #8b00ff);
+            background-size: 1200% 1200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+        @keyframes gradientAnimation {
+            0%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+            100%{background-position:0% 50%}
+        }
+        /* Custom Scrollbar for Slide Cards */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans leading-relaxed selection:bg-pink-500 selection:text-white">
+
+    <!-- TOP HEADER & ADSENSE WRAPPER -->
+    <header class="sticky top-0 z-50 bg-gray-900/90 backdrop-blur-md border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://relmusic.github.io/" class="flex items-center space-x-3">
+                <img src="https://relmusic.github.io/favicon.png" alt="Relmusic Logo" class="w-10 h-10 rounded-full rainbow-border border-2">
+                <span class="font-bold text-xl tracking-wider rainbow-text">RELMUSIC TOOLS</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="https://relmusic.github.io/" class="hover:text-pink-400 transition">Home</a>
+                <a href="https://relmusic.github.io/audio/index.html" class="text-pink-400 font-semibold">Audio Editor</a>
+                <a href="https://relmusic.github.io/ai/index.html" class="hover:text-pink-400 transition">AI Tools</a>
+                <a href="https://relmusic.github.io/maps/index.html" class="hover:text-pink-400 transition">Maps</a>
+                <a href="https://relmusic.github.io/contact.html" class="hover:text-pink-400 transition">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO SECTION WITH TYPING EFFECT -->
+    <section class="py-16 px-4 text-center rainbow-bg text-white relative overflow-hidden">
+        <div class="max-w-4xl mx-auto z-10 relative">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg" id="typing-heading">Audio Control & Visualizer Studio</h1>
+            <p class="text-lg md:text-xl font-medium mb-8 opacity-90 drop-shadow">Free Audio Editing, Multi-Track, Visualizer Effects, & Video Recording Suite — No Sign Up Required.</p>
+            
+            <!-- Quick Share Medsos -->
+            <div class="flex justify-center space-x-4 mb-6">
+                <a href="https://facebook.com/sharer/sharer.php?u=https://relmusic.github.io/audio/index.html" target="_blank" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-full text-sm font-semibold transition shadow-md">Share on Facebook</a>
+                <a href="https://twitter.com/intent/tweet?url=https://relmusic.github.io/audio/index.html&text=Check%20out%20this%20Free%20Audio%20Editor%20and%20Visualizer!" target="_blank" class="bg-sky-500 hover:bg-sky-600 px-4 py-2 rounded-full text-sm font-semibold transition shadow-md">Tweet on X</a>
+                <a href="https://api.whatsapp.com/send?text=Check%20out%20Free%20Audio%20Control%20Tools%20https://relmusic.github.io/audio/index.html" target="_blank" class="bg-green-600 hover:bg-green-700 px-4 py-2 rounded-full text-sm font-semibold transition shadow-md">Share WhatsApp</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MAIN AUDIO TOOLS WORKSPACE -->
+    <main class="max-w-6xl mx-auto px-4 py-12">
+        <div class="bg-gray-900 border-2 rainbow-border rounded-2xl p-6 md:p-8 shadow-2xl relative">
+            <h2 class="text-2xl font-bold mb-6 rainbow-text text-center">Interactive Audio Visualizer & Control Workspace</h2>
+            
+            <!-- Canvas Visualizer Screen -->
+            <div class="relative w-full h-80 md:h-96 bg-black rounded-xl overflow-hidden mb-6 border border-gray-700 flex items-center justify-center" id="canvas-container">
+                <video id="bg-video" autoplay muted loop class="absolute inset-w-full inset-h-full w-full h-full object-cover opacity-65 hidden"></video>
+                <img id="bg-image" src="https://relmusic.github.io/relmusic.jpg" class="absolute inset-0 w-full h-full object-cover opacity-65" alt="Default Background">
+                <canvas id="visualizerCanvas" class="absolute inset-0 w-full h-full z-10"></canvas>
+                <div class="absolute z-20 text-center pointer-events-none">
+                    <p class="text-sm uppercase tracking-widest text-pink-400 font-bold bg-black/50 px-3 py-1 rounded-full border border-pink-500/30">Relmusic Live Visualizer</p>
+                </div>
+            </div>
+
+            <!-- Audio File Loader & Controls -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div class="bg-gray-800 p-4 rounded-xl border border-gray-700">
+                    <label class="block text-sm font-semibold mb-2 text-pink-300">Upload Your Audio File (MP3/WAV):</label>
+                    <input type="file" id="audiofile" accept="audio/*" class="w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-pink-600 file:text-white hover:file:bg-pink-700 cursor-pointer">
+                </div>
+                <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 flex flex-col justify-between">
+                    <label class="block text-sm font-semibold mb-2 text-pink-300">Audio Playback Controls:</label>
+                    <div class="flex space-x-3 items-center">
+                        <button id="playBtn" class="bg-green-600 hover:bg-green-700 px-5 py-2 rounded-lg font-bold text-sm transition shadow">Play</button>
+                        <button id="pauseBtn" class="bg-yellow-600 hover:bg-yellow-700 px-5 py-2 rounded-lg font-bold text-sm transition shadow">Pause</button>
+                        <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1" class="w-full accent-pink-500">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Background Media Control Panel -->
+            <div class="bg-gray-800 p-4 rounded-xl border border-gray-700 mb-6">
+                <label class="block text-sm font-semibold mb-3 text-pink-300">Background Visual Customization (Image / GIF / Video / Preset):</label>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                        <span class="text-xs text-gray-400 block mb-1">Upload Custom Image/GIF:</span>
+                        <input type="file" id="bgImageUpload" accept="image/*" class="w-full text-xs text-gray-400 file:py-1 file:px-3 file:rounded file:bg-purple-600 file:text-white cursor-pointer">
+                    </div>
+                    <div>
+                        <span class="text-xs text-gray-400 block mb-1">Upload Custom Video Background:</span>
+                        <input type="file" id="bgVideoUpload" accept="video/*" class="w-full text-xs text-gray-400 file:py-1 file:px-3 file:rounded file:bg-blue-600 file:text-white cursor-pointer">
+                    </div>
+                    <div>
+                        <span class="text-xs text-gray-400 block mb-1">Select Preset Video Gallery:</span>
+                        <select id="presetVideoSelect" class="w-full bg-gray-900 border border-gray-700 text-xs rounded p-2 text-gray-200">
+                            <option value="">-- Choose Preset Video --</option>
+                            <option value="https://relmusic.github.io/vidio/swiss.mp4">Swiss Alpine Scenery (swiss.mp4)</option>
+                            <option value="https://relmusic.github.io/vidio/italia.mp4">Italia Panorama (italia.mp4)</option>
+                            <option value="https://relmusic.github.io/vidio/borobudur.mp4">Borobudur Temple (borobudur.mp4)</option>
+                            <option value="https://relmusic.github.io/vidio/london.mp4">London Skyline (london.mp4)</option>
+                            <option value="https://relmusic.github.io/vidio/dragon.mp4">Dragon Motion (dragon.mp4)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recording and Export Tools -->
+            <div class="flex flex-wrap gap-4 justify-center pt-2 border-t border-gray-800">
+                <button id="startRecordBtn" class="bg-red-600 hover:bg-red-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
+                    <span>🔴 Record Visualizer Video</span>
+                </button>
+                <button id="stopRecordBtn" disabled class="bg-gray-700 text-gray-400 font-bold px-6 py-3 rounded-xl shadow-lg transition cursor-not-allowed">
+                    ⏹ Stop Recording
+                </button>
+                <a id="downloadLink" style="display:none;" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold px-6 py-3 rounded-xl shadow-lg transition flex items-center space-x-2">
+                    💾 Save / Download Video
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- SLIDE CARDS FOR IMAGES & VIDEOS -->
+    <section class="max-w-6xl mx-auto px-4 py-8">
+        <h3 class="text-xl font-bold mb-4 rainbow-text">Explore Relmusic Assets & Interactive Gallery</h3>
+        <div class="flex overflow-x-auto space-x-4 pb-4 no-scrollbar">
+            <!-- Card 1 -->
+            <div class="min-w-[260px] bg-gray-900 border border-gray-800 rounded-xl p-4 flex-shrink-0">
+                <img src="https://relmusic.github.io/relmusic.jpg" alt="Relmusic Poster" class="w-full h-36 object-cover rounded-lg mb-3">
+                <h4 class="font-bold text-sm text-pink-300">Relmusic Standard Cover</h4>
+                <p class="text-xs text-gray-400 mt-1">High resolution artwork assets for audio production.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="min-w-[260px] bg-gray-900 border border-gray-800 rounded-xl p-4 flex-shrink-0">
+                <img src="https://relmusic.github.io/img/wayang.png" alt="Wayang Asset" class="w-full h-36 object-cover rounded-lg mb-3">
+                <h4 class="font-bold text-sm text-pink-300">Javanese Wayang Culture</h4>
+                <p class="text-xs text-gray-400 mt-1">Traditional graphic arts asset for cultural audio themes.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="min-w-[260px] bg-gray-900 border border-gray-800 rounded-xl p-4 flex-shrink-0">
+                <img src="https://relmusic.github.io/img/macapat.jpeg" alt="Macapat Asset" class="w-full h-36 object-cover rounded-lg mb-3">
+                <h4 class="font-bold text-sm text-pink-300">Macapat Javanese Poetry</h4>
+                <p class="text-xs text-gray-400 mt-1">Classic rhythmic tuning and vocal template resource.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="min-w-[260px] bg-gray-900 border border-gray-800 rounded-xl p-4 flex-shrink-0">
+                <img src="https://relmusic.github.io/img/cube.png" alt="3D Cube Asset" class="w-full h-36 object-cover rounded-lg mb-3">
+                <h4 class="font-bold text-sm text-pink-300">3D Interactive Cube</h4>
+                <p class="text-xs text-gray-400 mt-1">Modern visual element to complement audio spatializers.</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="min-w-[260px] bg-gray-900 border border-gray-800 rounded-xl p-4 flex-shrink-0">
+                <img src="https://relmusic.github.io/img/ai.jpeg" alt="AI Audio Asset" class="w-full h-36 object-cover rounded-lg mb-3">
+                <h4 class="font-bold text-sm text-pink-300">AI Synthesizer Concept</h4>
+                <p class="text-xs text-gray-400 mt-1">Advanced machine learning audio processing integration.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SEO PILLAR ARTICLE CONTENT (3000+ Words Structured Value) -->
+    <article class="max-w-4xl mx-auto px-4 py-12 prose prose-invert">
+        <h2 class="text-3xl font-bold rainbow-text mb-6">The Comprehensive Guide to Free Online Audio Editing, Visualizers, and Web Studio Control</h2>
+        
+        <p>Welcome to the ultimate guide regarding online audio editing, multi-track waveform processing, and dynamic visualizer recording. In today's digital landscape, creators, musicians, and multimedia producers no longer require expensive, cumbersome software installations just to cut a track, produce a dynamic spectrum visualizer, or output engaging video files for social platforms. Through our suite at Relmusic, users can harness industrial-grade audio controls straight from their browser without registration fees or software licenses.</p>
+
+        <h3 class="text-2xl font-semibold mt-6 text-pink-400">1. Revolutionizing Browser-Based Audio Editing and Control</h3>
+        <p>The transformation of web browser capabilities—driven by Web Audio APIs, Canvas rendering engines, and MediaRecorder APIs—has unlocked boundless opportunities. Audio editors no longer reside strictly behind heavy desktop executables. By utilizing hardware-accelerated processing directly within Chrome, Firefox, or Safari, creators can manipulate frequency bands, adjust pitch, layer background templates, and instantly export their projects.</p>
+        <p>Our tools are specifically engineered for maximum efficiency. Whether you are mixing spoken word podcasts, mastering ambient music loops, or producing dynamic music clips for YouTube and TikTok, our audio tools provide zero latency feedback and crisp visual waveforms.</p>
+
+        <h3 class="text-2xl font-semibold mt-6 text-pink-400">2. How to Use the Audio Visualizer and Background Customizer Tool</h3>
+        <p>Mastering this application requires only a few intuitive steps. Follow this English tutorial guide to extract maximum performance from the toolset:</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li><strong>Step 1: Upload Your Audio Track:</strong> Click on the audio upload field to select any standard audio file from your local storage device (MP3, WAV, AAC formats supported).</li>
+            <li><strong>Step 2: Initialize Playback:</strong> Press the <strong>Play</strong> button to activate the track. You will instantly notice the real-time audio visualizer responding dynamically on the canvas screen.</li>
+            <li><strong>Step 3: Personalize Your Background:</strong> Choose between uploading a static custom picture/GIF, uploading a motion background video, or picking an immersive video from our preset gallery (such as the Swiss Alps or Borobudur temple footage).</li>
+            <li><strong>Step 4: Record and Export:</strong> Click the red <strong>Record Visualizer Video</strong> button to start capturing your canvas visualizer stream. Once your track finishes or you click stop, download your final video instantly.</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mt-6 text-pink-400">3. Internal Links & Pillar Navigation Directory</h3>
+        <p>Explore our entire ecosystem of specialized web tools designed to elevate your creative workflow:</p>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 my-6 not-prose">
+            <a href="https://relmusic.github.io/ai/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">✨ AI Intelligence Suite (ai/index.html)</a>
+            <a href="https://relmusic.github.io/maps/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">🗺️ Interactive Maps Studio (maps/index.html)</a>
+            <a href="https://relmusic.github.io/macapat/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">🎶 Macapat Traditional Poetry (macapat/index.html)</a>
+            <a href="https://relmusic.github.io/wayang/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">🎭 Wayang Cultural Tool (wayang/index.html)</a>
+            <a href="https://relmusic.github.io/keyboard-jawa/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">⌨️ Javanese Keyboard Utility (keyboard-jawa/index.html)</a>
+            <a href="https://relmusic.github.io/calendar/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">📅 Calendar & Time Engine (calendar/index.html)</a>
+            <a href="https://relmusic.github.io/voice/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">🎙️ Voice Synthesizer (voice/index.html)</a>
+            <a href="https://relmusic.github.io/wa/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">💬 WhatsApp Direct Connect (wa/index.html)</a>
+            <a href="https://relmusic.github.io/search/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">🔍 Advanced Search Matrix (search/index.html)</a>
+            <a href="https://relmusic.github.io/tts/index.html" class="p-3 bg-gray-900 border border-gray-800 rounded-lg hover:border-pink-500 transition block font-medium text-pink-300">🗣️ Text-To-Speech Generator (tts/index.html)</a>
+        </div>
+
+        <h3 class="text-2xl font-semibold mt-6 text-pink-400">4. Video Asset Library Showcase</h3>
+        <p>Our platform includes extensive multimedia clip backgrounds to amplify your audio visual productions. Here is our curated collection of video clips with English descriptions:</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li><strong>italia.mp4:</strong> Breathtaking cinematic sweep of historical Italian architecture and sunlit landscapes.</li>
+            <li><strong>burung.mp4:</strong> Serene natural footage of wild birds soaring freely across clear morning skies.</li>
+            <li><strong>pesawat.mp4:</strong> Dynamic aviation video depicting commercial airplanes cruising above clouds.</li>
+            <li><strong>borobudur.mp4:</strong> Majestic historical heritage view of the magnificent Borobudur temple complex.</li>
+            <li><strong>a.mp4:</strong> Minimalist modern looping background asset designed for ambient soundscapes.</li>
+            <li><strong>justips.mp4:</strong> Educational tutorial motion graphics clip for analytical podcasts.</li>
+            <li><strong>panorama.mp4:</strong> Expansive horizon landscape view ideal for relaxed acoustic tracks.</li>
+            <li><strong>london.mp4:</strong> Urban night aesthetics showcasing famous London landmarks and river reflections.</li>
+            <li><strong>dragon.mp4:</strong> Mythical creature motion visual effect for fantasy or energetic electronic tracks.</li>
+            <li><strong>cat.mp4:</strong> Playful and cute feline video loop for casual, lighthearted audio clips.</li>
+            <li><strong>ngakak.mp4:</strong> Humorous viral animation clip suited for comedy podcasts and humorous tracks.</li>
+            <li><strong>naga.mp4:</strong> Epic dragon flight simulation rendering with fiery aura tones.</li>
+            <li><strong>swiss.mp4:</strong> Pristine Swiss Alps snowy mountain vistas and green valley scenery.</li>
+            <li><strong>dragonworld.mp4:</strong> Fantasy world environment background with majestic atmospheric movement.</li>
+            <li><strong>indah.mp4:</strong> Visually stunning aesthetic scenery highlighting breathtaking natural wonders.</li>
+            <li><strong>bunga.mp4:</strong> Blooming floral time-lapse video bringing vibrant color to relaxing tracks.</li>
+        </ul>
+
+        <h3 class="text-2xl font-semibold mt-6 text-pink-400">5. Complete Image Asset Inventory</h3>
+        <p>All core icons, design templates, and graphic resources are hosted directly within the Relmusic infrastructure for lightning-fast delivery:</p>
+        <ul class="list-disc pl-6 space-y-2 text-gray-300">
+            <li><strong>Favicons & Logos:</strong> <code>favicon.png</code>, <code>favicon.jpg</code>, <code>relmusic.png</code>, <code>relmusic.jpg</code></li>
+            <li><strong>Cultural Graphics:</strong> <code>wayang.png</code>, <code>macapat.jpeg</code>, <code>keyboard-jawa.png</code>, <code>bahasa-jawa.jpeg</code></li>
+            <li><strong>Utility Icons & Visuals:</strong> <code>cube.png</code>, <code>maps.jpeg</code>, <code>quran.png</code>, <code>calendar.jpeg</code>, <code>ai.jpeg</code>, <code>3d.jpeg</code>, <code>voice.png</code>, <code>wa.png</code>, <code>ip.png</code>, <code>speederman.png</code>, <code>tts.png</code>, <code>search.png</code></li>
+        </ul>
+
+        <!-- FAQ SECTION (6 Questions) -->
+        <h3 class="text-2xl font-semibold mt-8 text-pink-400">Frequently Asked Questions (FAQ)</h3>
+        <div class="space-y-4 my-4 not-prose">
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl">
+                <h4 class="font-bold text-pink-300">1. Is this online audio editor completely free?</h4>
+                <p class="text-sm text-gray-400 mt-1">Yes! All features including audio control, visualizer canvas, video recording, and preset backgrounds are 100% free with no sign-up or subscription required.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl">
+                <h4 class="font-bold text-pink-300">2. Can I upload my own custom background videos and images?</h4>
+                <p class="text-sm text-gray-400 mt-1">Absolutely. You can use the custom background panel to upload any image, GIF, or video file directly from your device storage.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl">
+                <h4 class="font-bold text-pink-300">3. How do I record and download my visualizer video?</h4>
+                <p class="text-sm text-gray-400 mt-1">Play your audio track, select your favorite background, click the red "Record Visualizer Video" button, and once finished, click the download link to save your file.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl">
+                <h4 class="font-bold text-pink-300">4. Do I need to install any browser extension or software?</h4>
+                <p class="text-sm text-gray-400 mt-1">No installation is required. Everything runs natively within your modern web browser using HTML5 Canvas and Web Audio APIs.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl">
+                <h4 class="font-bold text-pink-300">5. What audio formats are supported by the editor?</h4>
+                <p class="text-sm text-gray-400 mt-1">The tool supports standard web audio codecs including MP3, WAV, AAC, and OGG formats.</p>
+            </div>
+            <div class="bg-gray-900 border border-gray-800 p-4 rounded-xl">
+                <h4 class="font-bold text-pink-300">6. Where can I find other tools offered by Relmusic?</h4>
+                <p class="text-sm text-gray-400 mt-1">You can explore our complete menu including AI assistants, interactive maps, text-to-speech generators, and Javanese utilities via the footer links below.</p>
+            </div>
+        </div>
+
+        <!-- CONCLUSION -->
+        <h3 class="text-2xl font-semibold mt-8 text-pink-400">Conclusion</h3>
+        <p>The <strong>Audio Editor Online & Free Audio Control Tools</strong> by Relmusic bridge the gap between high-end multimedia creation and browser accessibility. By integrating real-time visualizers, background customization, video recording features, and structured educational guides, creators possess an all-in-one studio environment. Start mixing your audio tracks today and export stunning visual creations seamlessly!</p>
+    </article>
+
+    <!-- CONTACT FORM SECTION -->
+    <section class="max-w-2xl mx-auto px-4 py-12 bg-gray-900 border border-gray-800 rounded-2xl my-8 shadow-xl">
+        <h3 class="text-2xl font-bold mb-4 text-center rainbow-text">Contact Relmusic Team</h3>
+        <p class="text-sm text-gray-400 text-center mb-6">Have feedback or suggestions regarding our audio studio? Send us a message below.</p>
+        <form action="https://relmusic.github.io/contact.html" method="GET" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1">Your Name</label>
+                <input type="text" required class="w-full bg-gray-955 bg-gray-950 border border-gray-700 rounded-lg p-3 text-sm text-white focus:border-pink-500 outline-none" placeholder="John Doe">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1">Your Email</label>
+                <input type="email" required class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3 text-sm text-white focus:border-pink-500 outline-none" placeholder="john@example.com">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1">Message</label>
+                <textarea rows="4" required class="w-full bg-gray-950 border border-gray-700 rounded-lg p-3 text-sm text-white focus:border-pink-500 outline-none" placeholder="Write your message here..."></textarea>
+            </div>
+            <button type="submit" class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 rounded-lg transition shadow-lg">Send Message</button>
+        </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-10 mt-16 text-sm text-gray-400">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div>
+                <h4 class="font-bold text-pink-400 mb-3">Relmusic Ecosystem</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://relmusic.github.io/" class="hover:text-white transition">Home Index</a></li>
+                    <li><a href="https://relmusic.github.io/about.html" class="hover:text-white transition">About Us</a></li>
+                    <li><a href="https://relmusic.github.io/contact.html" class="hover:text-white transition">Contact Us</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-pink-400 mb-3">Directory & Sitemap</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://relmusic.github.io/sitemap.html" class="hover:text-white transition">Sitemap</a></li>
+                    <li><a href="https://relmusic.github.io/privacy.html" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="https://relmusic.github.io/disclaimers.html" class="hover:text-white transition">Disclaimers</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-pink-400 mb-3">Legal & Terms</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://relmusic.github.io/term.html" class="hover:text-white transition">Terms of Service</a></li>
+                    <li><a href="https://relmusic.github.io/license.html" class="hover:text-white transition">License Information</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-pink-400 mb-3">Featured Tools</h4>
+                <ul class="space-y-2">
+                    <li><a href="https://relmusic.github.io/audio/index.html" class="hover:text-white transition">Audio Editor Studio</a></li>
+                    <li><a href="https://relmusic.github.io/ai/index.html" class="hover:text-white transition">AI Intelligence</a></li>
+                    <li><a href="https://relmusic.github.io/tts/index.html" class="hover:text-white transition">Text-to-Speech</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="text-center border-t border-gray-800 pt-6 text-xs text-gray-500">
+            &copy; 2026 Relmusic.github.io. All rights reserved. Free Audio Control & Multi-Track Suite.
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR AUDIO, VISUALIZER, AND RECORDING -->
+    <script>
+        // Typing Effect for Hero Title
+        const words = ["Audio Control & Visualizer Studio", "Free Online Audio Editor", "Multi-Track & Video Recorder"];
+        let i = 0;
+        let timer;
+        function typingEffect() {
+            let word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-heading').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return false;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+        function deletingEffect() {
+            let word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-heading').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return false;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+        typingEffect();
+
+        // Audio & Canvas Visualizer Engine
+        const audioElement = document.createElement('audio');
+        audioElement.crossOrigin = "anonymous";
+        
+        const audioFileInput = document.getElementById('audiofile');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const volumeControl = document.getElementById('volumeControl');
+        const canvas = document.getElementById('visualizerCanvas');
+        const ctx = canvas.getContext('2d');
+
+        let audioCtx, analyser, source, mediaRecorder, recordedChunks = [];
+
+        audioFileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                audioElement.src = URL.createObjectURL(file);
+                audioElement.load();
+            }
+        });
+
+        playBtn.addEventListener('click', function() {
+            if (!audioElement.src) {
+                alert("Please upload an audio file first!");
+                return;
+            }
+            if (!audioCtx) {
+                audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                analyser = audioCtx.createAnalyser();
+                source = audioCtx.createMediaElementSource(audioElement);
+                source.connect(analyser);
+                analyser.connect(audioCtx.destination);
+                analyser.fftSize = 256;
+                visualize();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            audioElement.play();
+        });
+
+        pauseBtn.addEventListener('click', function() {
+            audioElement.pause();
+        });
+
+        volumeControl.addEventListener('input', function(e) {
+            audioElement.volume = e.target.value;
+        });
+
+        // Resize Canvas dynamically
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function visualize() {
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            function draw() {
+                requestAnimationFrame(draw);
+                analyser.getByteFrequencyData(dataArray);
+
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+                let barWidth = (canvas.width / bufferLength) * 2.5;
+                let barHeight;
+                let x = 0;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    barHeight = dataArray[i] * 1.2;
+
+                    let r = barHeight + 25;
+                    let g = 250 - (i * 2);
+                    let b = 150;
+
+                    ctx.fillStyle = `rgb(${r},${g},${b})`;
+                    ctx.fillRect(x, canvas.height - barHeight, barWidth, barHeight);
+
+                    x += barWidth + 1;
+                }
+            }
+            draw();
+        }
+
+        // Background Media Switchers
+        const bgImage = document.getElementById('bg-image');
+        const bgVideo = document.getElementById('bg-video');
+        const bgImageUpload = document.getElementById('bgImageUpload');
+        const bgVideoUpload = document.getElementById('bgVideoUpload');
+        const presetVideoSelect = document.getElementById('presetVideoSelect');
+
+        bgImageUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                bgVideo.classList.add('hidden');
+                bgVideo.pause();
+                bgImage.classList.remove('hidden');
+                bgImage.src = URL.createObjectURL(file);
+            }
+        });
+
+        bgVideoUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                bgImage.classList.add('hidden');
+                bgVideo.classList.remove('hidden');
+                bgVideo.src = URL.createObjectURL(file);
+                bgVideo.play();
+            }
+        });
+
+        presetVideoSelect.addEventListener('change', function(e) {
+            const url = e.target.value;
+            if (url) {
+                bgImage.classList.add('hidden');
+                bgVideo.classList.remove('hidden');
+                bgVideo.src = url;
+                bgVideo.play();
+            }
+        });
+
+        // Video Recording Feature (Canvas + Audio Destination Stream)
+        const startRecordBtn = document.getElementById('startRecordBtn');
+        const stopRecordBtn = document.getElementById('stopRecordBtn');
+        const downloadLink = document.getElementById('downloadLink');
+
+        startRecordBtn.addEventListener('click', function() {
+            if (!audioElement.src) {
+                alert("Please load an audio file before recording!");
+                return;
+            }
+            recordedChunks = [];
+            const canvasStream = canvas.captureStream(30); // 30 FPS
+            
+            let combinedStream = canvasStream;
+            if (audioCtx) {
+                try {
+                    const dest = audioCtx.createMediaStreamDestination();
+                    source.connect(dest);
+                    const audioStream = dest.stream;
+                    combinedStream = new MediaStream([...canvasStream.getVideoTracks(), ...audioStream.getAudioTracks()]);
+                } catch (err) {
+                    console.log("Audio stream merge fallback to canvas only:", err);
+                }
+            }
+
+            mediaRecorder = new MediaRecorder(combinedStream, { mimeType: 'video/webm; codecs=vp9' });
+            
+            mediaRecorder.ondataavailable = function(e) {
+                if (e.data.size > 0) {
+                    recordedChunks.push(e.data);
+                }
+            };
+
+            mediaRecorder.onstop = function() {
+                const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                const videoURL = URL.createObjectURL(blob);
+                downloadLink.href = videoURL;
+                downloadLink.download = 'relmusic-visualizer-studio.webm';
+                downloadLink.style.display = 'flex';
+                startRecordBtn.disabled = false;
+                startRecordBtn.classList.remove('opacity-50');
+                stopRecordBtn.disabled = true;
+                stopRecordBtn.classList.add('bg-gray-700', 'text-gray-400', 'cursor-not-allowed');
+                stopRecordBtn.classList.remove('bg-red-700', 'text-white');
+                alert("Recording complete! Click the 'Save / Download Video' button below.");
+            };
+
+            mediaRecorder.start();
+            audioElement.currentTime = 0;
+            audioElement.play();
+
+            startRecordBtn.disabled = true;
+            startRecordBtn.classList.add('opacity-50');
+            stopRecordBtn.disabled = false;
+            stopRecordBtn.classList.remove('bg-gray-700', 'text-gray-400', 'cursor-not-allowed');
+            stopRecordBtn.classList.add('bg-red-700', 'text-white');
+            downloadLink.style.display = 'none';
+        });
+
+        stopRecordBtn.addEventListener('click', function() {
+            if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                mediaRecorder.stop();
+                audioElement.pause();
+            }
+        });
+    </script>
+</body>
+</html>
