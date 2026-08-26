@@ -1,7 +1,9 @@
 # RealMusic 100+ Multi Software - Official README & Comprehensive Portal Guide
 
 <p align="center">
-  <img src="https://relmusic.github.io/relmusic.jpg" alt="RealMusic Logo" width="180" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+  
+  <img src="relmusic.png" alt="RealMusic Logo" width="180" style="border-radius: 12px; box-shadow: 0 4px 16px rgba(0,0,0,0.15);" />
+  
 </p>
 
 <h1 align="center">RealMusic 100+ Multi Software</h1>
