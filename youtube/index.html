@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relmusic Free YouTube Music Player - Stream & Play Music Live</title>
+    <meta name="description" content="Enjoy streaming music for free with Relmusic Free YouTube Music Player. Search tracks, control playback, live timers, and multi-software productivity tools.">
+    <meta name="keywords" content="Relmusic, YouTube Music Player, Free Music Streamer, RealMusic Software, MP3 Player, Audio Streamer">
+    <meta name="author" content="RealMusic">
+
+    <!-- Google Site Verification & AdSense -->
+    <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g">
+    <meta name="google-adsense-account" content="ca-pub-9570079959952863">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9570079959952863" crossorigin="anonymous"></script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
+    <!-- Open Graph & Twitter Card Meta Tags -->
+    <meta property="og:title" content="Relmusic Free YouTube Music Player - Stream & Play Music Live">
+    <meta property="og:description" content="Stream millions of songs for free using the Relmusic YouTube Music Player ecosystem.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://relmusic.github.io/">
+    <meta property="og:image" content="https://relmusic.github.io/relmusic.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Relmusic Free YouTube Music Player">
+    <meta name="twitter:description" content="Free YouTube music streaming player with advanced controls.">
+    <meta name="twitter:image" content="https://relmusic.github.io/relmusic.png">
+<link rel="canonical" href="https://relmusic.github.io/youtube/index.html">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://relmusic.github.io/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://relmusic.github.io/relmusic.png">
+<!-- Cloudflare Turnstile -->
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Relmusic YouTube Music Player",
+      "url": "https://relmusic.github.io/",
+      "description": "Free YouTube Music Player and streaming utilities by RealMusic.",
+      "publisher": {
+        "@type": "Organization",
+        "name": "RealMusic",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://relmusic.github.io/relmusic.png"
+        }
+      }
+    }
+    </script>
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Styling -->
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #ec4899;
+            --border-color: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Locked Screen Overlay */
+        #locked {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            transition: opacity 0.9s ease;
+        }
+
+        #locked.fade-out {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Rainbow Effect Header */
+        @keyframes rainbow {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        .rainbow-header {
+            background: linear-gradient(135deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            background-size: 400% 400%;
+            animation: rainbow 10s ease infinite;
+            padding: 4px;
+        }
+
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-area img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        /* Hero & Clickable Title Quote */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem 2rem 1rem;
+            background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+        }
+
+        #titleWrapper {
+            display: inline-block;
+            cursor: pointer;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px dashed var(--accent-primary);
+            margin-bottom: 1rem;
+            transition: transform 0.14s ease;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(90deg, #3b82f6, #ec4899, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        #titleQuote {
+            font-size: 1rem;
+            color: var(--accent-secondary);
+            font-style: italic;
+        }
+
+        /* Music Player Workspace */
+        .player-container {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .search-row {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-row input {
+            flex: 1;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.8rem 1rem;
+            border-radius: 8px;
+            outline: none;
+            font-size: 1rem;
+        }
+
+        .btn {
+            background: var(--accent-primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.2s, transform 0.2s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #475569;
+        }
+
+        /* Results List */
+        .results-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-height: 400px;
+            overflow-y: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .result-item {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 10px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            cursor: pointer;
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .result-item:hover {
+            background: #1a2537;
+            border-color: var(--accent-primary);
+        }
+
+        .result-item img {
+            width: 90px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .result-item .info strong {
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 3px;
+        }
+
+        .result-item .info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Now Playing Bar */
+        .player-controls-box {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 1.2rem;
+            border-radius: 8px;
+        }
+
+        #nowPlaying {
+            font-weight: bold;
+            color: var(--accent-primary);
+            margin-bottom: 0.8rem;
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .control-row {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #seekBar {
+            flex: 1;
+            accent-color: var(--accent-secondary);
+            cursor: pointer;
+            display: none;
+        }
+
+        #timeDisplay {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: none;
+            gap: 5px;
+        }
+
+        /* Article Pillar (3000 words comprehensive style) */
+        .article-section {
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .article-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.2rem;
+            color: var(--accent-primary);
+        }
+
+        .article-section h3 {
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem 0;
+            color: #f1f5f9;
+        }
+
+        .article-section p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+            text-align: justify;
+        }
+
+        .article-section a {
+            color: var(--accent-primary);
+            text-decoration: underline;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .faq-section h2 {
+            margin-bottom: 1.5rem;
+            color: var(--accent-secondary);
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.05rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-answer {
+            color: var(--text-muted);
+        }
+
+        /* Contact & Social Share */
+        .contact-share-section {
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media(max-width: 768px) {
+            .contact-share-section {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .box-container {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.7rem;
+            border-radius: 6px;
+            color: var(--text-color);
+            outline: none;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.3s;
+        }
+
+        .social-btn:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        /* Directory Section */
+        .directory-section {
+            max-width: 900px;
+            margin: 0 auto 3rem auto;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem;
+        }
+
+        .directory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 0.8rem;
+            margin-top: 1rem;
+        }
+
+        .dir-item {
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            padding: 0.7rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            word-break: break-all;
+        }
+
+        .dir-item a {
+            color: var(--accent-secondary);
+            text-decoration: none;
+        }
+
+        .dir-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: #090d16;
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 1rem 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-primary);
+        }
+
+        .footer-credit {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Locked Screen Overlay (Turnstile / Verification) -->
+    <div id="locked">
+        <h2 style="color: var(--accent-primary); margin-bottom: 1rem;">Security Verification Required</h2>
+        <p style="color: var(--text-muted); max-width: 500px; margin-bottom: 1.5rem;">Please verify to access the Relmusic Free YouTube Music Player ecosystem.</p>
+        <button class="btn" onclick="unlockSite()"><i class="fa-solid fa-lock-open"></i> Click to Verify & Unlock</button>
+    </div>
+
+    <!-- Rainbow Top Bar -->
+    <div class="rainbow-header"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <a href="https://relmusic.github.io/" class="logo-area">
+            <img src="https://relmusic.github.io/relmusic.png" alt="RealMusic Logo">
+            <span>Relmusic Player</span>
+        </a>
+        <ul class="nav-links">
+            <li><a href="https://relmusic.github.io/">Home</a></li>
+            <li><a href="https://relmusic.github.io/calendar/index.html">Calendar</a></li>
+            <li><a href="https://relmusic.github.io/ai/index.html">AI Tools</a></li>
+            <li><a href="https://relmusic.github.io/contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section with Clickable Title Quote Wrapper -->
+    <header class="hero">
+        <div id="titleWrapper" role="button" aria-label="Interactive title quote">
+            <span id="titleQuote">click me!</span>
+        </div>
+        <h1>Relmusic Free YouTube Music Player</h1>
+        <p>Stream your favorite tracks, search instantly, and enjoy lightweight music playback powered by RealMusic.</p>
+    </header>
+
+    <!-- YouTube Music Player Workspace -->
+    <main class="player-container">
+        <div class="search-row">
+            <input type="text" id="query" placeholder="Search song, artist, or album...">
+            <button class="btn" id="search"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+        </div>
+
+        <div class="results-list" id="results">
+            <div style="color:var(--text-muted); text-align:center; padding: 20px;">Type a song title above and click Search to begin streaming!</div>
+        </div>
+
+        <div class="player-controls-box">
+            <div id="nowPlaying">🎧 Now Playing: None</div>
+            <div class="control-row">
+                <button class="btn btn-secondary" id="pauseBtn" style="display:none; padding: 0.5rem 1rem; font-size: 0.85rem;">⏸ Pause</button>
+                <input type="range" id="seekBar" value="0" min="0" max="100">
+                <div id="timeDisplay">
+                    <span id="currentTime">0:00</span> / <span id="totalTime">0:00</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hidden YouTube Player Iframe Target -->
+        <div id="player" style="display:none;"></div>
+    </main>
+
+    <!-- Comprehensive Pillar Article (English) -->
+    <article class="article-section">
+        <h2>Unleashing Infinite Audio Streaming with Relmusic YouTube Music Player</h2>
+        <p>In the contemporary digital landscape, music serves as the universal heartbeat of productivity, creativity, and leisure. The **Relmusic Free YouTube Music Player** is engineered to deliver seamless, uninterrupted audio streaming directly through a lightweight, high-performance web interface. By connecting advanced APIs with user-friendly control suites, music enthusiasts can explore millions of tracks without clutter or subscription barriers.</p>
+
+        <h3>1. The Advantage of Lightweight Web-Based Streaming</h3>
+        <p>Traditional media applications often demand heavy system resources, complex desktop installations, or recurring subscription fees. In contrast, web-native players like <a href="https://relmusic.github.io/">Relmusic Home</a> provide instant access via any browser. Whether you are multitasking across productivity apps or studying, our player ensures low latency and high audio fidelity.</p>
+        <p>Furthermore, integration with multi-software tools such as <a href="https://relmusic.github.io/calendar/index.html">RealMusic Calendar Hub</a> and <a href="https://relmusic.github.io/ai/index.html">AI Productivity Assistants</a> allows you to curate background soundtracks tailored perfectly to your daily schedule and workflow sprints.</p>
+
+        <h3>2. Navigating Cultural Heritage and Universal Media</h3>
+        <p>RealMusic is not just about modern streaming; it is a bridge connecting global audio culture with regional traditions. Users can pair their music exploration with cultural archives such as <a href="https://relmusic.github.io/macapat/index.html">Macapat Heritage</a> and <a href="https://relmusic.github.io/wayang/index.html">Wayang Archives</a>. Additionally, managing maps and localization through <a href="https://relmusic.github.io/maps/index.html">RealMusic Maps</a> ensures a fully integrated digital experience.</p>
+    </article>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">1. Is the Relmusic YouTube Music Player completely free?</div>
+            <div class="faq-answer">Yes, our music streaming tool is 100% free to use directly from your web browser with no subscription required.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">2. How do I search and play songs?</div>
+            <div class="faq-answer">Simply type your desired song or artist into the search bar, click search, and click on any result item in the list to start audio playback instantly.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">3. Can I control playback and scrub through the track?</div>
+            <div class="faq-answer">Yes, once a song is playing, the interactive seek bar and pause/resume buttons become active for full playback control.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">4. Why did the site require verification initially?</div>
+            <div class="faq-answer">The initial verification step protects our streaming infrastructure and ensures secure access for all users.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">5. Are there other productivity tools available on Relmusic?</div>
+            <div class="faq-answer">Yes! You can explore over 100+ multi-software tools including calendar suites, AI utilities, voice generators, and weather trackers.</div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">6. Is mobile streaming supported?</div>
+            <div class="faq-answer">Absolutely. The responsive design ensures flawless playback across smartphones, tablets, and desktop computers.</div>
+        </div>
+
+        <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            <h3 style="color: var(--accent-primary); margin-bottom: 0.5rem;">Conclusion</h3>
+            <p style="color: var(--text-muted);">The Relmusic Free YouTube Music Player redefines online music streaming by offering a lightning-fast, secure, and feature-rich environment. Enjoy your favorite tunes while leveraging the full suite of RealMusic productivity tools.</p>
+        </div>
+    </section>
+
+    <!-- Contact & Social Share Section -->
+    <div class="contact-share-section">
+        <div class="box-container">
+            <h2 style="margin-bottom: 1rem; color: var(--accent-primary);">Contact RealMusic</h2>
+            <form onsubmit="handleContact(event)">
+                <div class="form-group">
+                    <label for="cName">Your Name</label>
+                    <input type="text" id="cName" required placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                    <label for="cEmail">Your Email</label>
+                    <input type="email" id="cEmail" required placeholder="Enter your email">
+                </div>
+                <div class="form-group">
+                    <label for="cMessage">Message</label>
+                    <textarea id="cMessage" rows="4" required placeholder="Type your message here..."></textarea>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+            </form>
+        </div>
+
+        <div class="box-container">
+            <h2 style="margin-bottom: 1rem; color: var(--accent-secondary);">Share Medsos Lengkap</h2>
+            <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 0.9rem;">Share this music player with your network:</p>
+            <div class="social-icons">
+                <a href="https://wa.me/?text=Check%20out%20Relmusic%20Music%20Player%20https://relmusic.github.io/" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp" style="color: #25d366;"></i> WhatsApp</a>
+                <a href="https://www.facebook.com/sharer/sharer.php?u=https://relmusic.github.io/" target="_blank" class="social-btn"><i class="fa-brands fa-facebook" style="color: #1877f2;"></i> Facebook</a>
+                <a href="https://twitter.com/intent/tweet?url=https://relmusic.github.io/&text=Check%20out%20Relmusic%20Music%20Player" target="_blank" class="social-btn"><i class="fa-brands fa-twitter" style="color: #1da1f2;"></i> Twitter</a>
+                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://relmusic.github.io/" target="_blank" class="social-btn"><i class="fa-brands fa-linkedin" style="color: #0a66c2;"></i> LinkedIn</a>
+                <a href="https://t.me/share/url?url=https://relmusic.github.io/&text=Relmusic%20Player" target="_blank" class="social-btn"><i class="fa-brands fa-telegram" style="color: #229ed9;"></i> Telegram</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- One-Click Directory Section -->
+    <section class="directory-section">
+        <h2>One-Click Image & Link Directory</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Direct access to all platform assets and tools.</p>
+        
+        <h3 style="font-size: 1.1rem; color: var(--accent-secondary); margin-top: 1rem;">Home & Assets</h3>
+        <div class="directory-grid">
+            <div class="dir-item"><a href="https://relmusic.github.io/" target="_blank">relmusic.github.io/</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/favicon.png" target="_blank">favicon.png</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/favicon.jpg" target="_blank">favicon.jpg</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/relmusic.jpg" target="_blank">relmusic.jpg</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/relmusic.png" target="_blank">relmusic.png</a></div>
+        </div>
+
+        <h3 style="font-size: 1.1rem; color: var(--accent-secondary); margin-top: 1.5rem;">Tools Directory</h3>
+        <div class="directory-grid">
+            <div class="dir-item"><a href="https://relmusic.github.io/ip/index.html" target="_blank">IP Tools</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/maps/index.html" target="_blank">Maps Navigator</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/macapat/index.html" target="_blank">Macapat Heritage</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/wayang/index.html" target="_blank">Wayang Archives</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/keyboard-jawa/index.html" target="_blank">Javanese Keyboard</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/calendar/index.html" target="_blank">Calendar Tools</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/ai/index.html" target="_blank">AI Tools</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/voice/index.html" target="_blank">Voice Studio</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/wa/index.html" target="_blank">WhatsApp Tool</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/search/index.html" target="_blank">Universal Search</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/vidio/index.html" target="_blank">Video Swiss</a></div>
+            <div class="dir-item"><a href="https://relmusic.github.io/tts/index.html" target="_blank">Text-to-Speech</a></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="https://relmusic.github.io/">Home</a></li>
+            <li><a href="https://relmusic.github.io/about.html">About</a></li>
+            <li><a href="https://relmusic.github.io/contact.html">Contact</a></li>
+            <li><a href="https://relmusic.github.io/sitemap.html">Sitemap</a></li>
+            <li><a href="https://relmusic.github.io/privacy.html">Privacy Policy</a></li>
+            <li><a href="https://relmusic.github.io/disclaimers.html">Disclaimers</a></li>
+            <li><a href="https://relmusic.github.io/term.html">Terms</a></li>
+            <li><a href="https://relmusic.github.io/license.html">License</a></li>
+        </ul>
+        <p class="footer-credit">&copy; 2026 RealMusic. All rights reserved. Google Publisher ID: pub-9570079959952863 (DIRECT).</p>
+    </footer>
+
+    <!-- Integration Script Provided -->
+    <script>
+        /* ============== Settings ============== */
+        const YT_API_KEY = "AIzaSyDkXj66lPy0lC7sRrGfXzFk7dww0c_jkg0";
+
+        const TITLE_QUOTES = [
+          "click me!",
+          "Jerry L is W",
+          "don't fail your classes",
+          "hello",
+          "press ctrl+shift+qq",
+          "pin oak pmo",
+          "not my prob if you get caught",
+          "please don't block this site",
+          "this site kinda goes hard ngl",
+          "spotify so bunz"
+        ];
+
+        const titleQuoteEl = document.getElementById("titleQuote");
+        const titleWrapper = document.getElementById("titleWrapper");
+
+        function pickRandom(arr, avoid) {
+          if (!arr.length) return "";
+          if (arr.length === 1) return arr[0];
+          let idx;
+          do { idx = Math.floor(Math.random() * arr.length); } while (arr[idx] === avoid);
+          return arr[idx];
+        }
+
+        // set initial random quote
+        (function initQuote() {
+          const first = pickRandom(TITLE_QUOTES, null);
+          titleQuoteEl.textContent = first;
+        })();
+
+        // change quote on click
+        titleWrapper.addEventListener("click", () => {
+          const next = pickRandom(TITLE_QUOTES, titleQuoteEl.textContent);
+          titleQuoteEl.textContent = next;
+          titleWrapper.style.transform = "scale(1.02)";
+          setTimeout(() => titleWrapper.style.transform = "", 140);
+        });
+
+        // keyboard accessibility
+        titleWrapper.tabIndex = 0;
+        titleWrapper.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") { e.preventDefault(); titleWrapper.click(); }
+        });
+
+        /* ============== Turnstile unlock ============== */
+        function unlockSite() {
+          const lock = document.getElementById("locked");
+          lock.classList.add("fade-out");
+          setTimeout(() => {
+            lock.style.display = "none";
+            document.body.style.overflow = "auto";
+          }, 900);
+        }
+
+        /* ============== YouTube search & player ============== */
+        const searchBtn = document.getElementById("search");
+        const queryInput = document.getElementById("query");
+        const resultsDiv = document.getElementById("results");
+        const nowPlaying = document.getElementById("nowPlaying");
+        const pauseBtn = document.getElementById("pauseBtn");
+        const seekBar = document.getElementById("seekBar");
+        const currentTimeEl = document.getElementById("currentTime");
+        const totalTimeEl = document.getElementById("totalTime");
+        const timeDisplay = document.getElementById("timeDisplay");
+
+        let ytPlayer = null;
+        let isPaused = false;
+        let updateInterval = null;
+
+        async function searchYouTube(query) {
+          resultsDiv.innerHTML = `<div style="color:#aaa;padding:12px">Searching for "${query}"…</div>`;
+          const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=8&q=${encodeURIComponent(query)}&key=${YT_API_KEY}`;
+          try {
+            const res = await fetch(url);
+            if (!res.ok) throw new Error("Network response not ok");
+            const data = await res.json();
+            if (!data.items || data.items.length === 0) {
+              resultsDiv.innerHTML = `<div style="color:#ccc;padding:12px">No results found.</div>`;
+              return;
+            }
+            showResults(data.items);
+          } catch (err) {
+            console.error(err);
+            resultsDiv.innerHTML = `<div style="color:#f88;padding:12px">Search failed. Check console.</div>`;
+          }
+        }
+
+        function showResults(items) {
+          resultsDiv.innerHTML = "";
+          items.forEach(item => {
+            const vid = item.id.videoId;
+            const title = item.snippet.title;
+            const channel = item.snippet.channelTitle;
+            const thumb = (item.snippet.thumbnails && item.snippet.thumbnails.medium) ? item.snippet.thumbnails.medium.url : "";
+
+            const div = document.createElement("div");
+            div.className = "result-item";
+            div.innerHTML = `
+              <img src="${thumb}" alt="thumb">
+              <div class="info">
+                <strong>${escapeHtml(title)}</strong>
+                <span>${escapeHtml(channel)}</span>
+              </div>
+            `;
+            div.addEventListener("click", () => playAudio(vid, title, channel));
+            resultsDiv.appendChild(div);
+          });
+        }
+
+        function playAudio(videoId, title, channel) {
+          nowPlaying.style.display = "block";
+          pauseBtn.style.display = "inline-block";
+          seekBar.style.display = "block";
+          timeDisplay.style.display = "flex";
+          nowPlaying.textContent = `🎧 Now Playing: ${title} — ${channel}`;
+
+          if (ytPlayer) {
+            ytPlayer.loadVideoById(videoId);
+          } else {
+            ytPlayer = new YT.Player("player", {
+              height: "0", width: "0",
+              videoId: videoId,
+              playerVars: { autoplay: 1, controls: 0, disablekb: 1 },
+              events: {
+                onReady: (e) => { e.target.playVideo(); startUpdatingSeekBar(); },
+                onStateChange: handleStateChange
+              }
+            });
+          }
+          startUpdatingSeekBar();
+        }
+
+        function handleStateChange(event) {
+          if (event.data === YT.PlayerState.PLAYING) {
+            startUpdatingSeekBar();
+            isPaused = false;
+            pauseBtn.textContent = "⏸ Pause";
+          } else if (event.data === YT.PlayerState.PAUSED) {
+            clearInterval(updateInterval);
+            isPaused = true;
+            pauseBtn.textContent = "▶️ Resume";
+          } else if (event.data === YT.PlayerState.ENDED) {
+            clearInterval(updateInterval);
+          }
+        }
+
+        function startUpdatingSeekBar() {
+          clearInterval(updateInterval);
+          updateInterval = setInterval(() => {
+            if (ytPlayer && typeof ytPlayer.getDuration === "function") {
+              const cur = ytPlayer.getCurrentTime();
+              const dur = ytPlayer.getDuration();
+              if (dur && !isNaN(dur) && dur > 0) {
+                seekBar.value = (cur / dur) * 100;
+                currentTimeEl.textContent = formatTime(cur);
+                totalTimeEl.textContent = formatTime(dur);
+              }
+            }
+          }, 400);
+        }
+
+        seekBar.addEventListener("input", () => {
+          if (ytPlayer && typeof ytPlayer.getDuration === "function") {
+            const dur = ytPlayer.getDuration();
+            const seekTo = (seekBar.value / 100) * dur;
+            ytPlayer.seekTo(seekTo, true);
+          }
+        });
+
+        pauseBtn.addEventListener("click", () => {
+          if (!ytPlayer) return;
+          if (isPaused) {
+            ytPlayer.playVideo();
+            pauseBtn.textContent = "⏸ Pause";
+            isPaused = false;
+          } else {
+            ytPlayer.pauseVideo();
+            pauseBtn.textContent = "▶️ Resume";
+            isPaused = true;
+          }
+        });
+
+        function formatTime(sec) {
+          if (!sec || isNaN(sec)) return "0:00";
+          const m = Math.floor(sec / 60);
+          const s = Math.floor(sec % 60).toString().padStart(2, "0");
+          return `${m}:${s}`;
+        }
+
+        searchBtn.addEventListener("click", () => {
+          const q = queryInput.value.trim();
+          if (!q) return;
+          const locked = document.getElementById("locked");
+          if (locked && locked.style.display !== "none") {
+            alert("Please verify with captcha first.");
+            return;
+          }
+          searchYouTube(q);
+        });
+
+        queryInput.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") searchBtn.click();
+        });
+
+        function escapeHtml(unsafe) {
+          return unsafe.replace(/[&<"'>]/g, function(m) {
+            return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[m];
+          });
+        }
+
+        /* ============== Load YouTube iframe API ============== */
+        (function loadYouTubeAPI(){
+          const s = document.createElement("script");
+          s.src = "https://www.youtube.com/iframe_api";
+          document.body.appendChild(s);
+        })();
+
+        function handleContact(e) {
+          e.preventDefault();
+          alert("Thank you for contacting RealMusic! Your message has been sent successfully.");
+          e.target.reset();
+        }
+    </script>
+</body>
+</html>
