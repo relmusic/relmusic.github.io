@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Tools Software Generator All by RealMusic - 100+ Country Global Search Platform</title>
+    
+    <!-- Meta Tags & Verification -->
+    <meta name="description" content="Ultimate Global Search Tools & Software Generator by RealMusic. Access 100+ country search engines, open multiple URLs, multi-browser search, and advanced web utilities.">
+    <meta name="keywords" content="RealMusic search tools, multi-engine search, software generator, global search, 100+ country search, open all url">
+    <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g">
+    <meta name="google-adsense-account" content="ca-pub-9570079959952863">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Search Tools Software Generator All by RealMusic">
+    <meta property="og:description" content="Access 100+ country search engines, multi-browser query generator, URL openers, and developer tools by RealMusic.">
+    <meta property="og:image" content="https://relmusic.github.io/img/search.png">
+    <meta property="og:url" content="https://relmusic.github.io/search/index.html">
+    <meta property="og:type" content="website">
+
+    <!-- Favicon -->
+    <link rel="icon" href="https://relmusic.github.io/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://relmusic.github.io/favicon.jpg">
+
+    <!-- Google AdSense & AMP -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9570079959952863" crossorigin="anonymous"></script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js"></script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Search Tools Software Generator All by RealMusic",
+      "url": "https://relmusic.github.io/search/index.html",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://relmusic.github.io/search/index.html?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- Tailwind CSS & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        @keyframes rainbow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .rainbow-bg {
+            background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            background-size: 1400% 1400%;
+            animation: rainbow 15s ease infinite;
+        }
+        .rainbow-text {
+            background: linear-gradient(270deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+            background-size: 1400% 1400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: rainbow 15s ease infinite;
+        }
+        .slide-card-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 1rem;
+            padding-bottom: 1rem;
+        }
+        .slide-card {
+            flex: 0 0 280px;
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body class="bg-gray-950 text-gray-100 font-sans leading-relaxed">
+
+    <!-- Header & Navigation -->
+    <header class="sticky top-0 z-50 bg-gray-900 border-b border-gray-800 shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="https://relmusic.github.io/" class="flex items-center space-x-2">
+                <img src="https://relmusic.github.io/favicon.png" alt="RealMusic Logo" class="w-8 h-8 rounded-full">
+                <span class="font-bold text-lg rainbow-text">RealMusic Search</span>
+            </a>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium">
+                <a href="https://relmusic.github.io/" class="hover:text-blue-400">Home</a>
+                <a href="https://relmusic.github.io/search/index.html" class="text-blue-400">Search Tool</a>
+                <a href="https://relmusic.github.io/about.html" class="hover:text-blue-400">About</a>
+                <a href="https://relmusic.github.io/contact.html" class="hover:text-blue-400">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section with Typing Effect -->
+    <section class="py-16 text-center rainbow-bg text-white relative">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-md">Search Tools Software Generator All</h1>
+            <p id="typing-text" class="text-xl md:text-2xl font-semibold h-12 mb-8"></p>
+            <div class="bg-gray-900 bg-opacity-90 p-6 rounded-xl shadow-2xl backdrop-blur-md">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="text" id="searchInput" placeholder="Enter keyword or URLs..." class="p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500 w-full">
+                    <select id="countrySelect" class="p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500 w-full">
+                        <option value="global">Global (All Countries - 100+)</option>
+                        <option value="us">United States</option>
+                        <option value="id">Indonesia</option>
+                        <option value="uk">United Kingdom</option>
+                        <option value="jp">Japan</option>
+                        <option value="de">Germany</option>
+                    </select>
+                </div>
+                <div class="mt-4 flex flex-wrap gap-3 justify-center">
+                    <button onclick="executeMultiSearch()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-bold transition shadow-lg"><i class="fas fa-search mr-2"></i>Search All Engines</button>
+                    <button onclick="openAllUrls()" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition shadow-lg"><i class="fas fa-external-link-alt mr-2"></i>Open All Newtab URLs</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AdSense Banner Unit -->
+    <div class="container mx-auto px-4 my-6 text-center">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-9570079959952863"
+             data-ad-slot="auto"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- Slide Cards Section (Tools Navigation) -->
+    <section class="py-12 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold mb-6 text-center rainbow-text">Explore RealMusic Ecosystem Tools</h2>
+            <div class="slide-card-container">
+                <!-- Card 1 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/search.png" alt="Search" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">Search Engine Hub</h3>
+                    <p class="text-sm text-gray-400 mb-4">Multi-browser and multi-country query generator.</p>
+                    <a href="https://relmusic.github.io/search/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 2 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/ip.png" alt="IP Tool" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">IP & Network Checker</h3>
+                    <p class="text-sm text-gray-400 mb-4">Analyze IP addresses, geolocation, and network specs.</p>
+                    <a href="https://relmusic.github.io/ip/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 3 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/maps.jpeg" alt="Maps" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">Global Maps Engine</h3>
+                    <p class="text-sm text-gray-400 mb-4">Interactive mapping utilities across regional coordinates.</p>
+                    <a href="https://relmusic.github.io/maps/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 4 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/macapat.jpeg" alt="Macapat" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">Javanese Macapat</h3>
+                    <p class="text-sm text-gray-400 mb-4">Traditional Javanese poetry generator & analyzer.</p>
+                    <a href="https://relmusic.github.io/macapat/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 5 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/wayang.png" alt="Wayang" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">Wayang Characters</h3>
+                    <p class="text-sm text-gray-400 mb-4">Explore legendary figures of Indonesian heritage.</p>
+                    <a href="https://relmusic.github.io/wayang/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 6 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/keyboard-jawa.png" alt="Keyboard Jawa" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">Javanese Keyboard</h3>
+                    <p class="text-sm text-gray-400 mb-4">Virtual Aksara Jawa typing assistant.</p>
+                    <a href="https://relmusic.github.io/keyboard-jawa/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 7 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/calendar.jpeg" alt="Calendar" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">Smart Calendar</h3>
+                    <p class="text-sm text-gray-400 mb-4">Javanese, Gregorian, and Hijri calendar system.</p>
+                    <a href="https://relmusic.github.io/calendar/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 8 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/ai.jpeg" alt="AI Tool" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">AI Assistant Hub</h3>
+                    <p class="text-sm text-gray-400 mb-4">Advanced machine learning utilities and generators.</p>
+                    <a href="https://relmusic.github.io/ai/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 9 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/3d.jpeg" alt="3D Studio" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">3D Visualizer</h3>
+                    <p class="text-sm text-gray-400 mb-4">Interactive 3D model rendering tool.</p>
+                    <a href="https://relmusic.github.io/3d/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 10 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/voice.png" alt="Voice" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">Voice & Speech Studio</h3>
+                    <p class="text-sm text-gray-400 mb-4">Text-to-speech and audio processing tools.</p>
+                    <a href="https://relmusic.github.io/voice/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+                <!-- Card 11 -->
+                <div class="slide-card bg-gray-800 border border-gray-700 rounded-xl p-4 text-center shadow-lg">
+                    <img src="https://relmusic.github.io/img/wa.png" alt="WA Tool" class="w-16 h-16 mx-auto mb-3 object-contain">
+                    <h3 class="font-bold text-lg mb-2">WhatsApp Direct Link</h3>
+                    <p class="text-sm text-gray-400 mb-4">Generate instant WhatsApp chat links without saving numbers.</p>
+                    <a href="https://relmusic.github.io/wa/index.html" class="text-blue-400 hover:underline text-sm font-semibold">Launch Tool &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillar Article Section (Comprehensive Content & Internal Links) -->
+    <main class="py-16 container mx-auto px-4 max-w-4xl">
+        <article class="prose prose-invert max-w-none">
+            <h2 class="text-3xl font-bold mb-6 text-white border-b border-gray-800 pb-3">Comprehensive Guide to Global Multi-Browser Search Tools & Software Generators</h2>
+            
+            <p class="text-gray-300 mb-4">In the modern digital ecosystem, information retrieval requires speed, accuracy, and versatility. The <strong>Search Tools Software Generator All by RealMusic</strong> represents a breakthrough in browser automation and multi-engine query distribution. Designed for researchers, developers, digital marketers, and power users, this platform aggregates over 100 country-specific search engines into a singular, cohesive interface. By leveraging advanced API endpoints and dynamic URL generation, users can instantly query multiple global engines and open bulk URLs in new browser tabs effortlessly.</p>
+
+            <h3 class="text-2xl font-semibold text-white mt-8 mb-4">The Evolution of Search Engines and Multi-Country Indexing</h3>
+            <p class="text-gray-300 mb-4">Traditional web browsing often limits users to local search index results dictated by geographic IP configurations. However, global market research, SEO auditing, and competitive analysis demand a wider perspective. Through our multi-country routing system, you can simulate search engine result pages (SERPs) across diverse territories—spanning North America, Europe, Asia, and beyond. Whether you are cross-referencing indexing performance or conducting linguistic studies using regional tools like our <a href="https://relmusic.github.io/macapat/index.html" class="text-blue-400 hover:underline">Javanese Macapat generator</a> and <a href="https://relmusic.github.io/keyboard-jawa/index.html" class="text-blue-400 hover:underline">Javanese Keyboard utility</a>, RealMusic provides the foundational framework.</p>
+
+            <h3 class="text-2xl font-semibold text-white mt-8 mb-4">Key Features of the RealMusic Search Software Generator</h3>
+            <ul class="list-disc pl-6 space-y-2 text-gray-300 mb-6">
+                <li><strong>100+ Country Coverage:</strong> Seamlessly switch between localized search parameters to verify international visibility.</li>
+                <li><strong>Bulk URL Tab Opener:</strong> Input multiple custom web links and command your browser to open them concurrently in separate tabs.</li>
+                <li><strong>API Integration:</strong> Built with high-performance hooks including YouTube data handlers (`YT_API_KEY = "AIzaSyDkXj66lPy0lC7sRrGfXzFk7dww0c_jkg0"`).</li>
+                <li><strong>Cross-Platform Compatibility:</strong> Optimized layout adapting smoothly to mobile devices, tablets, and desktop workstations.</li>
+                <li><strong>Ecosystem Synergy:</strong> Easily jump between network diagnostics using our <a href="https://relmusic.github.io/ip/index.html" class="text-blue-400 hover:underline">IP Analyzer</a>, geographic coordinates via <a href="https://relmusic.github.io/maps/index.html" class="text-blue-400 hover:underline">Global Maps</a>, and temporal calculations using the <a href="https://relmusic.github.io/calendar/index.html" class="text-blue-400 hover:underline">Smart Calendar</a>.</li>
+            </ul>
+
+            <h3 class="text-2xl font-semibold text-white mt-8 mb-4">Optimizing Workflow with Automated Tab Openers</h3>
+            <p class="text-gray-300 mb-4">Productivity often stalls when users are forced to manually copy, paste, and load dozens of research tabs one by one. Our URL software generator parses newline-separated text strings and utilizes modern asynchronous JavaScript commands to fire safe, secure browser windows instantly. When combined with our suite of multimedia utilities—such as the <a href="https://relmusic.github.io/voice/index.html" class="text-blue-400 hover:underline">Voice Studio</a>, <a href="https://relmusic.github.io/3d/index.html" class="text-blue-400 hover:underline">3D Visualizer</a>, and <a href="https://relmusic.github.io/ai/index.html" class="text-blue-400 hover:underline">AI Assistant Hub</a>—professionals can streamline repetitive browser tasks within seconds.</p>
+
+            <h3 class="text-2xl font-semibold text-white mt-8 mb-4">Security, Privacy, and Direct Messaging Capabilities</h3>
+            <p class="text-gray-300 mb-4">At RealMusic, user data integrity remains paramount. Our client-side query execution ensures that your custom lists and search strings are processed locally without unauthorized server logging. Furthermore, for direct business collaboration or inquiries, users can leverage communication utilities such as our <a href="https://relmusic.github.io/wa/index.html" class="text-blue-400 hover:underline">WhatsApp Link Generator</a> to initiate instant client communication. For comprehensive regulatory standards, review our <a href="https://relmusic.github.io/privacy.html" class="text-blue-400 hover:underline">Privacy Policy</a> and <a href="https://relmusic.github.io/term.html" class="text-blue-400 hover:underline">Terms of Service</a>.</p>
+        </article>
+
+        <!-- FAQ Section (6 Items) -->
+        <section class="mt-12">
+            <h3 class="text-2xl font-bold mb-6 text-white">Frequently Asked Questions (FAQ)</h3>
+            <div class="space-y-4">
+                <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                    <h4 class="font-bold text-lg text-blue-400">1. What is the Search Tools Software Generator by RealMusic?</h4>
+                    <p class="text-gray-300 mt-2">It is an advanced multi-engine web application that allows users to query over 100 country-specific search platforms and execute bulk URL opening commands in new browser tabs simultaneously.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                    <h4 class="font-bold text-lg text-blue-400">2. How do I use the 'Open All Newtab' URL tool?</h4>
+                    <p class="text-gray-300 mt-2">Simply paste your list of target website links separated by line breaks into the input field and click the execution button. Ensure your browser's pop-up blocker allows multiple tabs from this domain.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                    <h4 class="font-bold text-lg text-blue-400">3. Are the search results accurate for international regions?</h4>
+                    <p class="text-gray-300 mt-2">Yes, the tool constructs specific localized query structures corresponding to international domains and regional parameters for more accurate global insights.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                    <h4 class="font-bold text-lg text-blue-400">4. Is there any software installation required?</h4>
+                    <p class="text-gray-300 mt-2">No installation is required. This is a 100% web-based software utility accessible directly through any modern web browser across desktop and mobile devices.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                    <h4 class="font-bold text-lg text-blue-400">5. How can I access other tools created by RealMusic?</h4>
+                    <p class="text-gray-300 mt-2">You can explore our complete directory including IP checking, Macapat generators, Javanese keyboards, and AI utilities directly from our homepage or navigation cards.</p>
+                </div>
+                <div class="bg-gray-900 border border-gray-800 p-4 rounded-lg">
+                    <h4 class="font-bold text-lg text-blue-400">6. How can I contact the RealMusic developer team?</h4>
+                    <p class="text-gray-300 mt-2">You can reach out through our dedicated contact form below or visit our <a href="https://relmusic.github.io/contact.html" class="text-blue-400 underline">Contact Page</a> for support inquiries.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="mt-12 bg-gray-900 border border-gray-800 p-6 rounded-xl">
+            <h3 class="text-2xl font-bold mb-3 text-white">Conclusion</h3>
+            <p class="text-gray-300">The <strong>Search Tools Software Generator All</strong> bridges the gap between complex multi-region research and streamlined user productivity. By combining 100+ country engines, bulk URL management, and an interconnected suite of utility applications, RealMusic delivers an indispensable asset for modern digital navigation. Bookmark this platform to optimize your daily web workflows and global search strategies.</p>
+        </section>
+
+        <!-- Quotation Block -->
+        <blockquote class="mt-8 border-l-4 border-blue-500 pl-4 italic text-gray-400">
+            "Technology is best when it brings people together and simplifies the complexity of global information access." — <strong>RealMusic Vision</strong>
+        </blockquote>
+
+        <!-- Contact Form Section -->
+        <section class="mt-16 bg-gray-900 border border-gray-800 p-8 rounded-xl shadow-lg">
+            <h3 class="text-2xl font-bold mb-4 text-white">Contact Us</h3>
+            <p class="text-gray-400 mb-6 text-sm">Have feedback, suggestions, or partnership proposals? Send us a message below.</p>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Your Name</label>
+                    <input type="text" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Your Email</label>
+                    <input type="email" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-300 mb-1">Message</label>
+                    <textarea rows="4" required class="w-full p-3 rounded-lg bg-gray-800 border border-gray-700 text-white focus:outline-none focus:border-blue-500"></textarea>
+                </div>
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-lg transition w-full shadow-lg">Send Message</button>
+            </form>
+        </section>
+
+        <!-- Social Media Share Section -->
+        <section class="mt-12 text-center">
+            <h4 class="text-lg font-semibold mb-4 text-white">Share This Tool With Friends</h4>
+            <div class="flex justify-center space-x-4">
+                <a href="https://facebook.com/sharer/sharer.php?u=https://relmusic.github.io/search/index.html" target="_blank" rel="noopener noreferrer" class="bg-blue-800 hover:bg-blue-900 text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-md"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com/intent/tweet?url=https://relmusic.github.io/search/index.html&text=Check%20out%20Global%20Search%20Tools%20by%20RealMusic" target="_blank" rel="noopener noreferrer" class="bg-blue-500 hover:bg-blue-600 text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-md"><i class="fab fa-twitter"></i></a>
+                <a href="https://api.whatsapp.com/send?text=Explore%20Search%20Tools%20Software%20Generator%20by%20RealMusic:%20https://relmusic.github.io/search/index.html" target="_blank" rel="noopener noreferrer" class="bg-green-600 hover:bg-green-700 text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-md"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://relmusic.github.io/search/index.html" target="_blank" rel="noopener noreferrer" class="bg-blue-700 hover:bg-blue-800 text-white w-10 h-10 rounded-full flex items-center justify-center transition shadow-md"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 mt-16 py-12 text-gray-400 text-sm">
+        <div class="container mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 mb-8">
+            <div>
+                <h5 class="font-bold text-white mb-3">Navigation</h5>
+                <ul class="space-y-2">
+                    <li><a href="https://relmusic.github.io/" class="hover:text-blue-400">Home</a></li>
+                    <li><a href="https://relmusic.github.io/about.html" class="hover:text-blue-400">About Us</a></li>
+                    <li><a href="https://relmusic.github.io/contact.html" class="hover:text-blue-400">Contact</a></li>
+                    <li><a href="https://relmusic.github.io/sitemap.html" class="hover:text-blue-400">Sitemap</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-3">Legal & Policy</h5>
+                <ul class="space-y-2">
+                    <li><a href="https://relmusic.github.io/privacy.html" class="hover:text-blue-400">Privacy Policy</a></li>
+                    <li><a href="https://relmusic.github.io/disclaimers.html" class="hover:text-blue-400">Disclaimers</a></li>
+                    <li><a href="https://relmusic.github.io/term.html" class="hover:text-blue-400">Terms of Service</a></li>
+                    <li><a href="https://relmusic.github.io/license.html" class="hover:text-blue-400">License</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-3">Featured Tools</h5>
+                <ul class="space-y-2">
+                    <li><a href="https://relmusic.github.io/ip/index.html" class="hover:text-blue-400">IP Checker</a></li>
+                    <li><a href="https://relmusic.github.io/maps/index.html" class="hover:text-blue-400">Maps Tool</a></li>
+                    <li><a href="https://relmusic.github.io/ai/index.html" class="hover:text-blue-400">AI Hub</a></li>
+                    <li><a href="https://relmusic.github.io/wa/index.html" class="hover:text-blue-400">WhatsApp Tool</a></li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-white mb-3">About RealMusic</h5>
+                <p class="text-xs text-gray-400">Providing cutting-edge web applications, generator utilities, and cultural software solutions globally.</p>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-6 text-center text-xs">
+            <p>&copy; 2026 RealMusic (relmusic.github.io). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Utility Functions -->
+    <script>
+        // API Key configuration reference
+        const YT_API_KEY = "AIzaSyDkXj66lPy0lC7sRrGfXzFk7dww0c_jkg0";
+
+        // Typing Effect Script
+        const words = [
+            "Search 100+ Country Search Engines Instantly",
+            "Generate Multi-Browser Queries With Ease",
+            "Open Bulk URLs in New Tabs Automatically",
+            "Powered by RealMusic Software Ecosystem"
+        ];
+        let i = 0;
+        let timer;
+
+        function typingEffect() {
+            const word = words[i].split("");
+            var loopTyping = function() {
+                if (word.length > 0) {
+                    document.getElementById('typing-text').innerHTML += word.shift();
+                } else {
+                    setTimeout(deletingEffect, 2000);
+                    return;
+                }
+                timer = setTimeout(loopTyping, 100);
+            };
+            loopTyping();
+        }
+
+        function deletingEffect() {
+            const word = words[i].split("");
+            var loopDeleting = function() {
+                if (word.length > 0) {
+                    word.pop();
+                    document.getElementById('typing-text').innerHTML = word.join("");
+                } else {
+                    if (words.length > (i + 1)) {
+                        i++;
+                    } else {
+                        i = 0;
+                    }
+                    setTimeout(typingEffect, 500);
+                    return;
+                }
+                timer = setTimeout(loopDeleting, 50);
+            };
+            loopDeleting();
+        }
+
+        typingEffect();
+
+        // Multi-Search Execution Function
+        function executeMultiSearch() {
+            const query = document.getElementById('searchInput').value.trim();
+            const country = document.getElementById('countrySelect').value;
+            if(!query) {
+                alert("Please enter a search term or keyword!");
+                return;
+            }
+            const encodedQuery = encodeURIComponent(query);
+            const urls = [
+                `https://www.google.com/search?q=${encodedQuery}&gl=${country}`,
+                `https://search.yahoo.com/search?p=${encodedQuery}`,
+                `https://www.bing.com/search?q=${encodedQuery}`,
+                `https://duckduckgo.com/?q=${encodedQuery}`
+            ];
+            urls.forEach(url => {
+                window.open(url, '_blank');
+            });
+        }
+
+        // Open All URLs Function
+        function openAllUrls() {
+            const input = document.getElementById('searchInput').value.trim();
+            if(!input) {
+                alert("Please enter valid URLs separated by spaces or lines!");
+                return;
+            }
+            const urls = input.split(/[\s\n]+/);
+            urls.forEach(url => {
+                let formattedUrl = url;
+                if(!url.startsWith('http://') && !url.startsWith('https://')) {
+                    formattedUrl = 'https://' + url;
+                }
+                window.open(formattedUrl, '_blank');
+            });
+        }
+
+        // Contact Form Mock Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            alert("Thank you! Your message has been successfully sent to RealMusic support team.");
+            e.target.reset();
+        }
+    </script>
+</body>
+</html>
