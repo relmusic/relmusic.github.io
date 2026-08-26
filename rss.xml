@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>RealMusic 100+ Country Open Projects RSS Feed</title>
+        <link>https://relmusic.github.io/</link>
+        <description>Official RSS feed for RealMusic global open-source projects, interactive web tools, cultural databases, and multi-country utilities.</description>
+        <language>en-us</language>
+        <lastBuildDate>Wed, 26 Aug 2026 10:27:11 GMT</lastBuildDate>
+        <atom:link href="https://relmusic.github.io/rss.xml" rel="self" type="application/rss+xml" />
+
+        <item>
+            <title>Sitemap RealMusic 100+ Country Open Projects - Complete Global Directory</title>
+            <link>https://relmusic.github.io/sitemap.html</link>
+            <guid>https://relmusic.github.io/sitemap.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Explore the comprehensive sitemap and directory of RealMusic 100+ Country Open Projects, featuring interactive tools, AI utilities, and cultural databases.</description>
+        </item>
+
+        <item>
+            <title>IP &amp; Network Tracker Utility</title>
+            <link>https://relmusic.github.io/ip/index.html</link>
+            <guid>https://relmusic.github.io/ip/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Instant network diagnostic and IP geolocation tool for global nodes across 100+ countries.</description>
+        </item>
+
+        <item>
+            <title>Maps Explorer &amp; Geolocation Tool</title>
+            <link>https://relmusic.github.io/maps/index.html</link>
+            <guid>https://relmusic.github.io/maps/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Interactive mapping utilities for regional and international data mapping and spatial tracking.</description>
+        </item>
+
+        <item>
+            <title>Macapat Meter &amp; Poetry Analyzer</title>
+            <link>https://relmusic.github.io/macapat/index.html</link>
+            <guid>https://relmusic.github.io/macapat/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Traditional Javanese poetry cadence and syllable counter suite integrated with modern open web frameworks.</description>
+        </item>
+
+        <item>
+            <title>Wayang Culture Database &amp; Philosophy</title>
+            <link>https://relmusic.github.io/wayang/index.html</link>
+            <guid>https://relmusic.github.io/wayang/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Character index, philosophy, and history of classical wayang shadow puppetry preservation projects.</description>
+        </item>
+
+        <item>
+            <title>Javanese Virtual Keyboard Suite</title>
+            <link>https://relmusic.github.io/keyboard-jawa/index.html</link>
+            <guid>https://relmusic.github.io/keyboard-jawa/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Virtual keyboard supporting special Javanese scripts and international typography layouts.</description>
+        </item>
+
+        <item>
+            <title>Javanese Weton &amp; Calendar Converter</title>
+            <link>https://relmusic.github.io/calendar/index.html</link>
+            <guid>https://relmusic.github.io/calendar/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Javanese weton and international calendar synchronization utility for chronological research.</description>
+        </item>
+
+        <item>
+            <title>AI Intelligence Engine Suite</title>
+            <link>https://relmusic.github.io/ai/index.html</link>
+            <guid>https://relmusic.github.io/ai/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Cross-disciplinary machine learning generators for global content creation and language synthesis.</description>
+        </item>
+
+        <item>
+            <title>3D Object Visualizer &amp; WebGL Render</title>
+            <link>https://relmusic.github.io/3d/index.html</link>
+            <guid>https://relmusic.github.io/3d/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Interactive WebGL model rendering tool for digital art and cultural asset visualization.</description>
+        </item>
+
+        <item>
+            <title>Voice Synthesizer &amp; Speech Converter</title>
+            <link>https://relmusic.github.io/voice/index.html</link>
+            <guid>https://relmusic.github.io/voice/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Speech-to-text and text-to-speech modular converter with multi-accent support.</description>
+        </item>
+
+        <item>
+            <title>WhatsApp Direct Link Generator</title>
+            <link>https://relmusic.github.io/wa/index.html</link>
+            <guid>https://relmusic.github.io/wa/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Generate instant WhatsApp chat redirect links without saving contact numbers to your device.</description>
+        </item>
+
+        <item>
+            <title>Global Search Engine Directory</title>
+            <link>https://relmusic.github.io/search/index.html</link>
+            <guid>https://relmusic.github.io/search/index.html</guid>
+            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
+            <description>Aggregated internal directory query tool for high-speed content lookup across all RealMusic projects.</description>
+        </item>
+    </channel>
+</rss>
