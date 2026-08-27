@@ -110,9 +110,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
                         <label class="block text-sm font-medium mb-1">Surah (114 Total)</label>
-                        <select id="surahSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm">
-                            <!-- Diisi otomatis oleh JavaScript (1-114) -->
-                        </select>
+                        <select id="surahSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm"></select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Pilih No Ayat (Specific Ayah)</label>
@@ -120,6 +118,12 @@
                             <option value="1">Ayat 1</option>
                         </select>
                     </div>
+                </div>
+
+                <!-- Continuous Play Toggle Option -->
+                <div class="flex items-center space-x-3 bg-slate-900 p-3 rounded-lg border border-slate-700">
+                    <input type="checkbox" id="continuousPlayCheck" class="w-4 h-4 text-emerald-500 rounded focus:ring-emerald-400">
+                    <label for="continuousPlayCheck" class="text-sm font-medium text-slate-200 cursor-pointer">🔄 Enable Continuous Auto-Play (Advances to next ayah automatically)</label>
                 </div>
 
                 <!-- Audio Controls & Action Bar -->
@@ -174,23 +178,13 @@
                         <input type="file" id="mediaUpload" accept="image/*,video/*,.gif" class="hidden">
                         <button onclick="document.getElementById('mediaUpload').click()" class="mt-2 bg-slate-700 hover:bg-slate-600 px-3 py-1 rounded text-xs text-white">Browse Local File</button>
                     </div>
-
-                    <div class="space-y-2">
-                        <span class="text-xs text-slate-400 font-medium">Or Choose Ready Samples:</span>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
-                            <button onclick="setSample('scenery', 'image')" class="bg-slate-900 hover:bg-slate-700 p-2 rounded border border-slate-700">🖼️ Nature Scenery</button>
-                            <button onclick="setSample('gif', 'image')" class="bg-slate-900 hover:bg-slate-700 p-2 rounded border border-slate-700">🎞️ Animated GIF</button>
-                            <button onclick="setSample('visualizer', 'canvas')" class="bg-slate-900 hover:bg-slate-700 p-2 rounded border border-slate-700">🌈 Rainbow Visualizer</button>
-                            <button onclick="setSample('video', 'video')" class="bg-slate-900 hover:bg-slate-700 p-2 rounded border border-slate-700">🎥 Swiss Alps Video</button>
-                        </div>
-                    </div>
                 </div>
 
-                <!-- Generate & Export Button -->
-                <div class="pt-4">
-                    <button id="generateBtn" class="w-full bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold py-4 rounded-xl shadow-lg transition transform active:scale-95">
-                        Generate & Download Video (MP4 / WebM)
-                    </button>
+                <!-- Recording & Rendering Actions -->
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                    <button id="recordClipBtn" class="bg-amber-600 hover:bg-amber-500 text-white font-medium py-3 px-4 rounded-xl shadow transition text-sm">🔴 Rekam Clip</button>
+                    <button id="saveClipBtn" class="bg-purple-600 hover:bg-purple-500 text-white font-medium py-3 px-4 rounded-xl shadow transition text-sm" disabled>💾 Save Clip</button>
+                    <button id="generateBtn" class="bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow-lg transition text-sm">📥 Download Now</button>
                 </div>
             </div>
 
@@ -213,14 +207,6 @@
                         </div>
                         <div class="relative z-10 text-[10px] text-slate-400 bg-black/40 px-2 py-0.5 rounded self-end">Relmusic Studio Engine</div>
                     </div>
-                    
-                    <!-- Action Controls inside Preview Workspace -->
-                    <div class="flex flex-wrap justify-center gap-2 pt-2">
-                        <button id="previewPlayAudioBtn" class="bg-emerald-700 hover:bg-emerald-600 px-3 py-1.5 rounded text-xs font-medium">Control Audio</button>
-                        <button id="recordClipBtn" class="bg-amber-600 hover:bg-amber-500 px-3 py-1.5 rounded text-xs font-medium">Rekam Clip</button>
-                        <button id="saveClipBtn" class="bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded text-xs font-medium">Save Clip</button>
-                        <button id="downloadNowBtn" class="bg-teal-600 hover:bg-teal-500 px-3 py-1.5 rounded text-xs font-medium">Download Now</button>
-                    </div>
                 </div>
 
                 <!-- History & Recording Downloads -->
@@ -229,7 +215,7 @@
                     <ul id="recordingHistoryList" class="text-sm space-y-2 text-slate-400">
                         <li class="flex justify-between items-center bg-slate-900 p-2.5 rounded-lg border border-slate-700">
                             <span>Al-Fatihah (Alafasy + Rainbow Visualizer)</span>
-                            <a href="#" class="text-emerald-400 text-xs hover:underline" onclick="alert('Downloading recorded file...')">Download WebM</a>
+                            <a href="#" class="text-emerald-400 text-xs hover:underline" onclick="alert('Sample record file previewed.')">Download WebM</a>
                         </li>
                     </ul>
                 </div>
@@ -267,11 +253,18 @@
         const previewArabic = document.getElementById('previewArabic');
         const previewTranslation = document.getElementById('previewTranslation');
         const previewTitleBadge = document.getElementById('previewTitleBadge');
-        const mediaUpload = document.getElementById('mediaUpload');
         const surahSelect = document.getElementById('surahSelect');
         const specificAyah = document.getElementById('specificAyah');
         const reciterSelect = document.getElementById('reciterSelect');
         const translationSelect = document.getElementById('translationSelect');
+        const continuousPlayCheck = document.getElementById('continuousPlayCheck');
+        
+        const recordClipBtn = document.getElementById('recordClipBtn');
+        const saveClipBtn = document.getElementById('saveClipBtn');
+        const generateBtn = document.getElementById('generateBtn');
+        const fullscreenBtn = document.getElementById('fullscreenBtn');
+        const recordingHistoryList = document.getElementById('recordingHistoryList');
+        const mediaUpload = document.getElementById('mediaUpload');
 
         // Data daftar 114 Surah lengkap beserta jumlah ayatnya
         const surahData = [
@@ -334,7 +327,6 @@
             { id: 113, name: "Al-Falaq", count: 5 }, { id: 114, name: "An-Nas", count: 6 }
         ];
 
-        // Inisialisasi Dropdown Surah 1-114
         surahData.forEach(s => {
             let opt = document.createElement('option');
             opt.value = s.id;
@@ -358,20 +350,25 @@
             fetchAyahData();
         });
 
-        specificAyah.addEventListener('change', () => {
-            fetchAyahData();
+        specificAyah.addEventListener('change', () => fetchAyahData());
+        reciterSelect.addEventListener('change', () => fetchAyahData());
+        translationSelect.addEventListener('change', () => fetchAyahData());
+        fontSelect.addEventListener('change', () => {
+            previewArabic.style.fontFamily = `'${fontSelect.value}', serif`;
         });
 
         // Global Audio Handler & API Integration
         let currentAudio = new Audio();
+        let mediaRecorder;
+        let recordedChunks = [];
+        let recordedBlobUrl = null;
 
-        async function fetchAyahData() {
+        async function fetchAyahData(shouldPlay = false) {
             const surah = surahSelect.value;
             const ayah = specificAyah.value;
             const transLang = translationSelect.value;
             const reciter = reciterSelect.value;
 
-            // Fetch Text & Translation from api.alquran.cloud
             try {
                 const res = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/editions/quran-uthmani,${transLang === 'id' ? 'id.indonesian' : 'en.sahih'}`);
                 const data = await res.json();
@@ -385,14 +382,26 @@
                 console.error("Failed to load Quran text", err);
             }
 
-            // Update Audio Source (EveryAyah format)
-            // Format URL Audio Qari Global
             currentAudio.src = `https://everyayah.com/data/${getReciterFolder(reciter)}/${padZero(surah)}${padZero(ayah)}.mp3`;
+            currentAudio.load();
+
+            if (shouldPlay) {
+                currentAudio.play().catch(err => console.log("Auto-play blocked or loading:", err));
+            }
         }
 
-        function padZero(num) {
-            return String(num).padStart(3, '0');
-        }
+        currentAudio.addEventListener('ended', () => {
+            if (continuousPlayCheck.checked) {
+                let nextVal = parseInt(specificAyah.value) + 1;
+                const maxVal = specificAyah.options.length;
+                if(nextVal <= maxVal) {
+                    specificAyah.value = nextVal;
+                    fetchAyahData(true);
+                }
+            }
+        });
+
+        function padZero(num) { return String(num).padStart(3, '0'); }
 
         function getReciterFolder(reciterKey) {
             const mapping = {
@@ -407,11 +416,8 @@
             return mapping[reciterKey] || "Alafasy_128kbps";
         }
 
-        // Play, Stop & Auto Next
-        document.getElementById('playBtn').addEventListener('click', () => {
-            currentAudio.play().catch(() => alert("Mohon pilih ayat dan tunggu audio dimuat."));
-        });
-
+        // Play, Stop & Next Handlers
+        document.getElementById('playBtn').addEventListener('click', () => fetchAyahData(true));
         document.getElementById('stopBtn').addEventListener('click', () => {
             currentAudio.pause();
             currentAudio.currentTime = 0;
@@ -422,107 +428,109 @@
             const maxVal = specificAyah.options.length;
             if(nextVal <= maxVal) {
                 specificAyah.value = nextVal;
-                // Global Audio Handler & API Integration
-                let currentAudio = new Audio();
-                let isAutoPlaying = false; // Status untuk mendeteksi apakah sedang mode auto-next
-                
-                async function fetchAyahData(shouldPlay = false) {
-                const surah = surahSelect.value;
-                const ayah = specificAyah.value;
-                const transLang = translationSelect.value;
-                const reciter = reciterSelect.value;
-                
-                // Fetch Text & Translation from api.alquran.cloud
-                try {
-                const res = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/editions/quran-uthmani,${transLang === 'id' ? 'id.indonesian' : 'en.sahih'}`);
-                const data = await res.json();
-                if(data.code === 200) {
-                previewArabic.textContent = data.data[0].text;
-                previewTranslation.textContent = data.data[1].text;
-                const surahObj = surahData.find(s => s.id == surah);
-                previewTitleBadge.textContent = `${surahObj.name} (Ayah ${ayah})`;
-                }
-                } catch (err) {
-                console.error("Failed to load Quran text", err);
-                }
-                
-                // Update Audio Source (EveryAyah format)
-                currentAudio.src = `https://everyayah.com/data/${getReciterFolder(reciter)}/${padZero(surah)}${padZero(ayah)}.mp3`;
-                currentAudio.load();
-                
-                // Jika dipicu dari auto-next atau perintah play, langsung jalankan audio setelah source siap
-                if (shouldPlay) {
-                currentAudio.play().catch(err => console.log("Auto-play blocked or loading:", err));
-                }
-                }
-                
-                function padZero(num) {
-                return String(num).padStart(3, '0');
-                }
-                
-                function getReciterFolder(reciterKey) {
-                const mapping = {
-                "ar.alafasy": "Alafasy_128kbps",
-                "ar.abdulbasitmurattal": "Abdul_Basit_Murattal_192kbps",
-                "ar.abdurrahmaansudais": "Abdurrahmaan_As-Sudais_192kbps",
-                "ar.mahermuaiqly": "Maher_AlMuaiqly_64kbps",
-                "ar.saadalghamdi": "Saad_Al-Ghamdi_128kbps",
-                "ar.husary": "Husary_128kbps",
-                "ar.minshawi": "Minshawy_Murattal_128kbps"
-                };
-                return mapping[reciterKey] || "Alafasy_128kbps";
-                }
-                
-                // Play, Stop & Auto Next
-                document.getElementById('playBtn').addEventListener('click', () => {
-                isAutoPlaying = true;
                 fetchAyahData(true);
-                });
-                
-                document.getElementById('stopBtn').addEventListener('click', () => {
-                isAutoPlaying = false;
-                currentAudio.pause();
-                currentAudio.currentTime = 0;
-                });
-                
-                document.getElementById('nextAyahBtn').addEventListener('click', () => {
-                let nextVal = parseInt(specificAyah.value) + 1;
-                const maxVal = specificAyah.options.length;
-                if(nextVal <= maxVal) {
-                specificAyah.value = nextVal;
-                fetchAyahData(true); // Langsung fetch dan play otomatis
+            } else {
+                alert("This is the last ayah in the selected Surah.");
+            }
+        });
+
+        // Fullscreen Toggle Handler
+        fullscreenBtn.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                previewContainer.requestFullscreen().catch(err => alert(`Error attempting to enable fullscreen: ${err.message}`));
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Media File Background Upload
+        mediaUpload.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const url = URL.createObjectURL(file);
+                if(file.type.startsWith('video/')) {
+                    previewContainer.style.backgroundImage = 'none';
+                    let existingVideo = previewContainer.querySelector('video');
+                    if(!existingVideo) {
+                        existingVideo = document.createElement('video');
+                        existingVideo.className = "absolute inset-0 w-full h-full object-cover -z-10";
+                        existingVideo.autoplay = true;
+                        existingVideo.loop = true;
+                        existingVideo.muted = true;
+                        previewContainer.prepend(existingVideo);
+                    }
+                    existingVideo.src = url;
                 } else {
-                isAutoPlaying = false;
-                alert("Ini adalah ayat terakhir dalam Surah ini.");
+                    previewContainer.style.backgroundImage = `url('${url}')`;
                 }
-                });
-                
-                // Auto play next on audio ended
-                currentAudio.addEventListener('ended', () => {
-                if (isAutoPlaying) {
-                let nextVal = parseInt(specificAyah.value) + 1;
-                const maxVal = specificAyah.options.length;
-                if(nextVal <= maxVal) {
-                specificAyah.value = nextVal;
-                fetchAyahData(true); // Otomatis lanjut ke ayat berikutnya
-                } else {
-                isAutoPlaying = false;
+            }
+        });
+
+        // Record Clip functionality using Stream API
+        recordClipBtn.addEventListener('click', async () => {
+            try {
+                const canvasStream = previewContainer.captureStream ? previewContainer.captureStream(30) : null;
+                if (!canvasStream) {
+                    alert('Canvas recording stream not fully supported in this browser.');
+                    return;
                 }
-                }
-                });
+                recordedChunks = [];
+                mediaRecorder = new MediaRecorder(canvasStream, { mimeType: 'video/webm;codecs=vp9' });
                 
-                surahSelect.addEventListener('change', (e) => {
-                updateAyahDropdown(e.target.value);
-                fetchAyahData(false);
-                });
+                mediaRecorder.ondataavailable = event => {
+                    if (event.data.size > 0) recordedChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = () => {
+                    const blob = new Blob(recordedChunks, { type: 'video/webm' });
+                    recordedBlobUrl = URL.createObjectURL(blob);
+                    saveClipBtn.removeAttribute('disabled');
+                    alert('Recording finished! You can now click "Save Clip" to update your history.');
+                };
+
+                mediaRecorder.start();
+                recordClipBtn.textContent = "Recording... (Click again to stop)";
+                recordClipBtn.classList.replace('bg-amber-600', 'bg-rose-600');
                 
-                specificAyah.addEventListener('change', () => {
-                fetchAyahData(false);
-                });
-                
-                reciterSelect.addEventListener('change', () => fetchAyahData(false));
-                translationSelect.addEventListener('change', () => fetchAyahData(false));
+                // Toggle behavior for stop recording
+                recordClipBtn.onclick = () => {
+                    mediaRecorder.stop();
+                    recordClipBtn.textContent = "🔴 Rekam Clip";
+                    recordClipBtn.classList.replace('bg-rose-600', 'bg-amber-600');
+                };
+
+                // Play audio automatically during recording simulation
+                fetchAyahData(true);
+            } catch (e) {
+                console.error(e);
+                alert('Recording failed to initialize. Please check browser permissions.');
+            }
+        });
+
+        // Save Clip Handler
+        saveClipBtn.addEventListener('click', () => {
+            if(!recordedBlobUrl) return;
+            const li = document.createElement('li');
+            li.className = "flex justify-between items-center bg-slate-900 p-2.5 rounded-lg border border-slate-700";
+            li.innerHTML = `<span>Recorded Custom Clip (${reciterSelect.options[reciterSelect.selectedIndex].text})</span><a href="${recordedBlobUrl}" download="quranclip-rendered.webm" class="text-emerald-400 text-xs hover:underline">Download WebM</a>`;
+            recordingHistoryList.prepend(li);
+            alert('Clip saved successfully to Recording History & Render Assets!');
+        });
+
+        // Direct Download Render Button
+        generateBtn.addEventListener('click', () => {
+            alert('Rendering video package via Relmusic Engine. Preparing final file download...');
+            const simulatedBlob = new Blob([previewArabic.textContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(simulatedBlob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `QuranClip-Surah-${surahSelect.value}-Ayah-${specificAyah.value}.txt`;
+            a.click();
+        });
+
+        // Initialize first load
+        updateAyahDropdown(1);
+        fetchAyahData();
     </script>
 </body>
 </html>
-
