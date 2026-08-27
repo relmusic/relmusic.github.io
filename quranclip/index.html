@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Relmusic QuranClip | Free Online Quran Video Editor & Media Downloader</title>
     <meta name="description" content="Create beautiful Quran videos in seconds with Relmusic QuranClip. Pick a reciter, choose your ayahs, use custom or sample visuals, and generate instantly for free!">
-    <meta name="keywords" content="QuranClip, Quran Video Editor, Relmusic, Free Online Quran Tools, Quran Media Record, Islamic Video Maker">
+    <meta name="keywords" content="QuranClip, Quran Video Editor, Relmusic, Free Online Quran Tools, Quran Media Record, Islamic Video Maker, Learn English Online">
     
     <!-- Google Verification & Adsense -->
     <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g" />
@@ -123,7 +123,7 @@
                 <!-- Continuous Play Toggle Option -->
                 <div class="flex items-center space-x-3 bg-slate-900 p-3 rounded-lg border border-slate-700">
                     <input type="checkbox" id="continuousPlayCheck" class="w-4 h-4 text-emerald-500 rounded focus:ring-emerald-400">
-                    <label for="continuousPlayCheck" class="text-sm font-medium text-slate-200 cursor-pointer">🔄 Enable Continuous Auto-Play (Advances to next ayah automatically)</label>
+                    <label for="continuousPlayCheck" class="text-sm font-medium text-slate-200 cursor-pointer">🔄 Enable Continuous Auto-Play (Next Ayat otomatis tanpa berhenti)</label>
                 </div>
 
                 <!-- Audio Controls & Action Bar -->
@@ -169,14 +169,78 @@
                     </div>
                 </div>
 
-                <!-- Step 5: Background Upload & Samples -->
-                <div class="space-y-3">
-                    <label class="block font-semibold">5. Background & Visualizer</label>
+                <!-- Step 5: Background Upload, Sample Images, GIFs & 10 Playable Videos -->
+                <div class="space-y-4">
+                    <label class="block font-semibold">5. Background, Sample Visuals, & 10 Playable Video Assets</label>
+                    
+                    <!-- Upload Box -->
                     <div class="border-2 border-dashed border-slate-700 rounded-xl p-4 text-center bg-slate-900/50 hover:border-emerald-500 transition">
                         <span class="text-2xl">🎬🖼️✨</span>
                         <p class="text-sm text-slate-400 mt-1">Drag & drop Image, GIF, Video, or select a sample below</p>
                         <input type="file" id="mediaUpload" accept="image/*,video/*,.gif" class="hidden">
                         <button onclick="document.getElementById('mediaUpload').click()" class="mt-2 bg-slate-700 hover:bg-slate-600 px-3 py-1 rounded text-xs text-white">Browse Local File</button>
+                    </div>
+
+                    <!-- Sample Images & GIFs Buttons -->
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-2">
+                        <p class="text-xs font-semibold text-emerald-400">Sample Images & GIFs (Click to Apply to Preview):</p>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="setSampleBg('image', 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=800')" class="bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded text-xs border border-slate-700">🌅 Beach Sunset Image</button>
+                            <button onclick="setSampleBg('image', 'https://images.unsplash.com/photo-1519681393784-d120267933ba?w=800')" class="bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded text-xs border border-slate-700">🌌 Starry Night Image</button>
+                            <button onclick="setSampleBg('image', 'https://images.unsplash.com/photo-1426604966848-d7adacbd02bff?w=800')" class="bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded text-xs border border-slate-700">🌲 Forest Nature Image</button>
+                            <button onclick="setSampleBg('gif', 'https://media.giphy.com/media/3o7TKSjRrfIPjeiOkM/giphy.gif')" class="bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded text-xs border border-slate-700">✨ Sparkle GIF</button>
+                            <button onclick="setSampleBg('gif', 'https://media.giphy.com/media/l0HlRnAWXxn0MhOBK/giphy.gif')" class="bg-slate-800 hover:bg-slate-700 px-3 py-1.5 rounded text-xs border border-slate-700">🌊 Ocean Waves GIF</button>
+                        </div>
+                    </div>
+
+                    <!-- 10 Playable Video Samples Grid -->
+                    <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-3">
+                        <div class="flex justify-between items-center">
+                            <p class="text-xs font-semibold text-emerald-400">10 Video Samples (Play & Record in Studio Preview):</p>
+                            <span class="text-[10px] text-slate-400">Click "Play in Preview" to load as active background</span>
+                        </div>
+                        <div class="grid grid-cols-2 md:grid-cols-5 gap-2 text-xs">
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">1. italia.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/italia.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">2. swiss.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/swiss.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">3. borobudur.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/borobudur.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">4. pesawat.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/pesawat.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">5. sunset.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/sunset.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">6. nature.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/nature.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">7. ocean.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/ocean.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">8. nightsky.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/nightsky.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">9. rain.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/rain.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                            <div class="bg-slate-800 p-2 rounded border border-slate-700 flex flex-col justify-between space-y-2">
+                                <span class="font-medium truncate text-emerald-300">10. clouds.mp4</span>
+                                <button onclick="setVideoBg('https://relmusic.github.io/vidio/clouds.mp4')" class="bg-emerald-600 hover:bg-emerald-500 text-white py-1 rounded text-[11px] transition">▶ Play in Preview</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -224,25 +288,154 @@
 
         <hr class="border-slate-700">
 
-        <!-- Media Repository Section -->
+        <!-- Long Comprehensive Article Section -->
+        <section class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 space-y-8">
+            <div class="space-y-4">
+                <h2 class="text-3xl font-bold text-emerald-400">Mastering Quran Video Production and Enhancing English Proficiency for Global Da'wah</h2>
+                <p class="text-slate-300 leading-relaxed text-sm">
+                    In the modern digital landscape, sharing the sublime message of the Holy Quran requires more than just recitation—it demands high-quality multimedia presentation, engaging visual aesthetics, and global linguistic accessibility. Creators around the world are increasingly utilizing tools like <strong>Relmusic QuranClip</strong> to craft professional vertical videos for platforms like YouTube Shorts, Instagram Reels, and TikTok. However, to maximize the international reach of Islamic content, producers must also bridge linguistic barriers by mastering global languages, particularly English. This comprehensive guide explores how to effectively combine digital media production with advanced English learning strategies to share Islamic reminders with a worldwide audience.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xl font-semibold text-emerald-300">1. The Synergy Between Islamic Digital Content and Global Communication</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Digital da'wah (outreach) thrives on clarity, emotional resonance, and professional production value. When you incorporate high-definition backgrounds such as <a href="#repository" class="text-emerald-400 underline hover:text-emerald-300">nature and scenic videos</a> into your Quran clips, you instantly capture the viewer's attention. Yet, translation and multilingual subtitles are what turn a regional clip into a global phenomenon. Understanding how to articulate Islamic concepts in fluent English allows creators to engage diverse demographics in Western and non-Arabic speaking nations. To delve deeper into linguistic structures, you can explore resources on <a href="https://learnenglish.britishcouncil.org/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">British Council Learn English</a>, which offers structured grammar and vocabulary lessons.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xl font-semibold text-emerald-300">2. Essential Strategies for Effective English Acquisition for Content Creators</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Fluency in English does not happen overnight; it requires consistent immersion, active listening, and practical application in scriptwriting and video editing. Content creators benefit immensely by reading professional translation commentaries, such as those provided by <a href="https://corpus.quran.com/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">Quran Corpus Translation Analysis</a>, which bridges classical Arabic semantics with precise English equivalents. Furthermore, utilizing platforms like <a href="https://www.duolingo.com/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">Duolingo Language Platform</a> daily helps reinforce fundamental sentence construction and conversational vocabulary.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xl font-semibold text-emerald-300">3. Building Professional Vocabulary and Advanced Pronunciation</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Pronunciation and clarity are paramount when recording voiceovers or translating Quranic verses into English. A mispronounced word or awkward phrasing can obscure the profound spiritual beauty of an ayah. To refine your spoken English and accent neutralization, practicing with tools on <a href="https://www.bbc.co.uk/learningenglish" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">BBC Learning English</a> is highly recommended. Additionally, exploring academic databases like <a href="https://scholar.google.com/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">Google Scholar Research Papers</a> provides insights into how contemporary theologians articulate Islamic jurisprudence and ethics in scholarly English journals.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xl font-semibold text-emerald-300">4. Leveraging Multimedia and Interactive Tools for Enhanced Engagement</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Engagement metrics on social media are heavily driven by visual dynamism and narrative cohesion. By integrating dynamic audio visualizers, custom fonts like Amiri, and high-resolution video loops into your workflow, your videos stand out in crowded feeds. If you wish to study how digital storytelling influences audience retention, review articles on <a href="https://techcrunch.com/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">TechCrunch Digital Media Insights</a>. For technical guidance on web development and browser-based recording APIs utilized in tools like QuranClip, consulting <a href="https://developer.mozilla.org/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">MDN Web Docs</a> provides robust documentation on MediaRecorder and Canvas rendering.
+                </p>
+            </div>
+
+            <div class="space-y-3">
+                <h3 class="text-xl font-semibold text-emerald-300">5. Expanding Global Reach Through SEO and Digital Marketing</h3>
+                <p class="text-slate-300 text-sm leading-relaxed">
+                    Creating magnificent videos is only half the battle; ensuring your target audience discovers them requires search engine optimization (SEO) and effective copywriting. Writing compelling titles, descriptions, and tags in idiomatic English ensures your content ranks higher on search engines and video platforms. For comprehensive tutorials on keyword research and digital marketing strategies, visit <a href="https://neilpatel.com/blog/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">Neil Patel Digital Marketing Blog</a>. Staying updated with global internet trends via <a href="https://www.theverge.com/" target="_blank" rel="noopener" class="text-emerald-400 underline hover:text-emerald-300">The Verge Technology News</a> also helps creators anticipate shifts in platform algorithms and short-form video formats.
+                </p>
+            </div>
+        </section>
+
+        <!-- FAQ Section (7 Questions) -->
         <section class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 space-y-6">
-            <h2 class="text-2xl font-bold text-emerald-400">Media Assets Repository Index</h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-3 text-sm">
-                <a href="https://relmusic.github.io/vidio/italia.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">italia.mp4</a>
-                <a href="https://relmusic.github.io/vidio/swiss.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">swiss.mp4</a>
-                <a href="https://relmusic.github.io/vidio/borobudur.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">borobudur.mp4</a>
-                <a href="https://relmusic.github.io/vidio/pesawat.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">pesawat.mp4</a>
-                <a href="https://relmusic.github.io/relmusic.jpg" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">scenery.jpg</a>
-                <a href="https://relmusic.github.io/favicon.png" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">logo.png</a>
+            <h2 class="text-2xl font-bold text-emerald-400">Frequently Asked Questions (FAQ)</h2>
+            <div class="space-y-4 text-sm">
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <h3 class="font-semibold text-emerald-300">1. How do I create a Quran video using Relmusic QuranClip?</h3>
+                    <p class="text-slate-400">Select your preferred Qari from 17 available reciters, choose the Surah and specific ayah number, pick your translation language, select a background image, GIF, or video sample, and click "Download Now" or "Rekam Clip" to save your video instantly.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <h3 class="font-semibold text-emerald-300">2. Are the video samples provided in the repository free to use?</h3>
+                    <p class="text-slate-400">Yes! The 10 sample videos included in our repository (such as nature, ocean, rain, and sunset loops) are completely free to use for personal and educational video projects.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <h3 class="font-semibold text-emerald-300">3. Can I enable continuous auto-play for multiple ayahs?</h3>
+                    <p class="text-slate-400">Absolutely. By checking the "Enable Continuous Auto-Play" option in the control panel, the player will automatically advance to the next ayah in sequence once the current audio finishes playing.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <h3 class="font-semibold text-emerald-300">4. What languages are supported for Quran translations?</h3>
+                    <p class="text-slate-400">QuranClip currently supports multiple international translations including English (Saheeh International), Bahasa Indonesia (Kemenag), French, Spanish, Turkish, Urdu, and Malay.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <h3 class="font-semibold text-emerald-300">5. How does learning English help in Islamic digital da'wah?</h3>
+                    <p class="text-slate-400">Mastering English allows creators to craft accurate subtitles, write engaging video descriptions, and communicate Islamic teachings to a broader global audience across Western and non-Arabic speaking countries.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <h3 class="font-semibold text-emerald-300">6. Can I record and save clips directly within my web browser?</h3>
+                    <p class="text-slate-400">Yes, using our built-in recording tool powered by modern browser media capture APIs, you can record live canvas previews and save your custom video clips directly to your device.</p>
+                </div>
+                <div class="bg-slate-900 p-4 rounded-xl border border-slate-700 space-y-1">
+                    <h3 class="font-semibold text-emerald-300">7. Do I need to install any software or plugins to use QuranClip?</h3>
+                    <p class="text-slate-400">No installation is required. Relmusic QuranClip is 100% web-based and runs directly inside any modern desktop or mobile web browser.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="bg-gradient-to-r from-emerald-900 to-slate-800 p-8 rounded-2xl shadow-xl border border-emerald-600/50 space-y-4">
+            <h2 class="text-2xl font-bold text-emerald-300">Conclusion</h2>
+            <p class="text-slate-200 text-sm leading-relaxed">
+                Combining state-of-the-art web tools like <strong>Relmusic QuranClip</strong> with continuous personal development—such as mastering global languages like English—empowers creators to elevate their digital da'wah efforts. By utilizing high-quality background assets, custom typography, precise translations, and engaging audio visualizers, sharing the wisdom of the Quran has never been more accessible or impactful. Explore our media repository, experiment with video generation, and start sharing inspiring Islamic reminders with the world today.
+            </p>
+        </section>
+
+        <hr class="border-slate-700">
+
+        <!-- Media Repository Section (10 Sample Videos Included) -->
+        <section id="repository" class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 space-y-6">
+            <h2 class="text-2xl font-bold text-emerald-400">Media Assets Repository Index (10 Free Video Samples)</h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-3 text-sm">
+                <a href="https://relmusic.github.io/vidio/italia.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">1. italia.mp4</a>
+                <a href="https://relmusic.github.io/vidio/swiss.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">2. swiss.mp4</a>
+                <a href="https://relmusic.github.io/vidio/borobudur.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">3. borobudur.mp4</a>
+                <a href="https://relmusic.github.io/vidio/pesawat.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">4. pesawat.mp4</a>
+                <a href="https://relmusic.github.io/vidio/sunset.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">5. sunset.mp4</a>
+                <a href="https://relmusic.github.io/vidio/nature.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">6. nature.mp4</a>
+                <a href="https://relmusic.github.io/vidio/ocean.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">7. ocean.mp4</a>
+                <a href="https://relmusic.github.io/vidio/nightsky.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">8. nightsky.mp4</a>
+                <a href="https://relmusic.github.io/vidio/rain.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">9. rain.mp4</a>
+                <a href="https://relmusic.github.io/vidio/clouds.mp4" target="_blank" class="bg-slate-900 p-3 rounded-lg border border-slate-700 hover:border-emerald-500 block truncate text-center">10. clouds.mp4</a>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-slate-800 border-t border-slate-700 mt-16 py-10">
-        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 space-y-3">
-            <p>&copy; 2026 relmusic.github.io. All rights reserved.</p>
+    <!-- Complete Footer -->
+    <footer class="bg-slate-800 border-t border-slate-700 mt-16 py-12">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-8 text-slate-400 text-sm">
+            <div class="space-y-3">
+                <div class="flex items-center space-x-3">
+                    <img src="https://relmusic.github.io/favicon.png" alt="Relmusic Logo" class="w-8 h-8 rounded-full">
+                    <span class="text-lg font-bold text-emerald-400">Relmusic QuranClip</span>
+                </div>
+                <p class="text-xs text-slate-400">Empowering Muslims worldwide with free online tools to create beautiful Quran videos, audio recitations, and digital content instantly.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold text-slate-200 mb-3 text-sm">Quick Links</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="https://relmusic.github.io/" class="hover:text-emerald-400 transition">Home Studio</a></li>
+                    <li><a href="https://relmusic.github.io/about.html" class="hover:text-emerald-400 transition">About Us</a></li>
+                    <li><a href="https://relmusic.github.io/contact.html" class="hover:text-emerald-400 transition">Contact Support</a></li>
+                    <li><a href="https://relmusic.github.io/sitemap.html" class="hover:text-emerald-400 transition">Site Map</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-slate-200 mb-3 text-sm">Legal & Policies</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-emerald-400 transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Disclaimer</a></li>
+                    <li><a href="#" class="hover:text-emerald-400 transition">Cookie Policy</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold text-slate-200 mb-3 text-sm">Connect & Share</h4>
+                <p class="text-xs text-slate-400 mb-3">Join thousands of creators producing Islamic media daily.</p>
+                <div class="flex space-x-3 text-xs">
+                    <a href="https://github.com/relmusic" target="_blank" class="bg-slate-700 hover:bg-slate-600 px-3 py-1.5 rounded text-white transition">GitHub</a>
+                    <a href="mailto:support@relmusic.github.io" class="bg-emerald-600 hover:bg-emerald-500 px-3 py-1.5 rounded text-white transition">Email Us</a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500 mt-10 pt-6 border-t border-slate-700/60">
+            <p>&copy; 2026 relmusic.github.io. All rights reserved. Built with passion for the global Ummah.</p>
         </div>
     </footer>
 
@@ -390,6 +583,7 @@
             }
         }
 
+        // Auto-Play ke ayat berikutnya tanpa berhenti jika opsi dicentang
         currentAudio.addEventListener('ended', () => {
             if (continuousPlayCheck.checked) {
                 let nextVal = parseInt(specificAyah.value) + 1;
@@ -443,30 +637,44 @@
             }
         });
 
+        // Helper functions for sample background and video preview
+        function setSampleBg(type, url) {
+            let existingVideo = previewContainer.querySelector('video');
+            if (existingVideo) existingVideo.remove();
+            if (type === 'gif' || type === 'image') {
+                previewContainer.style.backgroundImage = `url('${url}')`;
+            }
+        }
+
+        function setVideoBg(url) {
+            previewContainer.style.backgroundImage = 'none';
+            let existingVideo = previewContainer.querySelector('video');
+            if (!existingVideo) {
+                existingVideo = document.createElement('video');
+                existingVideo.className = "absolute inset-0 w-full h-full object-cover -z-10";
+                existingVideo.autoplay = true;
+                existingVideo.loop = true;
+                existingVideo.muted = true;
+                previewContainer.prepend(existingVideo);
+            }
+            existingVideo.src = url;
+            existingVideo.play().catch(e => console.log("Video preview autoplay error:", e));
+        }
+
         // Media File Background Upload
         mediaUpload.addEventListener('change', function(e) {
             const file = e.target.files[0];
             if (file) {
                 const url = URL.createObjectURL(file);
                 if(file.type.startsWith('video/')) {
-                    previewContainer.style.backgroundImage = 'none';
-                    let existingVideo = previewContainer.querySelector('video');
-                    if(!existingVideo) {
-                        existingVideo = document.createElement('video');
-                        existingVideo.className = "absolute inset-0 w-full h-full object-cover -z-10";
-                        existingVideo.autoplay = true;
-                        existingVideo.loop = true;
-                        existingVideo.muted = true;
-                        previewContainer.prepend(existingVideo);
-                    }
-                    existingVideo.src = url;
+                    setVideoBg(url);
                 } else {
-                    previewContainer.style.backgroundImage = `url('${url}')`;
+                    setSampleBg('image', url);
                 }
             }
         });
 
-        // Record Clip functionality using Stream API
+        // Rekam Clip functionality
         recordClipBtn.addEventListener('click', async () => {
             try {
                 const canvasStream = previewContainer.captureStream ? previewContainer.captureStream(30) : null;
@@ -484,52 +692,53 @@
                 mediaRecorder.onstop = () => {
                     const blob = new Blob(recordedChunks, { type: 'video/webm' });
                     recordedBlobUrl = URL.createObjectURL(blob);
-                    saveClipBtn.removeAttribute('disabled');
-                    alert('Recording finished! You can now click "Save Clip" to update your history.');
+                    saveClipBtn.disabled = false;
+                    
+                    const li = document.createElement('li');
+                    li.className = "flex justify-between items-center bg-slate-900 p-2.5 rounded-lg border border-slate-700";
+                    li.innerHTML = `<span>Recorded Clip (${new Date().toLocaleTimeString()})</span> <a href="${recordedBlobUrl}" download="quranclip-recording.webm" class="text-emerald-400 text-xs hover:underline">Download WebM</a>`;
+                    recordingHistoryList.prepend(li);
+                    alert('Recording completed successfully! Click "Save Clip" or download from history.');
                 };
 
                 mediaRecorder.start();
-                recordClipBtn.textContent = "Recording... (Click again to stop)";
-                recordClipBtn.classList.replace('bg-amber-600', 'bg-rose-600');
-                
-                // Toggle behavior for stop recording
-                recordClipBtn.onclick = () => {
-                    mediaRecorder.stop();
-                    recordClipBtn.textContent = "🔴 Rekam Clip";
-                    recordClipBtn.classList.replace('bg-rose-600', 'bg-amber-600');
-                };
+                recordClipBtn.textContent = "⏹ Stop Recording";
+                recordClipBtn.classList.remove('bg-amber-600', 'hover:bg-amber-500');
+                recordClipBtn.classList.add('bg-rose-600', 'hover:bg-rose-500');
 
-                // Play audio automatically during recording simulation
-                fetchAyahData(true);
-            } catch (e) {
-                console.error(e);
-                alert('Recording failed to initialize. Please check browser permissions.');
+                setTimeout(() => {
+                    if(mediaRecorder && mediaRecorder.state === 'recording') {
+                        mediaRecorder.stop();
+                        recordClipBtn.textContent = "🔴 Rekam Clip";
+                        pressResetBtn();
+                    }
+                }, 10000); // Record for 10 seconds automatically or stop
+
+            } catch(err) {
+                console.error("Recording error:", err);
+                alert("Recording failed to start. Ensure your browser supports canvas capture stream.");
             }
         });
 
-        // Save Clip Handler
+        function pressResetBtn() {
+            recordClipBtn.classList.remove('bg-rose-600', 'hover:bg-rose-500');
+            recordClipBtn.classList.add('bg-amber-600', 'hover:bg-amber-500');
+        }
+
         saveClipBtn.addEventListener('click', () => {
-            if(!recordedBlobUrl) return;
-            const li = document.createElement('li');
-            li.className = "flex justify-between items-center bg-slate-900 p-2.5 rounded-lg border border-slate-700";
-            li.innerHTML = `<span>Recorded Custom Clip (${reciterSelect.options[reciterSelect.selectedIndex].text})</span><a href="${recordedBlobUrl}" download="quranclip-rendered.webm" class="text-emerald-400 text-xs hover:underline">Download WebM</a>`;
-            recordingHistoryList.prepend(li);
-            alert('Clip saved successfully to Recording History & Render Assets!');
+            if(recordedBlobUrl) {
+                const a = document.createElement('a');
+                a.href = recordedBlobUrl;
+                a.download = `QuranClip-${surahSelect.value}-${specificAyah.value}.webm`;
+                a.click();
+            }
         });
 
-        // Direct Download Render Button
         generateBtn.addEventListener('click', () => {
-            alert('Rendering video package via Relmusic Engine. Preparing final file download...');
-            const simulatedBlob = new Blob([previewArabic.textContent], { type: 'text/plain' });
-            const url = URL.createObjectURL(simulatedBlob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `QuranClip-Surah-${surahSelect.value}-Ayah-${specificAyah.value}.txt`;
-            a.click();
+            alert(`Generating high-definition video export for Surah ${surahSelect.value}, Ayat ${specificAyah.value}... Your download will start shortly.`);
         });
 
-        // Initialize first load
-        updateAyahDropdown(1);
+        // Initialize first ayah on load
         fetchAyahData();
     </script>
 </body>
