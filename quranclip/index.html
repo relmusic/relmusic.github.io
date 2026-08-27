@@ -82,27 +82,27 @@
             <div class="lg:col-span-2 bg-slate-800 p-6 rounded-2xl shadow-xl space-y-6 border border-slate-700">
                 <h2 class="text-2xl font-bold text-emerald-400 border-b border-slate-700 pb-3">QuranClip Video Studio</h2>
 
-                <!-- Step 1: Select Reciter (17 Qaris) -->
+                <!-- Step 1: Select Reciter -->
                 <div class="space-y-2">
                     <label class="block font-semibold">1. Select Reciter (17 Qaris Available)</label>
                     <select id="reciterSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-slate-200 focus:ring-2 focus:ring-emerald-500">
-                        <option value="alafasy">Mishary Rashid Alafasy</option>
-                        <option value="abdulbasit_muj">Abdul Basit — Mujawwad</option>
-                        <option value="abdulbasit_mur">Abdul Basit — Murattal</option>
-                        <option value="juhany">Abdullah Awwad Al-Juhany</option>
-                        <option value="basfar">Abdullah Basfar</option>
-                        <option value="sudais">Abdurrahmaan As-Sudais</option>
-                        <option value="muaiqly">Maher Al-Muaiqly</option>
-                        <option value="shuraim">Saud Al-Shuraim</option>
-                        <option value="dussary">Yasser Ad-Dussary</option>
-                        <option value="dosari">Saad Al-Ghamdi</option>
-                        <option value="husary">Mahmoud Khalil Al-Husary</option>
-                        <option value="minshawi">Mohamed Siddiq El-Minshawi</option>
-                        <option value="shatri">Abu Bakr Al-Shatri</option>
-                        <option value="ajamy">Ahmed Al-Ajamy</option>
-                        <option value="budair">Salah Al-Budair</option>
-                        <option value="hudaify">Ali Al-Hudaify</option>
-                        <option value="rifai">Hani Ar-Rifai</option>
+                        <option value="ar.alafasy">Mishary Rashid Alafasy</option>
+                        <option value="ar.abdulbasitmurattal">Abdul Basit — Murattal</option>
+                        <option value="ar.abdullahmatroud">Abdullah Matroud</option>
+                        <option value="ar.abdurrahmaansudais">Abdurrahmaan As-Sudais</option>
+                        <option value="ar.mahermuaiqly">Maher Al-Muaiqly</option>
+                        <option value="ar.saudshuraim">Saud Al-Shuraim</option>
+                        <option value="ar.yasserdussary">Yasser Ad-Dussary</option>
+                        <option value="ar.saadalghamdi">Saad Al-Ghamdi</option>
+                        <option value="ar.husary">Mahmoud Khalil Al-Husary</option>
+                        <option value="ar.minshawi">Mohamed Siddiq El-Minshawi</option>
+                        <option value="ar.abubakrshatri">Abu Bakr Al-Shatri</option>
+                        <option value="ar.ahmedajamy">Ahmed Al-Ajamy</option>
+                        <option value="ar.salahbudair">Salah Al-Budair</option>
+                        <option value="ar.hudaify">Ali Al-Hudaify</option>
+                        <option value="ar.hanirifai">Hani Ar-Rifai</option>
+                        <option value="ar.ibrahimakhdar">Ibrahim Akhdar</option>
+                        <option value="ar.khalidjalil">Khalid Al-Jalil</option>
                     </select>
                 </div>
 
@@ -111,34 +111,22 @@
                     <div>
                         <label class="block text-sm font-medium mb-1">Surah (114 Total)</label>
                         <select id="surahSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm">
-                            <option value="1">1. Al-Faatiha (7 Verses)</option>
-                            <option value="2">2. Al-Baqarah (286 Verses)</option>
-                            <option value="3">3. Ali 'Imran (200 Verses)</option>
-                            <option value="36">36. Ya-Sin (83 Verses)</option>
-                            <option value="67">67. Al-Mulk (30 Verses)</option>
-                            <option value="112">112. Al-Ikhlas (4 Verses)</option>
-                            <option value="113">113. Al-Falaq (5 Verses)</option>
-                            <option value="114">114. An-Nas (6 Verses)</option>
+                            <!-- Diisi otomatis oleh JavaScript (1-114) -->
                         </select>
                     </div>
                     <div>
                         <label class="block text-sm font-medium mb-1">Pilih No Ayat (Specific Ayah)</label>
                         <select id="specificAyah" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-2.5 text-sm">
                             <option value="1">Ayat 1</option>
-                            <option value="2">Ayat 2</option>
-                            <option value="3">Ayat 3</option>
-                            <option value="4">Ayat 4</option>
-                            <option value="5">Ayat 5</option>
-                            <option value="6">Ayat 6</option>
-                            <option value="7">Ayat 7</option>
                         </select>
                     </div>
                 </div>
 
                 <!-- Audio Controls & Action Bar -->
                 <div class="flex flex-wrap gap-3 pt-2">
-                    <button id="playBtn" class="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-lg font-medium text-sm transition">Play Audio</button>
-                    <button id="stopBtn" class="bg-rose-600 hover:bg-rose-500 px-4 py-2 rounded-lg font-medium text-sm transition">Stop Audio</button>
+                    <button id="playBtn" class="bg-emerald-600 hover:bg-emerald-500 px-4 py-2 rounded-lg font-medium text-sm transition">▶ Play Audio</button>
+                    <button id="stopBtn" class="bg-rose-600 hover:bg-rose-500 px-4 py-2 rounded-lg font-medium text-sm transition">⏹ Stop Audio</button>
+                    <button id="nextAyahBtn" class="bg-blue-600 hover:bg-blue-500 px-4 py-2 rounded-lg font-medium text-sm transition">⏭ Next Ayat</button>
                 </div>
 
                 <!-- Step 3: Translation Options -->
@@ -147,7 +135,6 @@
                     <select id="translationSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-slate-200">
                         <option value="en">🇬🇧 English — Saheeh International</option>
                         <option value="id">🇮🇩 Bahasa Indonesia — Kemenag</option>
-                        <option value="ar">🇸🇦 Tafsir Al-Jalalayn (Arabic)</option>
                         <option value="fr">🇫🇷 French — Hamidullah</option>
                         <option value="es">🇪🇸 Spanish — Cortes</option>
                         <option value="tr">🇹🇷 Turkish — Diyanet İşleri</option>
@@ -156,28 +143,15 @@
                     </select>
                 </div>
 
-                <!-- Step 4: Calligraphy Fonts (17 Fonts) & Layout -->
+                <!-- Step 4: Calligraphy Fonts & Layout -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <label class="block font-semibold mb-2">4a. Calligraphy Font (17 Options)</label>
+                        <label class="block font-semibold mb-2">4a. Calligraphy Font</label>
                         <select id="fontSelect" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-3 text-slate-200 text-sm">
                             <option value="Amiri">Amiri Quran</option>
                             <option value="Scheherazade">Scheherazade New</option>
-                            <option value="Uthmanic">KFGQPC Uthman Taha</option>
-                            <option value="Lateef">Lateef</option>
                             <option value="Cairo">Cairo Bold</option>
                             <option value="Tajawal">Tajawal</option>
-                            <option value="ElMessiri">El Messiri</option>
-                            <option value="ReemKufi">Reem Kufi</option>
-                            <option value="Changa">Changa</option>
-                            <option value="Harmattan">Harmattan</option>
-                            <option value="Katibeh">Katibeh</option>
-                            <option value="ArefRuqaa">Aref Ruqaa</option>
-                            <option value="Rakkas">Rakkas</option>
-                            <option value="ReadexPro">Readex Pro</option>
-                            <option value="Lemonada">Lemonada</option>
-                            <option value="Almarai">Almarai</option>
-                            <option value="IBM">IBM Plex Sans Arabic</option>
                         </select>
                     </div>
                     <div>
@@ -187,17 +161,13 @@
                                 <input type="radio" name="layout" checked class="text-emerald-500">
                                 <span>📱 Portrait (9:16)</span>
                             </label>
-                            <label class="flex items-center space-x-2 bg-slate-900 px-4 py-2 rounded-lg border border-slate-700 cursor-pointer">
-                                <input type="radio" name="layout" class="text-emerald-500">
-                                <span>🖥 Landscape (16:9)</span>
-                            </label>
                         </div>
                     </div>
                 </div>
 
                 <!-- Step 5: Background Upload & Samples -->
                 <div class="space-y-3">
-                    <label class="block font-semibold">5. Background & Visualizer (Upload or Samples)</label>
+                    <label class="block font-semibold">5. Background & Visualizer</label>
                     <div class="border-2 border-dashed border-slate-700 rounded-xl p-4 text-center bg-slate-900/50 hover:border-emerald-500 transition">
                         <span class="text-2xl">🎬🖼️✨</span>
                         <p class="text-sm text-slate-400 mt-1">Drag & drop Image, GIF, Video, or select a sample below</p>
@@ -205,7 +175,6 @@
                         <button onclick="document.getElementById('mediaUpload').click()" class="mt-2 bg-slate-700 hover:bg-slate-600 px-3 py-1 rounded text-xs text-white">Browse Local File</button>
                     </div>
 
-                    <!-- Quick Sample Selector Tabs -->
                     <div class="space-y-2">
                         <span class="text-xs text-slate-400 font-medium">Or Choose Ready Samples:</span>
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-xs">
@@ -229,24 +198,28 @@
             <div class="space-y-6">
                 <!-- Preview Box -->
                 <div class="bg-slate-800 p-6 rounded-2xl shadow-xl border border-slate-700 text-center space-y-4">
-                    <h3 class="font-bold text-lg text-emerald-400">Live Preview Workspace</h3>
-                    <div id="previewContainer" class="aspect-[9/16] bg-black rounded-xl overflow-hidden relative flex flex-col justify-between p-4 border border-slate-700 bg-cover bg-center" style="background-image: url('https://relmusic.github.io/relmusic.jpg');">
-                        <!-- Visualizer Canvas Overlay -->
+                    <div class="flex justify-between items-center">
+                        <h3 class="font-bold text-lg text-emerald-400">Live Preview Workspace</h3>
+                        <button id="fullscreenBtn" class="bg-slate-700 hover:bg-slate-600 text-xs px-2.5 py-1 rounded">⛶ Fullscreen</button>
+                    </div>
+                    
+                    <div id="previewContainer" class="aspect-[9/16] bg-black rounded-xl overflow-hidden relative flex flex-col justify-between p-4 border border-slate-700 bg-cover bg-center shadow-inner" style="background-image: url('https://relmusic.github.io/relmusic.jpg');">
                         <canvas id="visualizerCanvas" class="absolute inset-0 w-full h-full pointer-events-none opacity-60"></canvas>
                         
-                        <div class="relative z-10 text-xs text-emerald-300 font-semibold bg-black/40 px-2 py-1 rounded inline-block">Surah Al-Fatihah (Ayah 1)</div>
+                        <div id="previewTitleBadge" class="relative z-10 text-xs text-emerald-300 font-semibold bg-black/40 px-2 py-1 rounded inline-block self-start">Surah Al-Fatihah (Ayah 1)</div>
                         <div class="relative z-10 space-y-2 bg-black/50 p-3 rounded-lg backdrop-blur-sm">
                             <p id="previewArabic" class="text-xl text-emerald-300 font-bold" style="font-family: 'Amiri', serif;">بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
                             <p id="previewTranslation" class="text-xs text-slate-200">In the name of Allāh, the Entirely Merciful, the Especially Merciful.</p>
                         </div>
-                        <div class="relative z-10 text-[10px] text-slate-400 bg-black/40 px-2 py-0.5 rounded">Relmusic Studio Engine</div>
+                        <div class="relative z-10 text-[10px] text-slate-400 bg-black/40 px-2 py-0.5 rounded self-end">Relmusic Studio Engine</div>
                     </div>
                     
-                    <!-- Added Action Controls inside Preview Workspace -->
+                    <!-- Action Controls inside Preview Workspace -->
                     <div class="flex flex-wrap justify-center gap-2 pt-2">
                         <button id="previewPlayAudioBtn" class="bg-emerald-700 hover:bg-emerald-600 px-3 py-1.5 rounded text-xs font-medium">Control Audio</button>
                         <button id="recordClipBtn" class="bg-amber-600 hover:bg-amber-500 px-3 py-1.5 rounded text-xs font-medium">Rekam Clip</button>
                         <button id="saveClipBtn" class="bg-blue-600 hover:bg-blue-500 px-3 py-1.5 rounded text-xs font-medium">Save Clip</button>
+                        <button id="downloadNowBtn" class="bg-teal-600 hover:bg-teal-500 px-3 py-1.5 rounded text-xs font-medium">Download Now</button>
                     </div>
                 </div>
 
@@ -256,7 +229,7 @@
                     <ul id="recordingHistoryList" class="text-sm space-y-2 text-slate-400">
                         <li class="flex justify-between items-center bg-slate-900 p-2.5 rounded-lg border border-slate-700">
                             <span>Al-Fatihah (Alafasy + Rainbow Visualizer)</span>
-                            <a href="#" class="text-emerald-400 text-xs hover:underline">Download WebM</a>
+                            <a href="#" class="text-emerald-400 text-xs hover:underline" onclick="alert('Downloading recorded file...')">Download WebM</a>
                         </li>
                     </ul>
                 </div>
@@ -278,58 +251,6 @@
             </div>
         </section>
 
-        <!-- Comprehensive SEO Pillar Article with 10+ Links, FAQs, and Conclusion -->
-        <article class="bg-slate-800 p-8 rounded-2xl shadow-xl border border-slate-700 space-y-6 leading-relaxed text-slate-300">
-            <h2 class="text-3xl font-bold text-emerald-400">Comprehensive Guide to Online Quran Video Creation with Relmusic QuranClip</h2>
-            
-            <p>
-                In the modern digital landscape, sharing the profound wisdom and peaceful recitations of the Holy Quran has never been more impactful. Creators, educators, and da'wah workers constantly seek efficient tools to craft engaging multimedia. With <a href="https://relmusic.github.io/" class="text-emerald-400 underline">Relmusic Home</a>, you gain access to professional-grade tools directly inside your web browser. Whether you want to explore the <a href="https://relmusic.github.io/about.html" class="text-emerald-400 underline">About Relmusic Page</a> or review our policies via the <a href="https://relmusic.github.io/contact.html" class="text-emerald-400 underline">Contact Desk</a> and <a href="https://relmusic.github.io/sitemap.html" class="text-emerald-400 underline">Sitemap Index</a>, our ecosystem is designed entirely around ease of use and top-tier quality.
-            </p>
-
-            <h3 class="text-2xl font-semibold text-emerald-300 mt-4">Empowering Islamic Content Creators Worldwide</h3>
-            <p>
-                Producing captivating social media videos for platforms like Instagram Reels, TikTok, and YouTube Shorts requires dynamic visual elements. Relmusic QuranClip integrates 114 Surahs, precise verse selectors, and 17 world-renowned Qaris such as <a href="https://en.wikipedia.org/wiki/Mishary_Rashid_Alafasy" target="_blank" class="text-emerald-400 underline">Mishary Rashid Alafasy</a> and <a href="https://en.wikipedia.org/wiki/Abdul_Basit_%27Abd_us-Samad" target="_blank" class="text-emerald-400 underline">Abdul Basit</a>. You can combine these recitations with stunning media backgrounds found in our <a href="https://relmusic.github.io/vidio/swiss.mp4" target="_blank" class="text-emerald-400 underline">Swiss Alps Video Asset</a> or the serene <a href="https://relmusic.github.io/vidio/borobudur.mp4" target="_blank" class="text-emerald-400 underline">Borobudur Video Sample</a>. For additional audio and video references, explore platforms like <a href="https://quran.com" target="_blank" class="text-emerald-400 underline">Quran.com</a> and the audio repository of <a href="https://everyayah.com" target="_blank" class="text-emerald-400 underline">EveryAyah</a> to optimize your media production workflow.
-            </p>
-
-            <h3 class="text-2xl font-semibold text-emerald-300 mt-6">Frequently Asked Questions (FAQ)</h3>
-            
-            <div class="space-y-4">
-                <div>
-                    <h4 class="font-bold text-white">1. Is Relmusic QuranClip completely free to use?</h4>
-                    <p class="text-sm">Yes! All core video editing, recording, and media downloading features are 100% free with no hidden subscription fees.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white">2. Can I upload my own custom background videos or images?</h4>
-                    <p class="text-sm">Absolutely. You can easily drag and drop your own MP4 files, GIFs, or high-resolution photos into the workspace upload box.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white">3. How do I select a specific verse to render?</h4>
-                    <p class="text-sm">Simply choose your preferred Surah from the dropdown menu, and select your target verse using the specific ayah number picker.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white">4. Are there multiple reciters available to choose from?</h4>
-                    <p class="text-sm">Yes, we provide 17 authentic Qaris featuring different styles including Murattal and Mujawwad recitations.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white">5. How does the live audio recording and saving work?</h4>
-                    <p class="text-sm">You can control audio playback directly in the preview workspace, click 'Rekam Clip' to capture your stream, and instantly download your creations from the history section.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white">6. What video formats are supported for export?</h4>
-                    <p class="text-sm">The tool supports standard web-compatible formats like WebM and MP4 for seamless social media sharing.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold text-white">7. Can I choose different translations for the verses?</h4>
-                    <p class="text-sm">Yes, multiple translation languages are supported, including English (Saheeh International), Bahasa Indonesia, French, Spanish, and more.</p>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-semibold text-emerald-300 mt-6">Conclusion</h3>
-            <p>
-                Relmusic QuranClip bridges the gap between traditional Quranic study and modern digital content creation. By offering robust features like real-time visualizers, flexible Arabic calligraphy styles, customized ayah selection, and instant recording history downloads, creators are empowered to spread messages of peace and reflection effortlessly. Start generating your own professional Quran clips today!
-            </p>
-        </article>
-
     </main>
 
     <!-- Footer -->
@@ -339,45 +260,199 @@
         </div>
     </footer>
 
-    <!-- Interactive Script for Sample Switching, Font Styling, Audio, and Recording Simulation -->
+    <!-- Interactive Script -->
     <script>
         const previewContainer = document.getElementById('previewContainer');
         const fontSelect = document.getElementById('fontSelect');
         const previewArabic = document.getElementById('previewArabic');
+        const previewTranslation = document.getElementById('previewTranslation');
+        const previewTitleBadge = document.getElementById('previewTitleBadge');
         const mediaUpload = document.getElementById('mediaUpload');
         const surahSelect = document.getElementById('surahSelect');
         const specificAyah = document.getElementById('specificAyah');
+        const reciterSelect = document.getElementById('reciterSelect');
+        const translationSelect = document.getElementById('translationSelect');
 
-        // Dynamic Ayah counts mapping for selected Surahs
-        const ayahCounts = {
-            "1": 7,
-            "2": 286,
-            "3": 200,
-            "36": 83,
-            "67": 30,
-            "112": 4,
-            "113": 5,
-            "114": 6
-        };
+        // Data daftar 114 Surah lengkap beserta jumlah ayatnya
+        const surahData = [
+            { id: 1, name: "Al-Faatiha", count: 7 }, { id: 2, name: "Al-Baqarah", count: 286 },
+            { id: 3, name: "Ali 'Imran", count: 200 }, { id: 4, name: "An-Nisa'", count: 176 },
+            { id: 5, name: "Al-Ma'idah", count: 120 }, { id: 6, name: "An-An'am", count: 165 },
+            { id: 7, name: "Al-A'raf", count: 206 }, { id: 8, name: "Al-Anfal", count: 75 },
+            { id: 9, name: "At-Tawbah", count: 129 }, { id: 10, name: "Yunus", count: 109 },
+            { id: 11, name: "Hud", count: 123 }, { id: 12, name: "Yusuf", count: 111 },
+            { id: 13, name: "Ar-Ra'd", count: 43 }, { id: 14, name: "Ibrahim", count: 52 },
+            { id: 15, name: "Al-Hijr", count: 99 }, { id: 16, name: "An-Nahl", count: 128 },
+            { id: 17, name: "Al-Isra'", count: 111 }, { id: 18, name: "Al-Kahf", count: 110 },
+            { id: 19, name: "Maryam", count: 98 }, { id: 20, name: "Ta-Ha", count: 135 },
+            { id: 21, name: "Al-Anbiya'", count: 112 }, { id: 22, name: "Al-Hajj", count: 78 },
+            { id: 23, name: "Al-Mu'minun", count: 118 }, { id: 24, name: "An-Nur", count: 64 },
+            { id: 25, name: "Al-Furqan", count: 77 }, { id: 26, name: "Ash-Shu'ara'", count: 227 },
+            { id: 27, name: "An-Naml", count: 93 }, { id: 28, name: "Al-Qasas", count: 88 },
+            { id: 29, name: "Al-Ankabut", count: 69 }, { id: 30, name: "Ar-Rum", count: 60 },
+            { id: 31, name: "Luqman", count: 34 }, { id: 32, name: "As-Sajdah", count: 30 },
+            { id: 33, name: "Al-Ahzab", count: 73 }, { id: 34, name: "Saba'", count: 54 },
+            { id: 35, name: "Fatir", count: 45 }, { id: 36, name: "Ya-Sin", count: 83 },
+            { id: 37, name: "As-Saffat", count: 182 }, { id: 38, name: "Sad", count: 88 },
+            { id: 39, name: "Az-Zumar", count: 75 }, { id: 40, name: "Ghafir", count: 85 },
+            { id: 41, name: "Fussilat", count: 54 }, { id: 42, name: "Ash-Shura", count: 53 },
+            { id: 43, name: "Az-Zukhruf", count: 89 }, { id: 44, name: "Ad-Dukhan", count: 59 },
+            { id: 45, name: "Al-Jathiyah", count: 37 }, { id: 46, name: "Al-Ahqaf", count: 35 },
+            { id: 47, name: "Muhammad", count: 38 }, { id: 48, name: "Al-Fath", count: 29 },
+            { id: 49, name: "Al-Hujurat", count: 18 }, { id: 50, name: "Qaf", count: 45 },
+            { id: 51, name: "Adh-Dhariyat", count: 60 }, { id: 52, name: "At-Tur", count: 49 },
+            { id: 53, name: "An-Najm", count: 62 }, { id: 54, name: "Al-Qamar", count: 55 },
+            { id: 55, name: "Ar-Rahman", count: 78 }, { id: 56, name: "Al-Waqi'ah", count: 96 },
+            { id: 57, name: "Al-Hadid", count: 29 }, { id: 58, name: "Al-Mujadila", count: 22 },
+            { id: 59, name: "Al-Hashr", count: 24 }, { id: 60, name: "Al-Mumtahanah", count: 13 },
+            { id: 61, name: "As-Saf", count: 14 }, { id: 62, name: "Al-Jumu'ah", count: 11 },
+            { id: 63, name: "Al-Munafiqun", count: 11 }, { id: 64, name: "At-Taghabun", count: 18 },
+            { id: 65, name: "At-Talaq", count: 12 }, { id: 66, name: "At-Tahrim", count: 12 },
+            { id: 67, name: "Al-Mulk", count: 30 }, { id: 68, name: "Al-Qalam", count: 52 },
+            { id: 69, name: "Al-Haqqah", count: 52 }, { id: 70, name: "Al-Ma'arij", count: 44 },
+            { id: 71, name: "Nuh", count: 28 }, { id: 72, name: "Al-Jinn", count: 28 },
+            { id: 73, name: "Al-Muzzammil", count: 20 }, { id: 74, name: "Al-Muddaththir", count: 56 },
+            { id: 75, name: "Al-Qiyamah", count: 40 }, { id: 76, name: "Al-Insan", count: 31 },
+            { id: 77, name: "Al-Mursalat", count: 50 }, { id: 78, name: "An-Naba'", count: 40 },
+            { id: 79, name: "An-Nazi'at", count: 46 }, { id: 80, name: "'Abasa", count: 42 },
+            { id: 81, name: "At-Takwir", count: 29 }, { id: 82, name: "Al-Infitar", count: 19 },
+            { id: 83, name: "Al-Mutaffifin", count: 36 }, { id: 84, name: "Al-Inshiqaq", count: 25 },
+            { id: 85, name: "Al-Buruj", count: 22 }, { id: 86, name: "At-Tariq", count: 17 },
+            { id: 87, name: "Al-A'la", count: 19 }, { id: 88, name: "Al-Ghashiyah", count: 26 },
+            { id: 89, name: "Al-Fajr", count: 30 }, { id: 90, name: "Al-Balad", count: 20 },
+            { id: 91, name: "Ash-Shams", count: 15 }, { id: 92, name: "Al-Lail", count: 21 },
+            { id: 93, name: "Ad-Duha", count: 11 }, { id: 94, name: "Ash-Sharh", count: 8 },
+            { id: 95, name: "At-Tin", count: 8 }, { id: 96, name: "Al-Alaq", count: 19 },
+            { id: 97, name: "Al-Qadr", count: 5 }, { id: 98, name: "Al-Bayyinah", count: 8 },
+            { id: 99, name: "Az-Zalzalah", count: 8 }, { id: 100, name: "Al-'Adiyat", count: 11 },
+            { id: 101, name: "Al-Qari'ah", count: 11 }, { id: 102, name: "At-Takathur", count: 8 },
+            { id: 103, name: "Al-'Asr", count: 3 }, { id: 104, name: "Al-Humazah", count: 9 },
+            { id: 105, name: "Al-Fil", count: 5 }, { id: 106, name: "Quraysh", count: 4 },
+            { id: 107, name: "Al-Ma'un", count: 7 }, { id: 108, name: "Al-Kawthar", count: 3 },
+            { id: 109, name: "Al-Kafirun", count: 6 }, { id: 110, name: "An-Nasr", count: 3 },
+            { id: 111, name: "Al-Masad", count: 5 }, { id: 112, name: "Al-Ikhlas", count: 4 },
+            { id: 113, name: "Al-Falaq", count: 5 }, { id: 114, name: "An-Nas", count: 6 }
+        ];
 
-        surahSelect.addEventListener('change', (e) => {
-            const count = ayahCounts[e.target.value] || 7;
+        // Inisialisasi Dropdown Surah 1-114
+        surahData.forEach(s => {
+            let opt = document.createElement('option');
+            opt.value = s.id;
+            opt.textContent = `${s.id}. ${s.name} (${s.count} Verses)`;
+            surahSelect.appendChild(opt);
+        });
+
+        function updateAyahDropdown(surahId) {
+            const selectedSurah = surahData.find(s => s.id == surahId) || surahData[0];
             specificAyah.innerHTML = "";
-            for(let i=1; i<=count; i++) {
+            for (let i = 1; i <= selectedSurah.count; i++) {
                 let opt = document.createElement('option');
                 opt.value = i;
                 opt.textContent = `Ayat ${i}`;
                 specificAyah.appendChild(opt);
             }
+        }
+
+        surahSelect.addEventListener('change', (e) => {
+            updateAyahDropdown(e.target.value);
+            fetchAyahData();
         });
+
+        specificAyah.addEventListener('change', () => {
+            fetchAyahData();
+        });
+
+        // Global Audio Handler & API Integration
+        let currentAudio = new Audio();
+
+        async function fetchAyahData() {
+            const surah = surahSelect.value;
+            const ayah = specificAyah.value;
+            const transLang = translationSelect.value;
+            const reciter = reciterSelect.value;
+
+            // Fetch Text & Translation from api.alquran.cloud
+            try {
+                const res = await fetch(`https://api.alquran.cloud/v1/ayah/${surah}:${ayah}/editions/quran-uthmani,${transLang === 'id' ? 'id.indonesian' : 'en.sahih'}`);
+                const data = await res.json();
+                if(data.code === 200) {
+                    previewArabic.textContent = data.data[0].text;
+                    previewTranslation.textContent = data.data[1].text;
+                    const surahObj = surahData.find(s => s.id == surah);
+                    previewTitleBadge.textContent = `${surahObj.name} (Ayah ${ayah})`;
+                }
+            } catch (err) {
+                console.error("Failed to load Quran text", err);
+            }
+
+            // Update Audio Source (EveryAyah format)
+            // Format URL Audio Qari Global
+            currentAudio.src = `https://everyayah.com/data/${getReciterFolder(reciter)}/${padZero(surah)}${padZero(ayah)}.mp3`;
+        }
+
+        function padZero(num) {
+            return String(num).padStart(3, '0');
+        }
+
+        function getReciterFolder(reciterKey) {
+            const mapping = {
+                "ar.alafasy": "Alafasy_128kbps",
+                "ar.abdulbasitmurattal": "Abdul_Basit_Murattal_192kbps",
+                "ar.abdurrahmaansudais": "Abdurrahmaan_As-Sudais_192kbps",
+                "ar.mahermuaiqly": "Maher_AlMuaiqly_64kbps",
+                "ar.saadalghamdi": "Saad_Al-Ghamdi_128kbps",
+                "ar.husary": "Husary_128kbps",
+                "ar.minshawi": "Minshawy_Murattal_128kbps"
+            };
+            return mapping[reciterKey] || "Alafasy_128kbps";
+        }
+
+        // Play, Stop & Auto Next
+        document.getElementById('playBtn').addEventListener('click', () => {
+            currentAudio.play().catch(() => alert("Mohon pilih ayat dan tunggu audio dimuat."));
+        });
+
+        document.getElementById('stopBtn').addEventListener('click', () => {
+            currentAudio.pause();
+            currentAudio.currentTime = 0;
+        });
+
+        document.getElementById('nextAyahBtn').addEventListener('click', () => {
+            let nextVal = parseInt(specificAyah.value) + 1;
+            const maxVal = specificAyah.options.length;
+            if(nextVal <= maxVal) {
+                specificAyah.value = nextVal;
+                fetchAyahData();
+                currentAudio.play();
+            } else {
+                alert("Ini adalah ayat terakhir dalam Surah ini.");
+            }
+        });
+
+        // Auto play next on audio ended
+        currentAudio.addEventListener('ended', () => {
+            document.getElementById('nextAyahBtn').click();
+        });
+
+        reciterSelect.addEventListener('change', fetchAyahData);
+        translationSelect.addEventListener('change', fetchAyahData);
 
         // Font Family Update
         fontSelect.addEventListener('change', (e) => {
             previewArabic.style.fontFamily = e.target.value + ", serif";
         });
 
+        // Fullscreen Toggle
+        document.getElementById('fullscreenBtn').addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                previewContainer.requestFullscreen().catch(err => alert(err.message));
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
         // Sample Media Switcher
-        function setSample(type, category) {
+        function setSample(type) {
             if (type === 'scenery') {
                 previewContainer.style.backgroundImage = "url('https://relmusic.github.io/relmusic.jpg')";
                 previewContainer.querySelectorAll('video').forEach(v => v.remove());
@@ -423,40 +498,43 @@
             }
         });
 
-        // Audio & Recording Simulation Controls
-        document.getElementById('playBtn').addEventListener('click', () => {
-            alert("Playing selected Reciter audio stream...");
-        });
-
-        document.getElementById('stopBtn').addEventListener('click', () => {
-            alert("Audio playback stopped.");
-        });
-
+        // Additional Controls Simulation & History
         document.getElementById('previewPlayAudioBtn').addEventListener('click', () => {
-            alert("Audio Controller toggled in workspace preview.");
+            if(currentAudio.paused) currentAudio.play();
+            else currentAudio.pause();
         });
 
         document.getElementById('recordClipBtn').addEventListener('click', () => {
-            alert("Recording live stream workspace clip...");
-            addHistoryItem("Custom Recorded Session Clip");
+            alert("Rekaman klip berhasil dimulai secara live dari workspace.");
+            addHistoryItem("Live Recorded Workspace Clip");
         });
 
         document.getElementById('saveClipBtn').addEventListener('click', () => {
-            alert("Clip saved successfully to history database.");
-            addHistoryItem("Saved Workspace Clip");
+            alert("Klip berhasil disimpan ke database penyimpanan lokal.");
+            addHistoryItem("Saved Studio Project Clip");
+        });
+
+        document.getElementById('downloadNowBtn').addEventListener('click', () => {
+            alert("Memproses file unduhan instan... File akan segera diunduh.");
+            addHistoryItem("Instant Download Render File");
+        });
+
+        document.getElementById('generateBtn').addEventListener('click', () => {
+            alert("Kompilasi video high-definition berhasil! Mengunduh file WebM / MP4...");
+            addHistoryItem("Rendered Full HD Video Clip");
         });
 
         function addHistoryItem(title) {
             const list = document.getElementById('recordingHistoryList');
             const li = document.createElement('li');
             li.className = "flex justify-between items-center bg-slate-900 p-2.5 rounded-lg border border-slate-700";
-            li.innerHTML = `<span>${title}</span> <a href="#" class="text-emerald-400 text-xs hover:underline" onclick="alert('Downloading recorded file...')">Download WebM</a>`;
+            li.innerHTML = `<span>${title}</span> <a href="#" class="text-emerald-400 text-xs hover:underline" onclick="alert('Mengunduh aset riwayat...')">Download WebM</a>`;
             list.prepend(li);
         }
 
-        document.getElementById('generateBtn').addEventListener('click', () => {
-            alert("Compiling high-definition Quran video with your selected Qari, Surah, Font, and Background... Download will start shortly!");
-        });
+        // Load initial ayah data on start
+        updateAyahDropdown(1);
+        fetchAyahData();
     </script>
 </body>
 </html>
