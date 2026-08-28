@@ -1086,6 +1086,79 @@
             list.prepend(newItem);
             alert('Clip saved to History & Render Assets successfully!');
         });
+        // Database Link Audio Qari & Surah Resmi
+const audioServers = {
+    "alafasy": "https://everyayah.com/data/Mishary_Rashid_Alafasy_128kbps/",
+    "abdul_basit_mujawwad": "https://everyayah.com/data/Abdul_Basit_Mujawwad_192kbps/",
+    "abdul_basit_murattal": "https://everyayah.com/data/Abdul_Basit_Murattal_192kbps/",
+    "sudais": "https://everyayah.com/data/Abdurrahmaan_As-Sudais_192kbps/",
+    "shuraim": "https://everyayah.com/data/Saood_ash-Shuraym_128kbps/",
+    "husary": "https://everyayah.com/data/Mahmoud_Khalil_Al-Husary_128kbps/",
+    "minshawi": "https://everyayah.com/data/Minshaw_Mujawwad_128kbps/"
+};
+
+// Format nomor Surah & Ayah menjadi 3 digit (contoh: Surah 1, Ayah 1 -> 001001.mp3)
+function formatAudioFilename(surahNum, ayahNum) {
+    let s = String(surahNum).padStart(3, '0');
+    let a = String(ayahNum).padStart(3, '0');
+    return s + a + ".mp3";
+}
+
+function toggleContinuousPlay() {
+    const display = document.getElementById('arabicTextDisplay');
+    const audioElem = document.getElementById('quranAudio');
+    const reciterKey = document.getElementById('reciterSelect').value || "alafasy";
+    const surahNum = document.getElementById('surahSelect').value || "36";
+    const reciterName = document.getElementById('reciterSelect').selectedOptions[0].text;
+    const surahName = document.getElementById('surahSelect').selectedOptions[0].text;
+    
+    if (continuousInterval) {
+        clearInterval(continuousInterval);
+        continuousInterval = null;
+        audioElem.pause();
+        logHistory(`Stopped continuous auto-play loop and audio.`);
+        alert('Continuous Auto-Play paused.');
+        return;
+    }
+
+    // Set audio sumber pertama
+    let baseUrl = audioServers[reciterKey] || audioServers["alafasy"];
+    let filename = formatAudioFilename(surahNum, 1);
+    audioElem.src = baseUrl + filename;
+    
+    // Putar audio dengan penanganan kebijakan browser (Autoplay Policy)
+    audioElem.play().then(() => {
+        logHistory(`Audio playing: Surah ${surahName} by ${reciterName}`);
+    }).catch(error => {
+        console.log("Autoplay blocked by browser, user interaction required:", error);
+        alert("Silakan klik sekali lagi pada halaman jika audio tertahan oleh kebijakan browser.");
+    });
+
+    alert('Continuous Auto-Play active! Audio & Kaligrafi Arab berputar otomatis.');
+    
+    let ayahCounter = 1;
+    continuousInterval = setInterval(() => {
+        display.innerText = sampleAyahs[ayahIndex];
+        ayahIndex = (ayahIndex + 1) % sampleAyahs.length;
+        
+        // Putar audio ayat berikutnya secara kontinyu
+        ayahCounter = (ayahCounter % 5) + 1;
+        audioElem.src = baseUrl + formatAudioFilename(surahNum, ayahCounter);
+        audioElem.play().catch(e => console.log("Loop audio play error:", e));
+        
+    }, 6000);
+}
+
+function stopAudioStream() {
+    if (continuousInterval) {
+        clearInterval(continuousInterval);
+        continuousInterval = null;
+    }
+    const audioElem = document.getElementById('quranAudio');
+    audioElem.pause();
+    document.getElementById('arabicTextDisplay').innerText = `Stream Stopped`;
+    logHistory(`Stopped active audio stream and continuous loop.`);
+}
     </script>
 </body>
 </html>
