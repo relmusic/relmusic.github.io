@@ -1,107 +1,237 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-    <channel>
-        <title>RealMusic 100+ Country Open Projects RSS Feed</title>
-        <link>https://relmusic.github.io/</link>
-        <description>Official RSS feed for RealMusic global open-source projects, interactive web tools, cultural databases, and multi-country utilities.</description>
-        <language>en-us</language>
-        <lastBuildDate>Wed, 26 Aug 2026 10:27:11 GMT</lastBuildDate>
-        <atom:link href="https://relmusic.github.io/rss.xml" rel="self" type="application/rss+xml" />
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:atom="http://www.w3.org/2005/Atom">
 
-        <item>
-            <title>Sitemap RealMusic 100+ Country Open Projects - Complete Global Directory</title>
-            <link>https://relmusic.github.io/sitemap.html</link>
-            <guid>https://relmusic.github.io/sitemap.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Explore the comprehensive sitemap and directory of RealMusic 100+ Country Open Projects, featuring interactive tools, AI utilities, and cultural databases.</description>
-        </item>
+  <channel>
 
-        <item>
-            <title>IP &amp; Network Tracker Utility</title>
-            <link>https://relmusic.github.io/ip/index.html</link>
-            <guid>https://relmusic.github.io/ip/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Instant network diagnostic and IP geolocation tool for global nodes across 100+ countries.</description>
-        </item>
+    <title>RELMUSIC</title>
+    <link>https://relmusic.github.io/</link>
+    <description>RELMUSIC - Music, AI, Technology, Tools, Tutorials and Digital Content</description>
+    <language>id-ID</language>
+    <copyright>Copyright 2026 RELMUSIC</copyright>
 
-        <item>
-            <title>Maps Explorer &amp; Geolocation Tool</title>
-            <link>https://relmusic.github.io/maps/index.html</link>
-            <guid>https://relmusic.github.io/maps/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Interactive mapping utilities for regional and international data mapping and spatial tracking.</description>
-        </item>
+    <atom:link
+      href="https://relmusic.github.io/rss.xml"
+      rel="self"
+      type="application/rss+xml" />
 
-        <item>
-            <title>Macapat Meter &amp; Poetry Analyzer</title>
-            <link>https://relmusic.github.io/macapat/index.html</link>
-            <guid>https://relmusic.github.io/macapat/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Traditional Javanese poetry cadence and syllable counter suite integrated with modern open web frameworks.</description>
-        </item>
+    <item>
+      <title>New European Hits 2026</title>
+      <link>https://relmusic.github.io/blog/new-european-hits-2026.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/new-european-hits-2026.html</guid>
+      <description>New European music hits and trending songs in 2026.</description>
+    </item>
 
-        <item>
-            <title>Wayang Culture Database &amp; Philosophy</title>
-            <link>https://relmusic.github.io/wayang/index.html</link>
-            <guid>https://relmusic.github.io/wayang/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Character index, philosophy, and history of classical wayang shadow puppetry preservation projects.</description>
-        </item>
+    <item>
+      <title>European Songs Trending</title>
+      <link>https://relmusic.github.io/blog/european-songs-trending.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/european-songs-trending.html</guid>
+      <description>European songs and music that are currently trending.</description>
+    </item>
 
-        <item>
-            <title>Javanese Virtual Keyboard Suite</title>
-            <link>https://relmusic.github.io/keyboard-jawa/index.html</link>
-            <guid>https://relmusic.github.io/keyboard-jawa/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Virtual keyboard supporting special Javanese scripts and international typography layouts.</description>
-        </item>
+    <item>
+      <title>AI and Machine Learning</title>
+      <link>https://relmusic.github.io/blog/ai-machine-learning.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/ai-machine-learning.html</guid>
+      <description>Articles and information about artificial intelligence and machine learning.</description>
+    </item>
 
-        <item>
-            <title>Javanese Weton &amp; Calendar Converter</title>
-            <link>https://relmusic.github.io/calendar/index.html</link>
-            <guid>https://relmusic.github.io/calendar/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Javanese weton and international calendar synchronization utility for chronological research.</description>
-        </item>
+    <item>
+      <title>AI</title>
+      <link>https://relmusic.github.io/blog/ai.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/ai.html</guid>
+      <description>Artificial intelligence, tools, technology and applications.</description>
+    </item>
 
-        <item>
-            <title>AI Intelligence Engine Suite</title>
-            <link>https://relmusic.github.io/ai/index.html</link>
-            <guid>https://relmusic.github.io/ai/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Cross-disciplinary machine learning generators for global content creation and language synthesis.</description>
-        </item>
+    <item>
+      <title>Enterprise AI Integration</title>
+      <link>https://relmusic.github.io/blog/enterprise-ai-integration.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/enterprise-ai-integration.html</guid>
+      <description>Enterprise artificial intelligence integration and digital technology.</description>
+    </item>
 
-        <item>
-            <title>3D Object Visualizer &amp; WebGL Render</title>
-            <link>https://relmusic.github.io/3d/index.html</link>
-            <guid>https://relmusic.github.io/3d/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Interactive WebGL model rendering tool for digital art and cultural asset visualization.</description>
-        </item>
+    <item>
+      <title>Music Asset Business</title>
+      <link>https://relmusic.github.io/blog/music-asset-business.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/music-asset-business.html</guid>
+      <description>Music assets, digital content and opportunities in the music business.</description>
+    </item>
 
-        <item>
-            <title>Voice Synthesizer &amp; Speech Converter</title>
-            <link>https://relmusic.github.io/voice/index.html</link>
-            <guid>https://relmusic.github.io/voice/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Speech-to-text and text-to-speech modular converter with multi-accent support.</description>
-        </item>
+    <item>
+      <title>Music Investment</title>
+      <link>https://relmusic.github.io/blog/music-investment.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/music-investment.html</guid>
+      <description>Music investment and the digital music ecosystem.</description>
+    </item>
 
-        <item>
-            <title>WhatsApp Direct Link Generator</title>
-            <link>https://relmusic.github.io/wa/index.html</link>
-            <guid>https://relmusic.github.io/wa/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Generate instant WhatsApp chat redirect links without saving contact numbers to your device.</description>
-        </item>
+    <item>
+      <title>Music Theory Tools</title>
+      <link>https://relmusic.github.io/blog/music-theory-tools.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/music-theory-tools.html</guid>
+      <description>Tools and resources for learning music theory.</description>
+    </item>
 
-        <item>
-            <title>Global Search Engine Directory</title>
-            <link>https://relmusic.github.io/search/index.html</link>
-            <guid>https://relmusic.github.io/search/index.html</guid>
-            <pubDate>Wed, 26 Aug 2026 10:27:11 GMT</pubDate>
-            <description>Aggregated internal directory query tool for high-speed content lookup across all RealMusic projects.</description>
-        </item>
-    </channel>
+    <item>
+      <title>Learn JavaScript Music</title>
+      <link>https://relmusic.github.io/blog/learn-javascript-music.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/learn-javascript-music.html</guid>
+      <description>Learn JavaScript for music-related web development projects.</description>
+    </item>
+
+    <item>
+      <title>Google Play Music Android</title>
+      <link>https://relmusic.github.io/blog/google-play-music-android.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/google-play-music-android.html</guid>
+      <description>Music applications and Android music technology.</description>
+    </item>
+
+    <item>
+      <title>Stream Music Online Free</title>
+      <link>https://relmusic.github.io/blog/stream-music-online-free.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/stream-music-online-free.html</guid>
+      <description>Information about streaming music online.</description>
+    </item>
+
+    <item>
+      <title>Royalti Musik</title>
+      <link>https://relmusic.github.io/blog/royalti_musik.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/royalti_musik.html</guid>
+      <description>Information about music royalties and the music industry.</description>
+    </item>
+
+    <item>
+      <title>Quran Live</title>
+      <link>https://relmusic.github.io/blog/quran-live.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/quran-live.html</guid>
+      <description>Quran live streaming and related digital resources.</description>
+    </item>
+
+    <item>
+      <title>Learn Live</title>
+      <link>https://relmusic.github.io/blog/learn-live.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/learn-live.html</guid>
+      <description>Live learning resources and digital tools.</description>
+    </item>
+
+    <item>
+      <title>Text to Speech</title>
+      <link>https://relmusic.github.io/blog/tts.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/tts.html</guid>
+      <description>Text-to-speech technology, tools and applications.</description>
+    </item>
+
+    <item>
+      <title>Gemini</title>
+      <link>https://relmusic.github.io/blog/gemini.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/gemini.html</guid>
+      <description>Generative AI and Google Gemini technology.</description>
+    </item>
+
+    <item>
+      <title>OBS</title>
+      <link>https://relmusic.github.io/blog/obs.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/obs.html</guid>
+      <description>OBS and tools for live streaming and video production.</description>
+    </item>
+
+    <item>
+      <title>Visualization</title>
+      <link>https://relmusic.github.io/blog/visualization.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/visualization.html</guid>
+      <description>Visualization, digital graphics and interactive content.</description>
+    </item>
+
+    <item>
+      <title>Social</title>
+      <link>https://relmusic.github.io/blog/social.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/social.html</guid>
+      <description>Social media, digital communication and online platforms.</description>
+    </item>
+
+    <item>
+      <title>Web Development</title>
+      <link>https://relmusic.github.io/blog/web-development.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/web-development.html</guid>
+      <description>Web development, websites and modern web technology.</description>
+    </item>
+
+    <item>
+      <title>HTML Structuring Content</title>
+      <link>https://relmusic.github.io/blog/html-structuring-content.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/html-structuring-content.html</guid>
+      <description>HTML structure and techniques for organizing web content.</description>
+    </item>
+
+    <item>
+      <title>Git Workflow</title>
+      <link>https://relmusic.github.io/blog/git-workflow.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/git-workflow.html</guid>
+      <description>Git workflow, version control and development practices.</description>
+    </item>
+
+    <item>
+      <title>Cybersecurity Zero Trust</title>
+      <link>https://relmusic.github.io/blog/cybersecurity-zero-trust.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/cybersecurity-zero-trust.html</guid>
+      <description>Cybersecurity and Zero Trust security concepts.</description>
+    </item>
+
+    <item>
+      <title>Database Management</title>
+      <link>https://relmusic.github.io/blog/database-management.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/database-management.html</guid>
+      <description>Database management, data and software technology.</description>
+    </item>
+
+    <item>
+      <title>Linux Advanced Guide</title>
+      <link>https://relmusic.github.io/blog/linux-advanced-guide.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/linux-advanced-guide.html</guid>
+      <description>Advanced Linux guides, commands and system administration.</description>
+    </item>
+
+    <item>
+      <title>Windows Optimization</title>
+      <link>https://relmusic.github.io/blog/windows-optimization.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/windows-optimization.html</guid>
+      <description>Windows optimization and performance improvement tips.</description>
+    </item>
+
+    <item>
+      <title>UI UX Trends</title>
+      <link>https://relmusic.github.io/blog/ui-ux-trends.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/ui-ux-trends.html</guid>
+      <description>Latest UI and UX design trends.</description>
+    </item>
+
+    <item>
+      <title>30 Awesome Figma Illustration Templates</title>
+      <link>https://relmusic.github.io/blog/30-awesome-figma-illustration-templates.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/30-awesome-figma-illustration-templates.html</guid>
+      <description>Figma illustration templates and design resources.</description>
+    </item>
+
+    <item>
+      <title>17 Best Clock App UI Design</title>
+      <link>https://relmusic.github.io/blog/17-best-clock-app-ui-design.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/17-best-clock-app-ui-design.html</guid>
+      <description>Clock application UI design inspiration and resources.</description>
+    </item>
+
+    <item>
+      <title>62 New Emojis Arrive</title>
+      <link>https://relmusic.github.io/blog/62-new-emojis-arrive.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/62-new-emojis-arrive.html</guid>
+      <description>New emoji updates, characters and digital communication.</description>
+    </item>
+
+    <item>
+      <title>Blogging Strategies</title>
+      <link>https://relmusic.github.io/blog/blogging-strategies.html</link>
+      <guid isPermaLink="true">https://relmusic.github.io/blog/blogging-strategies.html</guid>
+      <description>Blogging strategies, content creation and website growth.</description>
+    </item>
+
+  </channel>
+
 </rss>
