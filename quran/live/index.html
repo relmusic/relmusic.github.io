@@ -58,8 +58,7 @@
           content="ca-pub-9570079959952863">
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;700&family=Lateef:wght@400;700&family=Reem+Kufi:wght@400;700&family=Scheherazade+New:wght@400;700&family=Tajawal:wght@400;700&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700&family=Changa:wght@400;600;700&family=El+Messiri:wght@400;500;600;700&family=Harmattan:wght@400;700&family=Katibeh&family=Lateef:wght@400;700&family=Mada:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&family=Mirza:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Rakkas&family=Reem+Kufi:wght@400;500;600;700&family=Scheherazade+New:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -1148,8 +1147,7 @@
         }
     </style>
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cairo:wght@400;600;700&family=Scheherazade+New:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;600;700&family=Changa:wght@400;600;700&family=El+Messiri:wght@400;500;600;700&family=Harmattan:wght@400;700&family=Katibeh&family=Lateef:wght@400;700&family=Mada:wght@400;500;600;700&family=Markazi+Text:wght@400;500;600;700&family=Mirza:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@400;500;600;700&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Rakkas&family=Reem+Kufi:wght@400;500;600;700&family=Scheherazade+New:wght@400;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     
 </head>
 
@@ -1221,41 +1219,53 @@
             <option value="ar.alafasy" selected>
                 Mishary Rashid Alafasy
             </option>
-
             <option value="ar.abdulbasitmurattal">
                 Abdul Basit — Murattal
             </option>
-
             <option value="ar.abdulbasitmujawwad">
                 Abdul Basit — Mujawwad
             </option>
-
+            <option value="ar.abdulsamad">
+                Abdul Basit Abdul Samad
+            </option>
             <option value="ar.hudhaify">
                 Ali Al-Hudhaify
             </option>
-
             <option value="ar.minshawi">
                 Muhammad Siddiq Al-Minshawi
             </option>
-
+            <option value="ar.minshawimujawwad">
+                Muhammad Siddiq Al-Minshawi — Mujawwad
+            </option>
             <option value="ar.abdurrahmaansudais">
                 Abdurrahmaan As-Sudais
             </option>
-
-            <option value="ar.mahermuaiqly">
-                Maher Al-Muaiqly
+            <option value="ar.saoodashuraym">
+                Saud Ash-Shuraim
             </option>
-
             <option value="ar.husary">
                 Mahmoud Khalil Al-Husary
             </option>
-
-            <option value="ar.shuraim">
-                Saud Al-Shuraim
+            <option value="ar.husarymujawwad">
+                Mahmoud Khalil Al-Husary — Mujawwad
             </option>
-
+            <option value="ar.mahermuaiqly">
+                Maher Al-Muaiqly
+            </option>
+            <option value="ar.ghamadi">
+                Saad Al-Ghamdi
+            </option>
+            <option value="ar.ahmedajamy">
+                Ahmed Al-Ajmi
+            </option>
             <option value="ar.yasser">
                 Yasser Ad-Dussary
+            </option>
+            <option value="ar.parhizgar">
+                Parhizgar
+            </option>
+            <option value="ar.muhammadayyoub">
+                Muhammad Ayyoub
             </option>
         </select>
 
@@ -1268,36 +1278,13 @@
             <!-- Generated automatically by JavaScript -->
         </select>
 
+        <label for="specificAyah">
+            Select Ayah
+        </label>
 
-        <div class="ayah-range">
-
-            <div>
-                <label for="fromAyah">
-                    From Ayah
-                </label>
-
-                <input
-                    type="number"
-                    id="fromAyah"
-                    value="1"
-                    min="1"
-                >
-            </div>
-
-            <div>
-                <label for="toAyah">
-                    To Ayah
-                </label>
-
-                <input
-                    type="number"
-                    id="toAyah"
-                    value="7"
-                    min="1"
-                >
-            </div>
-
-        </div>
+        <select id="specificAyah" aria-label="Select Ayah">
+            <option value="0">Ayat 1</option>
+        </select>
 
 
         <label for="translationSelect">
@@ -1348,31 +1335,55 @@
             id="calligraphyFont"
         >
             <option value="'Amiri', serif">
-                1. Amiri Calligraphy
+                1. Amiri Naskh
             </option>
-
             <option value="'Scheherazade New', serif">
-                2. Scheherazade Traditional
+                2. Scheherazade New
             </option>
-
+            <option value="'Noto Naskh Arabic', serif">
+                3. Noto Naskh Arabic
+            </option>
+            <option value="'Noto Kufi Arabic', sans-serif">
+                4. Noto Kufi Arabic
+            </option>
             <option value="'Cairo', sans-serif">
-                3. Cairo Modern
+                5. Cairo
             </option>
-
-            <option value="'Reem Kufi', sans-serif">
-                4. Reem Kufi Classic
-            </option>
-
-            <option value="'Lateef', serif">
-                5. Lateef Quranic
-            </option>
-
             <option value="'Tajawal', sans-serif">
-                6. Tajawal Clean
+                6. Tajawal
             </option>
-
-            <option value="Georgia, serif">
-                7. Standard Arabic Serif
+            <option value="'Lateef', serif">
+                7. Lateef
+            </option>
+            <option value="'Reem Kufi', sans-serif">
+                8. Reem Kufi
+            </option>
+            <option value="'El Messiri', sans-serif">
+                9. El Messiri
+            </option>
+            <option value="'Markazi Text', serif">
+                10. Markazi Text
+            </option>
+            <option value="'Aref Ruqaa', serif">
+                11. Aref Ruqaa
+            </option>
+            <option value="'Rakkas', serif">
+                12. Rakkas
+            </option>
+            <option value="'Changa', sans-serif">
+                13. Changa
+            </option>
+            <option value="'Katibeh', serif">
+                14. Katibeh
+            </option>
+            <option value="'Mada', sans-serif">
+                15. Mada
+            </option>
+            <option value="'Mirza', serif">
+                16. Mirza
+            </option>
+            <option value="'Harmattan', sans-serif">
+                17. Harmattan
             </option>
         </select>
 
@@ -1579,6 +1590,9 @@
 
             </div>
 
+            <div id="autoplayHint" style="margin-top:10px;color:#94a3b8;font-size:0.8rem;">
+                🔊 Auto-Play siap. Browser mungkin meminta 1x klik untuk mengizinkan audio.
+            </div>
 
             <div class="status-bar">
 
@@ -2309,6 +2323,12 @@ let recordingStream = null;
 let currentAudioObjectUrl = null;
 let audioRequestId = 0;
 
+// Browser autoplay policy: audio starts automatically when allowed,
+// otherwise it is armed and starts on the first non-form user gesture.
+let autoplayPending = false;
+let autoplayAttempted = false;
+let currentSurahData = null;
+
 let recordingStartedAt = 0;
 let recordingTimerId = null;
 
@@ -2463,8 +2483,7 @@ const surahs = [
 
 const reciterSelect = document.getElementById("reciterSelect");
 const surahSelect = document.getElementById("surahSelect");
-const fromAyah = document.getElementById("fromAyah");
-const toAyah = document.getElementById("toAyah");
+const specificAyah = document.getElementById("specificAyah");
 const translationSelect = document.getElementById("translationSelect");
 const calligraphyFont = document.getElementById("calligraphyFont");
 
@@ -2569,6 +2588,92 @@ function populateSurahs() {
     surahSelect.value = "1";
 }
 
+async function loadAyahsForSurah(surahNumber, preserveAyah = 1) {
+    try {
+        setPlayerStatus("Loading daftar ayat...", "loading");
+        const response = await fetch(`https://api.alquran.cloud/v1/surah/${surahNumber}`);
+        if (!response.ok) throw new Error("Failed to load Surah ayahs.");
+
+        const data = await response.json();
+        if (data.code !== 200 || !data.data?.ayahs) {
+            throw new Error("Invalid Surah response.");
+        }
+
+        currentSurahData = data.data;
+        specificAyah.innerHTML = "";
+
+        currentSurahData.ayahs.forEach((ayah, index) => {
+            const opt = document.createElement("option");
+            opt.value = String(index);
+            opt.textContent = `Ayat ${ayah.numberInSurah}`;
+            specificAyah.appendChild(opt);
+        });
+
+        const maxIndex = Math.max(0, currentSurahData.ayahs.length - 1);
+        const safeIndex = Math.min(Math.max(Number(preserveAyah) - 1, 0), maxIndex);
+        specificAyah.value = String(safeIndex);
+        currentAyahIndex = safeIndex + 1;
+        endAyahLimit = currentSurahData.ayahs.length;
+
+        updatePreviewContent(safeIndex);
+        updateProgress();
+        return currentSurahData;
+    } catch (err) {
+        console.error("Failed to load ayahs:", err);
+        logMessage(`Failed to load ayahs: ${err.message}`);
+        setPlayerStatus("Daftar ayat gagal dimuat.", "offline");
+        showToast("Daftar ayat tidak dapat dimuat.", "error");
+        return null;
+    }
+}
+
+function getTranslationEdition(value) {
+    const editions = {
+        en: "en.sahih",
+        id: "id.indonesian",
+        fr: "fr.hamidullah",
+        es: "es.cortes",
+        tr: "tr.diyanet",
+        ur: "ur.jalandhry",
+        ms: "ms.basmeih"
+    };
+    return editions[value] || value || "en.sahih";
+}
+
+async function updatePreviewContent(ayahIndex) {
+    if (!currentSurahData) return;
+
+    const index = Number(ayahIndex);
+    const ayah = currentSurahData.ayahs[index];
+    if (!ayah) return;
+
+    currentAyahIndex = index + 1;
+    endAyahLimit = currentSurahData.ayahs.length;
+    specificAyah.value = String(index);
+
+    // Adapted to the existing studio elements.
+    surahLabel.textContent = `${currentSurahData.englishName} — Ayah ${ayah.numberInSurah}`;
+    ayahProgress.textContent = `Ayah ${ayah.numberInSurah} / ${currentSurahData.numberOfAyahs}`;
+    arabicTextDisplay.textContent = ayah.text;
+
+    const lang = getTranslationEdition(translationSelect.value);
+    try {
+        const res = await fetch(
+            `https://api.alquran.cloud/v1/ayah/${ayah.number}/${encodeURIComponent(lang)}`
+        );
+        const transData = await res.json();
+        if (transData?.code === 200 && transData.data) {
+            translationTextDisplay.textContent = transData.data.text;
+        } else {
+            translationTextDisplay.textContent = "";
+        }
+    } catch (_) {
+        translationTextDisplay.textContent = "";
+    }
+
+    return ayah;
+}
+
 function getCurrentSurah() {
     const number = Number(surahSelect.value);
     return surahs.find(item => item[0] === number);
@@ -2578,22 +2683,8 @@ function updateAyahLimits() {
     const surah = getCurrentSurah();
     if (!surah) return;
 
-    const totalAyahs = surah[2];
-
-    fromAyah.max = totalAyahs;
-    toAyah.max = totalAyahs;
-
-    let start = parseInt(fromAyah.value, 10) || 1;
-    let end = parseInt(toAyah.value, 10) || totalAyahs;
-
-    start = Math.min(Math.max(start, 1), totalAyahs);
-    end = Math.min(Math.max(end, start), totalAyahs);
-
-    fromAyah.value = start;
-    toAyah.value = end;
-    currentAyahIndex = start;
-    endAyahLimit = end;
-
+    currentAyahIndex = Math.max(1, Math.min(currentAyahIndex, surah[2]));
+    endAyahLimit = surah[2];
     updateProgress();
 }
 
@@ -2615,6 +2706,22 @@ function setPlayerStatus(text, type = "normal") {
 }
 
 /* =====================================================
+   QUR'AN AUDIO SOURCE
+===================================================== */
+
+function getGlobalAyahNumber(surahNumber, ayahNumber) {
+    return surahs
+        .filter(([number]) => number < surahNumber)
+        .reduce((total, [, , ayahCount]) => total + ayahCount, 0) + ayahNumber;
+}
+
+function getQariAudioUrl(surahNumber, ayahNumber, reciter) {
+    const globalAyah = getGlobalAyahNumber(surahNumber, ayahNumber);
+    // Native MP3 CDN: works directly with HTMLAudioElement without Web Audio.
+    return `https://cdn.islamic.network/quran/audio/128/${encodeURIComponent(reciter)}/${globalAyah}.mp3`;
+}
+
+/* =====================================================
    QUR'AN API
 ===================================================== */
 
@@ -2622,32 +2729,34 @@ async function fetchAyahData(surahNumber, ayahNumber, reciter, translationEditio
     const requestId = ++audioRequestId;
 
     try {
-        const audioUrl =
-            `https://api.alquran.cloud/v1/ayah/${surahNumber}:${ayahNumber}/${encodeURIComponent(reciter)}`;
-
         const translationUrl =
             `https://api.alquran.cloud/v1/ayah/${surahNumber}:${ayahNumber}/${encodeURIComponent(translationEdition)}`;
+        const arabicUrl =
+            `https://api.alquran.cloud/v1/ayah/${surahNumber}:${ayahNumber}/quran-uthmani`;
 
-        const [audioResponse, translationResponse] = await Promise.all([
-            fetch(audioUrl),
+        const [audioResponse, arabicResponse, translationResponse] = await Promise.all([
+            fetch(`https://api.alquran.cloud/v1/ayah/${surahNumber}:${ayahNumber}/${encodeURIComponent(reciter)}`),
+            fetch(arabicUrl),
             fetch(translationUrl)
         ]);
 
-        if (!audioResponse.ok) throw new Error("Audio API request failed.");
+        if (!arabicResponse.ok) throw new Error("Arabic text request failed.");
         if (!translationResponse.ok) throw new Error("Translation API request failed.");
 
-        const audioData = await audioResponse.json();
+        const audioData = audioResponse.ok ? await audioResponse.json() : null;
+        const arabicData = await arabicResponse.json();
         const translationData = await translationResponse.json();
 
         if (requestId !== audioRequestId) return null;
 
-        if (audioData.code !== 200 || translationData.code !== 200) {
-            throw new Error("API returned an invalid response.");
+        if (translationData.code !== 200) {
+            throw new Error("API returned an invalid translation response.");
         }
 
         return {
-            audioUrl: audioData.data.audio,
-            arabicText: audioData.data.text,
+            audioUrl: getQariAudioUrl(surahNumber, ayahNumber, reciter),
+            fallbackAudioUrl: audioData?.data?.audio || null,
+            arabicText: arabicData.data.text,
             translationText: translationData.data.text
         };
     } catch (error) {
@@ -2660,11 +2769,16 @@ async function fetchAyahData(surahNumber, ayahNumber, reciter, translationEditio
 async function loadAyah(autoPlay = false) {
     const surahNumber = Number(surahSelect.value);
     const reciter = reciterSelect.value;
-    const edition = translationSelect.value;
+    const edition = getTranslationEdition(translationSelect.value);
     const ayahNumber = currentAyahIndex;
     const surah = getCurrentSurah();
 
     if (!surah) return;
+
+    if (!currentSurahData || Number(currentSurahData.number) !== surahNumber) {
+        const loaded = await loadAyahsForSurah(surahNumber, ayahNumber);
+        if (!loaded) return;
+    }
 
     if (ayahNumber < 1 || ayahNumber > surah[2]) {
         showToast("Ayah number is outside the selected Surah.", "warning");
@@ -2672,30 +2786,32 @@ async function loadAyah(autoPlay = false) {
     }
 
     setPlayerStatus(`Loading ${surah[1]} — Ayah ${ayahNumber}...`, "loading");
-    updateProgress();
 
-    const data = await fetchAyahData(
-        surahNumber,
-        ayahNumber,
-        reciter,
-        edition
-    );
+    const ayah = currentSurahData?.ayahs?.[ayahNumber - 1];
+    if (!ayah) return;
 
-    if (!data) {
-        setPlayerStatus("Unable to load Ayah.", "offline");
-        return;
-    }
+    await updatePreviewContent(ayahNumber - 1);
 
-    arabicTextDisplay.textContent = data.arabicText;
-    translationTextDisplay.textContent = data.translationText;
+    const audioUrl = getQariAudioUrl(surahNumber, ayahNumber, reciter);
+    let fallbackAudioUrl = null;
 
-    updateProgress();
+    try {
+        const audioResponse = await fetch(
+            `https://api.alquran.cloud/v1/ayah/${surahNumber}:${ayahNumber}/${encodeURIComponent(reciter)}`
+        );
+        if (audioResponse.ok) {
+            const audioData = await audioResponse.json();
+            fallbackAudioUrl = audioData?.data?.audio || null;
+        }
+    } catch (_) {}
+
     logMessage(`Loaded ${surah[1]} — Ayah ${ayahNumber}.`);
 
     if (autoPlay) {
-        await playAudio(data.audioUrl);
+        await playAudio(audioUrl, true, fallbackAudioUrl);
     } else {
         setPlayerStatus("Ayah ready.", "online");
+        setAutoplayHint("🔊 Ayat siap. Klik ▶ Play Qur'an untuk mulai audio.", "normal");
     }
 }
 
@@ -2741,12 +2857,45 @@ function connectCurrentAudioToRecorder() {
 }
 
 /* =====================================================
-   PLAY AUDIO
+   PLAY AUDIO / AUTOPLAY
 ===================================================== */
 
-async function playAudio(audioUrl) {
+function setAutoplayHint(text, type = "normal") {
+    const el = document.getElementById("autoplayHint");
+    if (!el) return;
+    el.textContent = text;
+    el.style.color =
+        type === "success" ? "#4ade80" :
+        type === "warning" ? "#facc15" :
+        type === "error" ? "#f87171" : "#94a3b8";
+}
+
+async function tryStartAutoplayAfterGesture() {
+    if (!autoplayPending) return;
+
+    autoplayPending = false;
+
     try {
-        ensureAudioGraph();
+        if (currentAudio && currentAudio.paused) {
+            await currentAudio.play();
+
+            isPlaying = true;
+            autoplayAttempted = true;
+            playBtn.textContent = "⏸ Pause";
+            setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
+            setAutoplayHint("🔊 Auto-Play aktif.", "success");
+            logMessage("Auto-Play diaktifkan setelah interaksi pengguna.");
+        }
+    } catch (error) {
+        autoplayPending = true;
+        setPlayerStatus("Klik Play untuk mengaktifkan audio.", "offline");
+        setAutoplayHint("⚠️ Browser memblokir autoplay bersuara. Klik ▶ Play Qur'an sekali.", "warning");
+        logMessage(`Autoplay masih diblokir: ${error.message}`);
+    }
+}
+
+async function playAudio(audioUrl, isAutoplay = false, fallbackAudioUrl = null) {
+    try {
 
         if (currentAudio) {
             currentAudio.pause();
@@ -2759,29 +2908,65 @@ async function playAudio(audioUrl) {
         currentAudio.preload = "auto";
         currentAudio.volume = Number(volumeControl.value);
         currentAudio.src = audioUrl;
+        currentAudio.load();
 
-        connectCurrentAudioToRecorder();
+        // Keep normal playback native. Web Audio is only attached when recording/live output needs it.
+        if (audioDestination) connectCurrentAudioToRecorder();
 
         currentAudio.onended = handleAudioEnded;
 
         currentAudio.onerror = () => {
+            isPlaying = false;
             setPlayerStatus("Audio playback error.", "offline");
+            setAutoplayHint("❌ Audio gagal dimuat. Coba Play atau ganti qori.", "error");
             logMessage("Audio playback failed.");
             showToast("Unable to play this audio track.", "error");
         };
 
-        await audioContext.resume();
         await currentAudio.play();
 
         isPlaying = true;
+        autoplayPending = false;
+        autoplayAttempted = true;
         playBtn.textContent = "⏸ Pause";
         setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
+        setAutoplayHint(
+            isAutoplay ? "🔊 Auto-Play aktif — ayat berikutnya akan lanjut otomatis." : "🔊 Audio sedang diputar.",
+            "success"
+        );
         logMessage(`Playing Ayah ${currentAyahIndex}.`);
     } catch (error) {
         isPlaying = false;
-        setPlayerStatus("Playback blocked or unavailable.", "offline");
+
+        // NotAllowedError is the normal browser autoplay restriction.
+        if (error && error.name === "NotAllowedError") {
+            autoplayPending = true;
+            setPlayerStatus("Audio siap — menunggu izin browser.", "offline");
+            setAutoplayHint("⚠️ Browser memblokir autoplay bersuara. Klik ▶ Play Qur'an sekali; setelah itu ayat akan lanjut otomatis.", "warning");
+            logMessage("Autoplay diblokir browser; audio di-arm untuk interaksi pengguna.");
+            return;
+        }
+
+        if (fallbackAudioUrl && currentAudio) {
+            try {
+                currentAudio.src = fallbackAudioUrl;
+                currentAudio.load();
+                await currentAudio.play();
+                isPlaying = true;
+                autoplayPending = false;
+                playBtn.textContent = "⏸ Pause";
+                setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
+                setAutoplayHint("🔊 Qori audio fallback aktif.", "success");
+                return;
+            } catch (fallbackError) {
+                logMessage(`Fallback audio failed: ${fallbackError.message}`);
+            }
+        }
+
+        setPlayerStatus("Playback unavailable.", "offline");
+        setAutoplayHint("❌ Audio tidak tersedia untuk ayat ini.", "error");
         logMessage(`Playback error: ${error.message}`);
-        showToast("Click Play again if the browser blocked playback.", "warning");
+        showToast("Audio tidak dapat diputar. Coba ganti qori atau klik Play lagi.", "warning");
     }
 }
 
@@ -2810,6 +2995,11 @@ async function handleAudioEnded() {
 }
 
 async function togglePlayback() {
+    if (autoplayPending && currentAudio) {
+        await tryStartAutoplayAfterGesture();
+        if (isPlaying) return;
+    }
+
     if (currentAudio && !currentAudio.paused) {
         currentAudio.pause();
         isPlaying = false;
@@ -2821,8 +3011,6 @@ async function togglePlayback() {
 
     if (currentAudio && currentAudio.paused) {
         try {
-            ensureAudioGraph();
-            await audioContext.resume();
             await currentAudio.play();
 
             isPlaying = true;
@@ -2834,13 +3022,14 @@ async function togglePlayback() {
         }
     }
 
-    currentAyahIndex = parseInt(fromAyah.value, 10) || 1;
-    endAyahLimit = parseInt(toAyah.value, 10) || 1;
+    currentAyahIndex = Math.max(1, Math.min(currentAyahIndex, getCurrentSurah()?.[2] || 1));
+    endAyahLimit = getCurrentSurah()?.[2] || 1;
     await loadAyah(true);
 }
 
 function stopAudioStream() {
     isPlaying = false;
+    autoplayPending = false;
     audioRequestId++;
 
     if (currentAudio) {
@@ -2863,26 +3052,25 @@ function stopAudioStream() {
 }
 
 async function previousAyah() {
-    const start = parseInt(fromAyah.value, 10) || 1;
-
-    if (currentAyahIndex > start) {
+    if (currentAyahIndex > 1) {
         const wasPlaying = isPlaying;
         currentAyahIndex--;
         updateProgress();
         await loadAyah(wasPlaying);
     } else {
-        showToast("Already at the beginning of the selected range.", "warning");
+        showToast("Sudah di ayat pertama surah ini.", "warning");
     }
 }
 
 async function nextAyah() {
-    if (currentAyahIndex < endAyahLimit) {
+    const total = getCurrentSurah()?.[2] || 1;
+    if (currentAyahIndex < total) {
         const wasPlaying = isPlaying;
         currentAyahIndex++;
         updateProgress();
         await loadAyah(wasPlaying);
     } else {
-        showToast("Already at the end of the selected range.", "warning");
+        showToast("Sudah di ayat terakhir surah ini.", "warning");
     }
 }
 
@@ -3353,6 +3541,7 @@ function startRecording() {
 
     try {
         ensureAudioGraph();
+        if (currentAudio && !currentAudioSourceNode) connectCurrentAudioToRecorder();
         startCanvasRenderer();
 
         const mimeType = getSupportedMimeType();
@@ -3881,44 +4070,21 @@ function initializeTypingEffect() {
    EVENTS
 ===================================================== */
 
-surahSelect.addEventListener("change", () => {
+surahSelect.addEventListener("change", async () => {
     stopAudioStream();
+    currentAyahIndex = 1;
     updateAyahLimits();
-    loadAyah(false);
+    await loadAyahsForSurah(Number(surahSelect.value), 1);
+    await loadAyah(false);
 });
 
-fromAyah.addEventListener("change", () => {
-    const surah = getCurrentSurah();
-    if (!surah) return;
-
-    let value = parseInt(fromAyah.value, 10) || 1;
-    value = Math.max(1, Math.min(value, surah[2]));
-
-    fromAyah.value = value;
-
-    if (Number(toAyah.value) < value) {
-        toAyah.value = value;
-    }
-
-    currentAyahIndex = value;
-    endAyahLimit = Number(toAyah.value);
+specificAyah.addEventListener("change", async () => {
+    stopAudioStream();
+    const index = Number(specificAyah.value);
+    currentAyahIndex = index + 1;
     updateProgress();
-});
-
-toAyah.addEventListener("change", () => {
-    const surah = getCurrentSurah();
-    if (!surah) return;
-
-    let value = parseInt(toAyah.value, 10) || surah[2];
-    value = Math.max(1, Math.min(value, surah[2]));
-
-    if (value < Number(fromAyah.value)) {
-        value = Number(fromAyah.value);
-    }
-
-    toAyah.value = value;
-    endAyahLimit = value;
-    updateProgress();
+    await updatePreviewContent(index);
+    await loadAyah(false);
 });
 
 reciterSelect.addEventListener("change", () => {
@@ -3929,9 +4095,10 @@ reciterSelect.addEventListener("change", () => {
     loadAyah(false);
 });
 
-translationSelect.addEventListener("change", () => {
+translationSelect.addEventListener("change", async () => {
     logMessage("Translation language changed.");
-    loadAyah(false);
+    if (currentSurahData) await updatePreviewContent(currentAyahIndex - 1);
+    await loadAyah(false);
 });
 
 calligraphyFont.addEventListener("change", changeCalligraphyFont);
@@ -3966,11 +4133,33 @@ stopYoutubeBtn.addEventListener("click", () => stopYoutubeLive(false));
 contactForm.addEventListener("submit", handleContact);
 
 /* =====================================================
+   AUTOPLAY GESTURE FALLBACK
+===================================================== */
+
+document.addEventListener("pointerdown", (event) => {
+    if (!autoplayPending) return;
+
+    // Do not hijack form controls. The Play button has its own handler.
+    if (event.target.closest("button, select, input, textarea, label, a")) return;
+
+    tryStartAutoplayAfterGesture();
+}, { passive: true });
+
+document.addEventListener("keydown", (event) => {
+    if (!autoplayPending) return;
+    if (["INPUT", "SELECT", "TEXTAREA", "BUTTON", "A"].includes(event.target.tagName)) return;
+    if (event.key === "Tab" || event.key === "Shift") return;
+
+    tryStartAutoplayAfterGesture();
+});
+
+/* =====================================================
    INITIALIZATION
 ===================================================== */
 
 function initializeApp() {
     populateSurahs();
+    currentAyahIndex = 1;
     updateAyahLimits();
     changeCalligraphyFont();
     updateVolume();
@@ -3987,7 +4176,8 @@ function initializeApp() {
     );
 
     logMessage("Application initialized successfully.");
-    loadAyah(false);
+    // Load all ayahs into the new selector, then prepare the first ayah.
+    loadAyahsForSurah(Number(surahSelect.value), 1).then(() => loadAyah(false));
 }
 
 document.addEventListener("DOMContentLoaded", initializeApp);
