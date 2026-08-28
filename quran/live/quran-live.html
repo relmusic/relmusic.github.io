@@ -1364,6 +1364,31 @@
                 🔄 Load Selected Ayah
             </button>
 
+            <button
+                type="button"
+                class="btn-primary"
+                id="selectionPlayBtn"
+            >
+                ▶ Play
+            </button>
+
+            <button
+                type="button"
+                class="btn-danger"
+                id="selectionRecordBtn"
+            >
+                🔴 Record
+            </button>
+
+            <button
+                type="button"
+                class="btn-success"
+                id="selectionDownloadBtn"
+                disabled
+            >
+                ⬇ Download Video
+            </button>
+
         </div>
 
     </section>
@@ -2472,6 +2497,9 @@ const stopBtn = document.getElementById("stopBtn");
 const prevBtn = document.getElementById("prevBtn");
 const nextBtn = document.getElementById("nextBtn");
 const loadAyahBtn = document.getElementById("loadAyahBtn");
+const selectionPlayBtn = document.getElementById("selectionPlayBtn");
+const selectionRecordBtn = document.getElementById("selectionRecordBtn");
+const selectionDownloadBtn = document.getElementById("selectionDownloadBtn");
 const volumeControl = document.getElementById("volumeControl");
 const muteBtn = document.getElementById("muteBtn");
 const continuousPlayCheck = document.getElementById("continuousPlayCheck");
@@ -2681,6 +2709,39 @@ function getGlobalAyahNumber(surahNumber, ayahNumber) {
         .reduce((total, [, , ayahCount]) => total + ayahCount, 0) + ayahNumber;
 }
 
+function padZero(value, width = 3) {
+    return String(value).padStart(width, "0");
+}
+
+// EveryAyah menyediakan audio per-ayat dengan format: SSSAAA.mp3
+// (3 digit nomor surah + 3 digit nomor ayat).
+function getReciterFolder(reciter) {
+    const folders = {
+        "ar.alafasy": "Alafasy_128kbps",
+        "ar.husary": "Husary_128kbps",
+        "ar.husarymujawwad": "Husary_Mujawwad_128kbps",
+        "ar.minshawi": "Minshawy_Murattal_128kbps",
+        "ar.minshawimujawwad": "Minshawy_Mujawwad_128kbps",
+        "ar.sudais": "Abdurrahmaan_As-Sudais_192kbps",
+        "ar.shuraim": "Saood_ash-Shuraym_128kbps",
+        "ar.abdulbasit": "Abdul_Basit_Murattal_192kbps",
+        "ar.abdulbasitmujawwad": "Abdul_Basit_Mujawwad_128kbps",
+        "ar.abdulsamad": "Abdul_Samad_128kbps",
+        "ar.ajamy": "Ajamy_128kbps",
+        "ar.muhammadayoub": "Muhammad_Ayyoub_128kbps",
+        "ar.hudhaify": "Hudhaify_128kbps",
+        "ar.muhammadjibreel": "Muhammad_Jibreel_128kbps",
+        "ar.parhizgar": "Parhizgar_48kbps",
+        "ar.abdullahbasfar": "Abdullah_Basfar_192kbps",
+        "ar.shaatree": "Abu_Bakr_Ash-Shaatree_128kbps"
+    };
+    return folders[reciter] || folders["ar.alafasy"];
+}
+
+function getEveryAyahAudioUrl(surahNumber, ayahNumber, reciter) {
+    return `https://everyayah.com/data/${getReciterFolder(reciter)}/${padZero(surahNumber)}${padZero(ayahNumber)}.mp3`;
+}
+
 function getQariAudioUrl(surahNumber, ayahNumber, reciter, bitrate = 128) {
     const globalAyah = getGlobalAyahNumber(surahNumber, ayahNumber);
     return `https://cdn.islamic.network/quran/audio/${bitrate}/${encodeURIComponent(reciter)}/${globalAyah}.mp3`;
@@ -2763,8 +2824,10 @@ async function loadAyah(autoPlay = false) {
 
     await updatePreviewContent(ayahNumber - 1);
 
-    const audioUrl = getQariAudioUrl(surahNumber, ayahNumber, reciter);
-    let fallbackAudioUrl = null;
+    // EveryAyah menjadi sumber utama karena URL-nya langsung berdasarkan
+    // qori + nomor surah + nomor ayat. CDN/API dipakai sebagai fallback.
+    const audioUrl = getEveryAyahAudioUrl(surahNumber, ayahNumber, reciter);
+    let fallbackAudioUrl = getQariAudioUrl(surahNumber, ayahNumber, reciter);
 
     try {
         const audioResponse = await fetch(
@@ -2772,7 +2835,8 @@ async function loadAyah(autoPlay = false) {
         );
         if (audioResponse.ok) {
             const audioData = await audioResponse.json();
-            fallbackAudioUrl = audioData?.data?.audio || null;
+            const apiAudioUrl = audioData?.data?.audio || null;
+            if (apiAudioUrl) fallbackAudioUrl = apiAudioUrl;
         }
     } catch (_) {}
 
@@ -2853,6 +2917,7 @@ async function tryStartAutoplayAfterGesture() {
             isPlaying = true;
             autoplayAttempted = true;
             playBtn.textContent = "⏸ Pause";
+            syncSelectionPlayButton();
             setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
             setAutoplayHint("🔊 Auto-Play aktif.", "success");
             logMessage("Auto-Play diaktifkan setelah interaksi pengguna.");
@@ -2866,79 +2931,62 @@ async function tryStartAutoplayAfterGesture() {
 }
 
 async function playAudio(audioUrl, isAutoplay = false, fallbackAudioUrl = null) {
-    try {
+    const sources = [audioUrl, fallbackAudioUrl].filter(Boolean);
+    let lastError = null;
 
-        if (currentAudio) {
-            currentAudio.pause();
-            currentAudio.onended = null;
-            currentAudio.onerror = null;
-        }
-
-        currentAudio = new Audio();
-        currentAudio.crossOrigin = "anonymous";
-        currentAudio.preload = "auto";
-        currentAudio.volume = Number(volumeControl.value);
-        currentAudio.src = audioUrl;
-        currentAudio.load();
-
-        // Keep normal playback native. Web Audio is only attached when recording/live output needs it.
-        if (audioDestination) connectCurrentAudioToRecorder();
-
-        currentAudio.onended = handleAudioEnded;
-
-        currentAudio.onerror = () => {
-            isPlaying = false;
-            setPlayerStatus("Audio playback error.", "offline");
-            setAutoplayHint("❌ Audio gagal dimuat. Coba Play atau ganti qori.", "error");
-            logMessage("Audio playback failed.");
-            showToast("Unable to play this audio track.", "error");
-        };
-
-        await currentAudio.play();
-
-        isPlaying = true;
-        autoplayPending = false;
-        autoplayAttempted = true;
-        playBtn.textContent = "⏸ Pause";
-        setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
-        setAutoplayHint(
-            isAutoplay ? "🔊 Auto-Play aktif — ayat berikutnya akan lanjut otomatis." : "🔊 Audio sedang diputar.",
-            "success"
-        );
-        logMessage(`Playing Ayah ${currentAyahIndex}.`);
-    } catch (error) {
-        isPlaying = false;
-
-        // NotAllowedError is the normal browser autoplay restriction.
-        if (error && error.name === "NotAllowedError") {
-            autoplayPending = true;
-            setPlayerStatus("Audio siap — menunggu izin browser.", "offline");
-            setAutoplayHint("⚠️ Browser memblokir autoplay bersuara. Klik ▶ Play Qur'an sekali; setelah itu ayat akan lanjut otomatis.", "warning");
-            logMessage("Autoplay diblokir browser; audio di-arm untuk interaksi pengguna.");
-            return;
-        }
-
-        if (fallbackAudioUrl && currentAudio) {
-            try {
-                currentAudio.src = fallbackAudioUrl;
-                currentAudio.load();
-                await currentAudio.play();
-                isPlaying = true;
-                autoplayPending = false;
-                playBtn.textContent = "⏸ Pause";
-                setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
-                setAutoplayHint("🔊 Qori audio fallback aktif.", "success");
-                return;
-            } catch (fallbackError) {
-                logMessage(`Fallback audio failed: ${fallbackError.message}`);
-            }
-        }
-
-        setPlayerStatus("Playback unavailable.", "offline");
-        setAutoplayHint("❌ Audio tidak tersedia untuk ayat ini.", "error");
-        logMessage(`Playback error: ${error.message}`);
-        showToast("Audio tidak dapat diputar. Coba ganti qori atau klik Play lagi.", "warning");
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.onended = null;
+        currentAudio.onerror = null;
     }
+
+    currentAudio = new Audio();
+    currentAudio.crossOrigin = "anonymous";
+    currentAudio.preload = "auto";
+    currentAudio.volume = Number(volumeControl.value);
+    currentAudio.onended = handleAudioEnded;
+
+    for (let i = 0; i < sources.length; i++) {
+        const source = sources[i];
+        try {
+            currentAudio.src = source;
+            currentAudio.load();
+            await currentAudio.play();
+
+            isPlaying = true;
+            autoplayPending = false;
+            autoplayAttempted = true;
+            playBtn.textContent = "⏸ Pause";
+            syncSelectionPlayButton();
+            setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
+            setAutoplayHint(
+                i === 0
+                    ? (isAutoplay ? "🔊 Auto-Play aktif — EveryAyah." : "🔊 Audio sedang diputar.")
+                    : "🔊 Audio fallback aktif.",
+                "success"
+            );
+            logMessage(`Playing Ayah ${currentAyahIndex} — source ${i === 0 ? "EveryAyah" : "fallback"}.`);
+            return;
+        } catch (error) {
+            lastError = error;
+
+            if (error?.name === "NotAllowedError") {
+                autoplayPending = true;
+                setPlayerStatus("Audio siap — menunggu izin browser.", "offline");
+                setAutoplayHint("⚠️ Browser memblokir autoplay bersuara. Klik ▶ Play Qur'an sekali; setelah itu ayat akan lanjut otomatis.", "warning");
+                logMessage("Autoplay diblokir browser; audio di-arm untuk interaksi pengguna.");
+                return;
+            }
+
+            logMessage(`Audio source gagal (${i + 1}/${sources.length}): ${error.message}`);
+        }
+    }
+
+    isPlaying = false;
+    setPlayerStatus("Playback unavailable.", "offline");
+    setAutoplayHint("❌ Audio tidak tersedia untuk qori/ayat ini.", "error");
+    logMessage(`Playback error: ${lastError?.message || "unknown error"}`);
+    showToast("Audio tidak dapat diputar. Coba ganti qori atau klik Play lagi.", "warning");
 }
 
 async function handleAudioEnded() {
@@ -2947,6 +2995,7 @@ async function handleAudioEnded() {
     if (!continuousPlayCheck.checked) {
         isPlaying = false;
         playBtn.textContent = "▶ Play Qur'an";
+        syncSelectionPlayButton();
         setPlayerStatus("Playback finished.", "online");
         logMessage("Playback finished.");
         return;
@@ -2954,6 +3003,7 @@ async function handleAudioEnded() {
 
     if (currentAyahIndex < endAyahLimit) {
         currentAyahIndex++;
+        if (specificAyah) specificAyah.value = String(currentAyahIndex - 1);
         updateProgress();
         await loadAyah(true);
         return;
@@ -2961,8 +3011,19 @@ async function handleAudioEnded() {
 
     isPlaying = false;
     playBtn.textContent = "▶ Play Qur'an";
+    syncSelectionPlayButton();
     setPlayerStatus("Selected ayah range finished.", "online");
     logMessage("Selected ayah range finished.");
+}
+
+
+function syncSelectionPlayButton() {
+    if (!selectionPlayBtn) return;
+    if (isPlaying && currentAudio && !currentAudio.paused) {
+        selectionPlayBtn.textContent = "⏸ Pause";
+    } else {
+        selectionPlayBtn.textContent = "▶ Play";
+    }
 }
 
 async function togglePlayback() {
@@ -2975,6 +3036,7 @@ async function togglePlayback() {
         currentAudio.pause();
         isPlaying = false;
         playBtn.textContent = "▶ Resume";
+        syncSelectionPlayButton();
         setPlayerStatus("Paused.", "normal");
         logMessage("Playback paused.");
         return;
@@ -2986,6 +3048,7 @@ async function togglePlayback() {
 
             isPlaying = true;
             playBtn.textContent = "⏸ Pause";
+            syncSelectionPlayButton();
             setPlayerStatus(`Playing Ayah ${currentAyahIndex}`, "online");
             return;
         } catch (error) {
@@ -3018,6 +3081,7 @@ function stopAudioStream() {
     }
 
     playBtn.textContent = "▶ Play Qur'an";
+    syncSelectionPlayButton();
     setPlayerStatus("Stopped.", "normal");
     logMessage("Audio playback stopped.");
 }
@@ -3562,6 +3626,7 @@ function startRecording() {
 
         logMessage("Browser studio recording started.");
         showToast("Recording started.", "success");
+        syncSelectionRecordingButtons();
     } catch (error) {
         if (recordingStream) {
             recordingStream.getTracks().forEach(track => track.stop());
@@ -3586,6 +3651,43 @@ function stopRecording() {
     stopRecordingTimer();
 
     logMessage("Recording stopped. Finalizing file...");
+    syncSelectionRecordingButtons();
+}
+
+async function toggleSelectionRecording() {
+    if (mediaRecorder && mediaRecorder.state === "recording") {
+        stopRecording();
+        return;
+    }
+
+    // Recording is most useful when the selected qori audio is already playing.
+    // Start playback first when needed, then start the studio recorder.
+    if (!currentAudio || currentAudio.paused) {
+        try {
+            await togglePlayback();
+            if (!isPlaying && autoplayPending) {
+                showToast("Klik Play terlebih dahulu agar browser memberi izin audio.", "warning");
+                return;
+            }
+        } catch (error) {
+            showToast(`Audio belum siap: ${error.message}`, "warning");
+            return;
+        }
+    }
+
+    startRecording();
+}
+
+function syncSelectionRecordingButtons() {
+    const recording = !!(mediaRecorder && mediaRecorder.state === "recording");
+    if (selectionRecordBtn) {
+        selectionRecordBtn.textContent = recording ? "⏹ Stop Record" : "🔴 Record";
+        selectionRecordBtn.classList.toggle("btn-warning", recording);
+        selectionRecordBtn.classList.toggle("btn-danger", !recording);
+    }
+    if (selectionDownloadBtn) {
+        selectionDownloadBtn.disabled = !lastRecordingBlob;
+    }
 }
 
 function toggleRecording() {
@@ -3616,6 +3718,7 @@ function finalizeRecording() {
 
     logMessage(`Recording ready (${formatBytes(lastRecordingBlob.size)}).`);
     showToast("Recording siap disimpan/download.", "success");
+    syncSelectionRecordingButtons();
 
     if (recordingStream) {
         recordingStream.getTracks().forEach(track => track.stop());
@@ -3648,6 +3751,8 @@ function downloadRecording() {
         showToast("No recording is available.", "warning");
         return;
     }
+
+    syncSelectionRecordingButtons();
 
     if (currentAudioObjectUrl) {
         URL.revokeObjectURL(currentAudioObjectUrl);
@@ -4085,6 +4190,9 @@ prevBtn.addEventListener("click", previousAyah);
 nextBtn.addEventListener("click", nextAyah);
 
 loadAyahBtn.addEventListener("click", () => loadAyah(false));
+selectionPlayBtn.addEventListener("click", togglePlayback);
+selectionRecordBtn.addEventListener("click", toggleSelectionRecording);
+selectionDownloadBtn.addEventListener("click", downloadRecording);
 
 volumeControl.addEventListener("input", updateVolume);
 muteBtn.addEventListener("click", toggleMute);
@@ -4151,7 +4259,11 @@ function initializeApp() {
     loadAyahsForSurah(Number(surahSelect.value), 1).then(() => loadAyah(false));
 }
 
-document.addEventListener("DOMContentLoaded", initializeApp);
+document.addEventListener("DOMContentLoaded", () => {
+    initializeApp();
+    syncSelectionPlayButton();
+    syncSelectionRecordingButtons();
+});
 
 /* =====================================================
    CLEANUP
