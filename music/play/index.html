@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RelMusic - Professional Winamp Style Audio Player & Visualizer Tools</title>
+    
+    <!-- Meta Tags & Open Graph -->
+    <meta name="description" content="RelMusic adalah pemutar audio web interaktif bergaya Winamp klasik dengan visualizer audio sempurna, equalizer, tombol audio control lengkap, dan integrasi media sosial.">
+    <meta name="keywords" content="relmusic, winamp web player, audio visualizer, online music player, web audio tools, mp3 player">
+    <meta name="author" content="RelMusic">
+    <link rel="canonical" href="https://relmusic.github.io/music/play/index.html">
+
+    <!-- Open Graph / JSON-LD -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://relmusic.github.io/music/play/index.html">
+    <meta property="og:title" content="RelMusic - Winamp Style Audio Player & Visualizer">
+    <meta property="og:description" content="Nikmati pengalaman pemutar musik retro Winamp dengan fitur visualizer canggih, audio control lengkap, dan koleksi musik online.">
+    <meta property="og:image" content="https://relmusic.github.io/img/relmusic.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://relmusic.github.io/music/play/index.html">
+    <meta name="twitter:title" content="RelMusic - Winamp Style Audio Player & Visualizer">
+    <meta name="twitter:description" content="Nikmati pengalaman pemutar musik retro Winamp dengan fitur visualizer canggih.">
+    <meta name="twitter:image" content="https://relmusic.github.io/img/relmusic.png">
+
+    <!-- Icons -->
+    <link rel="icon" href="https://relmusic.github.io/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="https://relmusic.github.io/relmusic.png">
+
+    <!-- Google Site Verification & AdSense -->
+    <meta name="google-site-verification" content="RysxVYzRU4PCDuYKoCmxzFXknim_qNy0PfaIT9aSL9g" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9570079959952863"
+         crossorigin="anonymous"></script>
+        <meta name="google-adsense-account" content="ca-pub-9570079959952863">
+        <script async custom-element="amp-auto-ads"
+            src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "RelMusic",
+      "url": "https://relmusic.github.io/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://relmusic.github.io/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg-color: #0b0f19;
+            --panel-bg: #131b2e;
+            --panel-border: #1e293b;
+            --accent-green: #00ff66;
+            --accent-cyan: #00f0ff;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --winamp-dark: #121212;
+            --winamp-gray: #2c2c2c;
+            --winamp-border: #3f3f3f;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: rgba(19, 27, 46, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--panel-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+        }
+
+        .logo-area img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .logo-area h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .main-container {
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 2rem auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        /* WINAMP PLAYER CONTAINER */
+        .winamp-skin {
+            background: var(--winamp-dark);
+            border: 2px solid var(--winamp-border);
+            border-radius: 6px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.7), inset 0 1px 0 rgba(255,255,255,0.1);
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        /* Menu Bar */
+        .winamp-menubar {
+            background: linear-gradient(to bottom, #333, #222);
+            padding: 4px 8px;
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #111;
+            user-select: none;
+        }
+
+        .menu-dropdown {
+            position: relative;
+            cursor: pointer;
+            color: #ccc;
+            padding: 2px 6px;
+        }
+
+        .menu-dropdown:hover {
+            background: #444;
+            color: #fff;
+            border-radius: 3px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #222;
+            border: 1px solid #444;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            z-index: 10;
+            list-style: none;
+            padding: 4px 0;
+        }
+
+        .menu-dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content li a {
+            display: block;
+            padding: 6px 12px;
+            color: #ddd;
+            text-decoration: none;
+            font-size: 0.8rem;
+        }
+
+        .dropdown-content li a:hover {
+            background: #0055ff;
+            color: #fff;
+        }
+
+        /* Title Bar */
+        .winamp-titlebar {
+            background: linear-gradient(90deg, #002266, #0044aa, #00aa55);
+            color: #fff;
+            padding: 6px 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 1.1rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .winamp-titlebar .controls-mini {
+            display: flex;
+            gap: 5px;
+        }
+
+        .winamp-titlebar button {
+            background: #222;
+            border: 1px solid #555;
+            color: #fff;
+            width: 18px;
+            height: 18px;
+            font-size: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Display Panel */
+        .winamp-display {
+            background: #000;
+            border: inset 2px #333;
+            margin: 8px;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            position: relative;
+            min-height: 140px;
+        }
+
+        .time-display {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-green);
+            font-size: 2.2rem;
+            text-shadow: 0 0 10px rgba(0,255,102,0.5);
+            background: #050505;
+            padding: 5px 10px;
+            border: 1px solid #222;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .track-info-screen {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--accent-cyan);
+            font-size: 0.9rem;
+            background: #050505;
+            padding: 8px;
+            border: 1px solid #222;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee {
+            display: inline-block;
+            animation: marquee 10s linear infinite;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .kbps-khz {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        /* Visualizer Screen */
+        .visualizer-box {
+            grid-column: span 2;
+            background: #030303;
+            height: 90px;
+            border: 1px solid #222;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            padding: 2px;
+        }
+
+        canvas#visCanvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        /* Sliders / Control Deck */
+        .control-deck {
+            background: var(--winamp-gray);
+            padding: 10px;
+            border-top: 1px solid #444;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .slider-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .slider-group label {
+            font-size: 0.75rem;
+            color: #aaa;
+            width: 60px;
+            font-family: 'Share Tech Mono', monospace;
+        }
+
+        .slider-group input[type="range"] {
+            flex: 1;
+            accent-color: var(--accent-green);
+            cursor: pointer;
+        }
+
+        /* Buttons Toolbar */
+        .player-toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #1a1a1a;
+            padding: 8px;
+            border: 1px solid #333;
+            border-radius: 4px;
+        }
+
+        .btn-controls {
+            display: flex;
+            gap: 5px;
+        }
+
+        .winamp-btn {
+            background: linear-gradient(to bottom, #3a3a3a, #262626);
+            border: 1px solid #555;
+            color: #fff;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            border-radius: 3px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: all 0.1s;
+        }
+
+        .winamp-btn:hover {
+            background: linear-gradient(to bottom, #4a4a4a, #333);
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
+        }
+
+        .winamp-btn:active {
+            background: #111;
+            border-color: var(--accent-green);
+        }
+
+        .vis-selector {
+            background: #222;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 5px 8px;
+            font-size: 0.8rem;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* Playlist Section */
+        .playlist-section {
+            background: #0f1423;
+            border: 1px solid var(--panel-border);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .playlist-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .playlist-header h3 {
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .playlist-tracks {
+            list-style: none;
+            max-height: 220px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .playlist-tracks::-webkit-scrollbar {
+            width: 6px;
+        }
+        .playlist-tracks::-webkit-scrollbar-thumb {
+            background: var(--panel-border);
+            border-radius: 3px;
+        }
+
+        .playlist-tracks li {
+            background: #172138;
+            padding: 10px 15px;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .playlist-tracks li:hover {
+            border-color: var(--accent-cyan);
+            background: #1e293b;
+        }
+
+        .playlist-tracks li.active {
+            border-color: var(--accent-green);
+            background: rgba(0, 255, 102, 0.05);
+            color: var(--accent-green);
+        }
+
+        /* Contact & Social Section */
+        .interactive-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .interactive-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card-box {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .card-box h3 {
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent-cyan);
+        }
+
+        /* Social Share Buttons */
+        .social-share-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .social-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .social-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .sb-wa { background: #25d366; }
+        .sb-fb { background: #1877f2; }
+        .sb-tw { background: #1da1f2; }
+        .sb-tg { background: #0088cc; }
+        .sb-rd { background: #ff4500; }
+        .sb-li { background: #0a66c2; }
+
+        /* Contact Form */
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group textarea {
+            background: #0b0f19;
+            border: 1px solid var(--panel-border);
+            padding: 10px;
+            border-radius: 6px;
+            color: #fff;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-green));
+            color: #0b0f19;
+            border: none;
+            padding: 10px;
+            border-radius: 6px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--panel-bg);
+            border-top: 1px solid var(--panel-border);
+            padding: 2rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .footer-copy {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Modal popup for Menu items */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+        .modal-content {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px; right: 15px;
+            background: none; border: none;
+            color: #fff; font-size: 1.2rem; cursor: pointer;
+        }
+        
+        /* Content & Article Section */
+        .content-box {
+        background: var(--panel-bg);
+        border: 1px solid var(--panel-border);
+        border-radius: 12px;
+        padding: 2rem;
+        line-height: 1.7;
+        }
+        
+        .content-box h2 {
+        font-size: 1.5rem;
+        color: var(--accent-cyan);
+        margin-bottom: 1rem;
+        }
+        
+        .content-box p {
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        }
+        
+        .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-top: 1.5rem;
+        }
+        
+        .faq-item {
+        background: #0b0f19;
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--panel-border);
+        }
+        
+        .faq-item h4 {
+        color: var(--text-main);
+        margin-bottom: 5px;
+        }
+        
+        footer {
+        background: var(--panel-bg);
+        border-top: 1px solid var(--panel-border);
+        padding: 2rem 1rem;
+        margin-top: auto;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="navbar">
+            <a href="https://relmusic.github.io/" class="logo-area">
+                <img src="https://relmusic.github.io/img/relmusic.png" alt="RelMusic Logo">
+                <h1>RelMusic</h1>
+            </a>
+            <ul class="nav-links">
+                <li><a href="https://relmusic.github.io/">Home</a></li>
+                <li><a href="https://relmusic.github.io/about.html">About</a></li>
+                <li><a href="https://relmusic.github.io/contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Main Section -->
+    <main class="main-container">
+
+        <!-- WINAMP AUDIO CONTROL & VISUALIZER -->
+        <section class="winamp-skin" id="winampPlayer">
+            <!-- Menu Bar -->
+            <div class="winamp-menubar">
+                <div class="menu-dropdown">
+                    File <i class="fa-solid fa-caret-down"></i>
+                    <ul class="dropdown-content">
+                        <li><a href="#" id="menuOpenUrl"><i class="fa-solid fa-link"></i> Open URL / Audio</a></li>
+                        <li><a href="#" id="menuAddLocal"><i class="fa-solid fa-file-audio"></i> Add Local File</a></li>
+                        <li><a href="#" id="menuExit"><i class="fa-solid fa-power-off"></i> Reset Player</a></li>
+                    
+                    </ul>
+                </div>
+                <div class="menu-dropdown">
+                    Playback <i class="fa-solid fa-caret-down"></i>
+                    <ul class="dropdown-content">
+                        <li><a href="#" id="menuPlay"><i class="fa-solid fa-play"></i> Play</a></li>
+                        <li><a href="#" id="menuPause"><i class="fa-solid fa-pause"></i> Pause</a></li>
+                        <li><a href="#" id="menuStop"><i class="fa-solid fa-stop"></i> Stop</a></li>
+                        <li><a href="#" id="menuRepeat"><i class="fa-solid fa-repeat"></i> Toggle Repeat</a></li>
+                    </ul>
+                </div>
+                <div class="menu-dropdown">
+                    Visualizer <i class="fa-solid fa-caret-down"></i>
+                    <ul class="dropdown-content">
+                        <li><a href="#" onclick="setVisualizerType('bars')">Spectrum Bars</a></li>
+                        <li><a href="#" onclick="setVisualizerType('wave')">Oscilloscope Wave</a></li>
+                        <li><a href="#" onclick="setVisualizerType('circle')">Radial Circular</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', 'SoundHelix Song 1 - Synthwave Ambient', this)">SoundHelix Song 1 - Synthwave Ambient</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', 'SoundHelix Song 2 - Cyberpunk Groove', this)">SoundHelix Song 2 - Cyberpunk Groove</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', 'SoundHelix Song 3 - Retro Wavebeat', this)">SoundHelix Song 3 - Retro Wavebeat</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3', 'SoundHelix Song 4 - Electronic Odyssey', this)">SoundHelix Song 4 - Electronic Odyssey</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3', 'SoundHelix Song 5 - Neon Horizon', this)">SoundHelix Song 5 - Neon Horizon</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3', 'SoundHelix Song 6 - Digital Pulse', this)">SoundHelix Song 6 - Digital Pulse</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3', 'SoundHelix Song 7 - Space Odyssey', this)">SoundHelix Song 7 - Space Odyssey</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3', 'SoundHelix Song 8 - Midnight Drive', this)">SoundHelix Song 8 - Midnight Drive</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3', 'SoundHelix Song 9 - Retrograde', this)">SoundHelix Song 9 - Retrograde</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3', 'SoundHelix Song 10 - Starlight Echo', this)">SoundHelix Song 10 - Starlight Echo</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-11.mp3', 'SoundHelix Song 11 - Cybernetic Dream', this)">SoundHelix Song 11 - Cybernetic Dream</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-12.mp3', 'SoundHelix Song 12 - Quantum Beat', this)">SoundHelix Song 12 - Quantum Beat</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-13.mp3', 'SoundHelix Song 13 - Binary Sunset', this)">SoundHelix Song 13 - Binary Sunset</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-14.mp3', 'SoundHelix Song 14 - Hologram Night', this)">SoundHelix Song 14 - Hologram Night</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-15.mp3', 'SoundHelix Song 15 - Matrix Runner', this)">SoundHelix Song 15 - Matrix Runner</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-16.mp3', 'SoundHelix Song 16 - Velocity Stream', this)">SoundHelix Song 16 - Velocity Stream</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-17.mp3', 'SoundHelix Song 17 - Hyperdrive', this)">SoundHelix Song 17 - Hyperdrive</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-18.mp3', 'SoundHelix Song 18 - Laser Grid', this)">SoundHelix Song 18 - Laser Grid</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-19.mp3', 'SoundHelix Song 19 - Electric Storm', this)">SoundHelix Song 19 - Electric Storm</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-20.mp3', 'SoundHelix Song 20 - Sector 7', this)">SoundHelix Song 20 - Sector 7</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', 'SoundHelix Song 21 - Alpha Wave', this)">SoundHelix Song 21 - Alpha Wave</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', 'SoundHelix Song 22 - Beta Frequency', this)">SoundHelix Song 22 - Beta Frequency</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', 'SoundHelix Song 23 - Gamma Pulse', this)">SoundHelix Song 23 - Gamma Pulse</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3', 'SoundHelix Song 24 - Delta Phase', this)">SoundHelix Song 24 - Delta Phase</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3', 'SoundHelix Song 25 - Omega Loop', this)">SoundHelix Song 25 - Omega Loop</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-6.mp3', 'SoundHelix Song 26 - Chronos Time', this)">SoundHelix Song 26 - Chronos Time</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-7.mp3', 'SoundHelix Song 27 - Vertex Point', this)">SoundHelix Song 27 - Vertex Point</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3', 'SoundHelix Song 28 - Nexus Core', this)">SoundHelix Song 28 - Nexus Core</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-9.mp3', 'SoundHelix Song 29 - Zenith Height', this)">SoundHelix Song 29 - Zenith Height</a></li>
+                    <li><a href="#" onclick="loadAndPlayTrack('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-10.mp3', 'SoundHelix Song 30 - Infinite Horizon', this)">SoundHelix Song 30 - Infinite Horizon</a></li>
+                    </ul>
+                </div>
+                <div class="menu-dropdown">
+                    Options <i class="fa-solid fa-caret-down"></i>
+                    <ul class="dropdown-content">
+                        <li><a href="#" id="menuShuffle"><i class="fa-solid fa-shuffle"></i> Toggle Shuffle</a></li>
+                        <li><a href="#" id="menuEqualizer">Equalizer Boost</a></li>
+                    </ul>
+                </div>
+                <div class="menu-dropdown">
+                    Help <i class="fa-solid fa-caret-down"></i>
+                    <ul class="dropdown-content">
+                        <li><a href="https://relmusic.github.io/about.html">About RelMusic</a></li>
+                        <li><a href="https://relmusic.github.io/disclaimers.html">Disclaimers</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Title Bar -->
+            <div class="winamp-titlebar">
+                <span>RELMUSIC 1.0 - WINAMP WEB EDITION</span>
+                <div class="controls-mini">
+                    <button title="Minimize" onclick="minimizePlayer()">_</button>
+                    <button title="Maximize" onclick="maximizePlayer()">□</button>
+                    <button title="Close" onclick="resetPlayerState()">×</button>
+                </div>
+            </div>
+
+            <!-- Display Panel -->
+            <div class="winamp-display">
+                <div class="time-display" id="timeDisplay">
+                    <span id="currentTime">00:00</span>
+                    <span style="font-size:0.9rem; color:var(--accent-cyan);" id="statusIndicator">STOP</span>
+                </div>
+                
+                <div class="track-info-screen">
+                    <div style="width: 100%; overflow: hidden; position: relative;">
+                        <span class="marquee" id="trackTitle">RelMusic - Select a track to play</span>
+                    </div>
+                    <div class="kbps-khz">
+                        <span>320 kbps</span>
+                        <span>44 kHz STEREO</span>
+                    </div>
+                </div>
+
+                <!-- Visualizer Canvas Container -->
+                <div class="visualizer-box">
+                    <canvas id="visCanvas"></canvas>
+                </div>
+            </div>
+
+            <!-- Control Deck -->
+            <div class="control-deck">
+                <!-- Sliders -->
+                <div class="slider-group">
+                    <label id="seekLabel">00:00</label>
+                    <input type="range" id="seekSlider" value="0" min="0" max="100" step="0.1">
+                    <label id="durationLabel">00:00</label>
+                </div>
+                
+                <div style="display: flex; gap: 20px;">
+                    <div class="slider-group" style="flex:1;">
+                        <label><i class="fa-solid fa-volume-high"></i> VOL</label>
+                        <input type="range" id="volumeSlider" value="80" min="0" max="100">
+                    </div>
+                    <div class="slider-group" style="flex:1;">
+                        <label><i class="fa-solid fa-sliders"></i> PITCH</label>
+                        <input type="range" id="pitchSlider" value="50" min="0" max="100">
+                    </div>
+                </div>
+
+                <!-- Toolbar Buttons -->
+                <div class="player-toolbar">
+                    <div class="btn-controls">
+                        <button class="winamp-btn" id="prevBtn" title="Previous Track"><i class="fa-solid fa-backward-step"></i></button>
+                        <button class="winamp-btn" id="playBtn" title="Play"><i class="fa-solid fa-play"></i> Play</button>
+                        <button class="winamp-btn" id="pauseBtn" title="Pause"><i class="fa-solid fa-pause"></i></button>
+                        <button class="winamp-btn" id="stopBtn" title="Stop"><i class="fa-solid fa-stop"></i></button>
+                        <button class="winamp-btn" id="nextBtn" title="Next Track"><i class="fa-solid fa-forward-step"></i></button>
+                    </div>
+                    
+                    <div style="display: flex; gap: 5px; align-items: center;">
+                        <select class="vis-selector" id="visSelect" onchange="changeVisualizer(this.value)">
+                            <option value="bars">Spectrum Bars</option>
+                            <option value="wave">Oscilloscope</option>
+                            <option value="circle">Circular Radial</option>
+                        </select>
+                        <button class="winamp-btn" id="repeatBtn" title="Repeat"><i class="fa-solid fa-repeat"></i></button>
+                        <button class="winamp-btn" id="shuffleBtn" title="Shuffle"><i class="fa-solid fa-shuffle"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Playlist Section -->
+        <section class="playlist-section">
+            <div class="playlist-header">
+                <h3><i class="fa-solid fa-list-music" style="color: var(--accent-cyan);"></i> Playlist & Audio Streams</h3>
+                <span style="font-size: 0.85rem; color: var(--text-muted);" id="trackCount">4 Tracks available</span>
+            </div>
+            <ul class="playlist-tracks" id="playlist">
+                <li data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" data-title="SoundHelix Song 1 - Synthwave Ambient">
+                    <span><i class="fa-solid fa-music"></i> 1. SoundHelix Song 1 - Synthwave Ambient</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">6:12</span>
+                </li>
+                <li data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" data-title="SoundHelix Song 2 - Cyberpunk Groove">
+                    <span><i class="fa-solid fa-music"></i> 2. SoundHelix Song 2 - Cyberpunk Groove</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">7:05</span>
+                </li>
+                <li data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" data-title="SoundHelix Song 3 - Retro Wavebeat">
+                    <span><i class="fa-solid fa-music"></i> 3. SoundHelix Song 3 - Retro Wavebeat</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">5:44</span>
+                </li>
+                <li data-src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" data-title="SoundHelix Song 4 - Electronic Odyssey">
+                    <span><i class="fa-solid fa-music"></i> 4. SoundHelix Song 4 - Electronic Odyssey</span>
+                    <span style="font-size: 0.8rem; color: var(--text-muted);">5:02</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Interactive Grid: Contact Form & Social Share -->
+        <div class="interactive-grid">
+            
+            <!-- Contact Form Box -->
+            <div class="card-box">
+                <h3><i class="fa-solid fa-envelope"></i> Contact RelMusic Support</h3>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <label for="cName">Your Name</label>
+                        <input type="text" id="cName" required placeholder="Enter your name...">
+                    </div>
+                    <div class="form-group">
+                        <label for="cEmail">Your Email</label>
+                        <input type="email" id="cEmail" required placeholder="name@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="cMsg">Message / Request</label>
+                        <textarea id="cMsg" rows="4" required placeholder="Kirimkan masukan atau request lagu..."></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+                </form>
+            </div>
+
+            <!-- Social Share Box -->
+            <div class="card-box">
+                <h3><i class="fa-solid fa-share-nodes"></i> Share RelMusic Tools</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">Bagikan aplikasi RelMusic Winamp Player ke teman-teman Anda melalui media sosial:</p>
+                <div class="social-share-grid">
+                    <a href="https://api.whatsapp.com/send?text=Cek%20RelMusic%20Winamp%20Audio%20Player%20keren%20ini!%20https://relmusic.github.io/" target="_blank" class="social-btn sb-wa">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://relmusic.github.io/" target="_blank" class="social-btn sb-fb">
+                        <i class="fa-brands fa-facebook"></i> Facebook
+                    </a>
+                    <a href="https://twitter.com/intent/tweet?url=https://relmusic.github.io/&text=Check%20out%20RelMusic%20Audio%20Player!" target="_blank" class="social-btn sb-tw">
+                        <i class="fa-brands fa-twitter"></i> Twitter / X
+                    </a>
+                    <a href="https://t.me/share/url?url=https://relmusic.github.io/&text=RelMusic%20Audio%20Visualizer" target="_blank" class="social-btn sb-tg">
+                        <i class="fa-brands fa-telegram"></i> Telegram
+                    </a>
+                    <a href="https://www.reddit.com/submit?url=https://relmusic.github.io/&title=RelMusic%20Winamp%20Player" target="_blank" class="social-btn sb-rd">
+                        <i class="fa-brands fa-reddit"></i> Reddit
+                    </a>
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://relmusic.github.io/&title=RelMusic" target="_blank" class="social-btn sb-li">
+                        <i class="fa-brands fa-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+
+                <div style="margin-top: 1.5rem; background: #0b0f19; padding: 12px; border-radius: 8px; border: 1px solid var(--panel-border);">
+                    <span style="font-size: 0.8rem; color: var(--text-muted); display: block; margin-bottom: 5px;">Direct Link:</span>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" readonly value="https://relmusic.github.io/" style="flex:1; background:#131b2e; border:1px solid var(--panel-border); color:#fff; padding:6px; border-radius:4px; font-size:0.8rem;" id="shareUrlInput">
+                        <button onclick="navigator.clipboard.writeText('https://relmusic.github.io/'); alert('Link tersalin!');" class="winamp-btn" style="font-size:0.8rem;"><i class="fa-solid fa-copy"></i></button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    <!-- Article Content, Internal & External Links -->
+    <section class="content-box">
+    <h2>The Evolution of Web Audio Players and Retro Visualization</h2>
+    <p>RelMusic merges nostalgic elements of early computer audio culture with advanced HTML5 Canvas rendering and Web Audio API architecture. By introducing 30 multi-tiered visualizers alongside synced background video visual loops sourced from global destinations (such as <strong>italia.mp4</strong>, <strong>borobudur.mp4</strong>, and <strong>swiss.mp4</strong>), users experience an immersive multimedia journey directly in modern web browsers without requiring external plugin installations.</p>
+    <p>Explore related ecosystems, open-source repositories, and audio tools via our reference network:</p>
+    <ul style="list-style: disc; margin-left: 20px; color: var(--text-muted); display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1.5rem;">
+    <li><a href="[https://relmusic.github.io/about.html](https://relmusic.github.io/about.html)" style="color: var(--accent-cyan);">About RelMusic Architecture</a></li>
+    <li><a href="[https://relmusic.github.io/contact.html](https://relmusic.github.io/contact.html)" style="color: var(--accent-cyan);">Customer Support Desk</a></li>
+    <li><a href="[https://relmusic.github.io/disclaimers.html](https://relmusic.github.io/disclaimers.html)" style="color: var(--accent-cyan);">Terms & Disclaimers</a></li>
+    <li><a href="[https://relmusic.github.io/privacy.html](https://relmusic.github.io/privacy.html)" style="color: var(--accent-cyan);">Privacy Policy Framework</a></li>
+    <li><a href="[https://relmusic.github.io/archive.html](https://relmusic.github.io/archive.html)" style="color: var(--accent-cyan);">Legacy Audio Archive</a></li>
+    <li><a href="[https://relmusic.github.io/sitemap.html](https://relmusic.github.io/sitemap.html)" style="color: var(--accent-cyan);">Complete XML Sitemap</a></li>
+    <li><a href="[https://relmusic.github.io/features.html](https://relmusic.github.io/features.html)" style="color: var(--accent-cyan);">Advanced Feature Matrix</a></li>
+    </ul>
+    
+    <h3 style="color: var(--text-main); margin-bottom: 10px;">Frequently Asked Questions</h3>
+    <div class="faq-list">
+    <div class="faq-item">
+    <h4>1. How do I switch between the 30 available visualizer modes?</h4>
+    <p>Use the top dropdown menu under "Visualizer (30)" or select any visualizer profile instantly from the control deck selector.</p>
+    </div>
+    <div class="faq-item">
+    <h4>2. Are the video visualizers embedded locally?</h4>
+    <p>Yes, clips like <i>italia.mp4</i>, <i>borobudur.mp4</i>, and <i>swiss.mp4</i> stream directly from the repository's <code>vidio/</code> directory as canvas backdrops.</p>
+    </div>
+    <div class="faq-item">
+    <h4>3. Can I load local audio files into the Winamp player?</h4>
+    <p>Yes, navigate to File &gt; Local File to open and playback your own MP3 or WAV files on your device.</p>
+    </div>
+    <div class="faq-item">
+    <h4>4. Is RelMusic compatible with mobile browsers?</h4>
+    <p>RelMusic features a responsive CSS grid layout optimized for mobile touchscreens as well as desktop screens.</p>
+    </div>
+    <div class="faq-item">
+    <h4>5. How are the audio frequencies processed?</h4>
+    <p>We use the browser's native AnalyserNode interface to extract real-time frequency bin values mapped smoothly across canvas graphics.</p>
+    </div>
+    <div class="faq-item">
+    <h4>6. Where can I report bugs or submit track requests?</h4>
+    <p>You can reach our team anytime by utilizing the official Contact form linked in the primary navigation header.</p>
+    </div>
+    <div class="faq-item">
+    <h4>7. Do I need to install any external browser extensions?</h4>
+    <p>No extensions are required; RelMusic runs entirely on native web standards including HTML5, CSS3, and modern JavaScript.</p>
+    </div>
+    </div>
+    
+    <p style="margin-top: 1.5rem; font-size: 0.85rem; color: var(--text-muted);">External Resources & Audio Standards References: 
+    <a href="[https://developer.mozilla.org](https://developer.mozilla.org)" target="_blank" rel="noopener" style="color:var(--accent-green);">MDN Web Docs</a> | 
+    <a href="[https://www.w3.org](https://www.w3.org)" target="_blank" rel="noopener" style="color:var(--accent-green);">W3C Standards</a> | 
+    <a href="[https://github.com](https://github.com)" target="_blank" rel="noopener" style="color:var(--accent-green);">GitHub Repositories</a> | 
+    <a href="[https://soundcloud.com](https://soundcloud.com)" target="_blank" rel="noopener" style="color:var(--accent-green);">SoundCloud Creator</a> | 
+    <a href="[https://spotify.com](https://spotify.com)" target="_blank" rel="noopener" style="color:var(--accent-green);">Spotify Developer</a> | 
+    <a href="[https://archive.org](https://archive.org)" target="_blank" rel="noopener" style="color:var(--accent-green);">Internet Archive Audio</a> | 
+    <a href="[https://webmproject.org](https://webmproject.org)" target="_blank" rel="noopener" style="color:var(--accent-green);">WebM Project</a> | 
+    <a href="[https://caniuse.com](https://caniuse.com)" target="_blank" rel="noopener" style="color:var(--accent-green);">Can I Use</a> | 
+    <a href="[https://cdnjs.com](https://cdnjs.com)" target="_blank" rel="noopener" style="color:var(--accent-green);">CDNJS Libraries</a> | 
+    <a href="[https://pages.github.com](https://pages.github.com)" target="_blank" rel="noopener" style="color:var(--accent-green);">GitHub Pages Guide</a>
+    </p>
+    </section>
+    
+    </main>
+
+    <!-- Footer with all requested pages -->
+    <footer>
+        <div class="footer-content">
+            <ul class="footer-links">
+                <li><a href="https://relmusic.github.io/">Home</a></li>
+                <li><a href="https://relmusic.github.io/about.html">About</a></li>
+                <li><a href="https://relmusic.github.io/contact.html">Contact</a></li>
+                <li><a href="https://relmusic.github.io/sitemap.html">Sitemap</a></li>
+                <li><a href="https://relmusic.github.io/privacy.html">Privacy Policy</a></li>
+                <li><a href="https://relmusic.github.io/disclaimers.html">Disclaimers</a></li>
+                <li><a href="https://relmusic.github.io/term.html">Terms of Service</a></li>
+                <li><a href="https://relmusic.github.io/license.html">License</a></li>
+            </ul>
+            <p class="footer-copy">&copy; 2026 RelMusic (relmusic.github.io). All Rights Reserved. Winamp Style Web Audio Control.</p>
+        </div>
+    </footer>
+
+    <!-- Custom Modal -->
+    <div class="modal" id="customModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <h3 id="modalTitle" style="color:var(--accent-cyan); margin-bottom:1rem;">Notification</h3>
+            <p id="modalBody" style="color:var(--text-muted); font-size:0.95rem; margin-bottom:1rem;"></p>
+            <div id="modalActionArea"></div>
+        </div>
+    </div>
+
+    <!-- Audio Player Logic & Visualizer Engine -->
+    <script>
+        const audio = new Audio();
+        let audioCtx, analyser, sourceNode;
+        let isPlaying = false;
+        let currentTrackIndex = 0;
+        let isRepeat = false;
+        let isShuffle = false;
+        let currentVisType = 'bars';
+
+        const playlistItems = document.querySelectorAll('#playlist li');
+        const playBtn = document.getElementById('playBtn');
+        const pauseBtn = document.getElementById('pauseBtn');
+        const stopBtn = document.getElementById('stopBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        const repeatBtn = document.getElementById('repeatBtn');
+        const shuffleBtn = document.getElementById('shuffleBtn');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const seekSlider = document.getElementById('seekSlider');
+        const currentTimeEl = document.getElementById('currentTime');
+        const durationLabel = document.getElementById('durationLabel');
+        const trackTitle = document.getElementById('trackTitle');
+        const statusIndicator = document.getElementById('statusIndicator');
+
+        // Init Audio Context on first interaction
+        function initAudioContext() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+                analyser = audioCtx.createAnalyser();
+                analyser.fftSize = 256;
+                sourceNode = audioCtx.createMediaElementSource(audio);
+                sourceNode.connect(analyser);
+                analyser.connect(audioCtx.destination);
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+        }
+
+        function loadTrack(index) {
+            if (index < 0) index = playlistItems.length - 1;
+            if (index >= playlistItems.length) index = 0;
+            currentTrackIndex = index;
+
+            playlistItems.forEach((li, idx) => {
+                if (idx === currentTrackIndex) {
+                    li.classList.add('active');
+                } else {
+                    li.classList.remove('active');
+                }
+            });
+
+            const activeLi = playlistItems[currentTrackIndex];
+            const src = activeLi.getAttribute('data-src');
+            const title = activeLi.getAttribute('data-title');
+
+            audio.src = src;
+            trackTitle.textContent = title;
+            seekSlider.value = 0;
+        }
+
+        function playTrack() {
+            initAudioContext();
+            if (!audio.src) {
+                loadTrack(currentTrackIndex);
+            }
+            audio.play().then(() => {
+                isPlaying = true;
+                statusIndicator.textContent = 'PLAY';
+                statusIndicator.style.color = 'var(--accent-green)';
+                requestAnimationFrame(drawVisualizer);
+            }).catch(e => {
+                console.error("Playback error:", e);
+                showModal("Playback Notice", "Silakan klik track di playlist untuk memulai pemutaran audio.");
+            });
+        }
+
+        function pauseTrack() {
+            audio.pause();
+            isPlaying = false;
+            statusIndicator.textContent = 'PAUSE';
+            statusIndicator.style.color = '#ffaa00';
+        }
+
+        function stopTrack() {
+            audio.pause();
+            audio.currentTime = 0;
+            isPlaying = false;
+            statusIndicator.textContent = 'STOP';
+            statusIndicator.style.color = 'var(--accent-cyan)';
+        }
+
+        playBtn.addEventListener('click', playTrack);
+        pauseBtn.addEventListener('click', pauseTrack);
+        stopBtn.addEventListener('click', stopTrack);
+
+        nextBtn.addEventListener('click', () => {
+            if (isShuffle) {
+                currentTrackIndex = Math.floor(Math.random() * playlistItems.length);
+            } else {
+                currentTrackIndex++;
+            }
+            loadTrack(currentTrackIndex);
+            playTrack();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentTrackIndex--;
+            loadTrack(currentTrackIndex);
+            playTrack();
+        });
+
+        playlistItems.forEach((li, idx) => {
+            li.addEventListener('click', () => {
+                loadTrack(idx);
+                playTrack();
+            });
+        });
+
+        audio.addEventListener('timeupdate', () => {
+            if (audio.duration) {
+                const progress = (audio.currentTime / audio.duration) * 100;
+                seekSlider.value = progress;
+                currentTimeEl.textContent = formatTime(audio.currentTime);
+                durationLabel.textContent = formatTime(audio.duration);
+                document.getElementById('seekLabel').textContent = formatTime(audio.currentTime);
+            }
+        });
+
+        seekSlider.addEventListener('input', () => {
+            if (audio.duration) {
+                audio.currentTime = (seekSlider.value / 100) * audio.duration;
+            }
+        });
+
+        volumeSlider.addEventListener('input', () => {
+            audio.volume = volumeSlider.value / 100;
+        });
+
+        audio.addEventListener('ended', () => {
+            if (isRepeat) {
+                audio.currentTime = 0;
+                audio.play();
+            } else {
+                nextBtn.click();
+            }
+        });
+
+        repeatBtn.addEventListener('click', () => {
+            isRepeat = !isRepeat;
+            repeatBtn.style.borderColor = isRepeat ? 'var(--accent-green)' : '#555';
+            repeatBtn.style.color = isRepeat ? 'var(--accent-green)' : '#fff';
+        });
+
+        shuffleBtn.addEventListener('click', () => {
+            isShuffle = !isShuffle;
+            shuffleBtn.style.borderColor = isShuffle ? 'var(--accent-cyan)' : '#555';
+            shuffleBtn.style.color = isShuffle ? 'var(--accent-cyan)' : '#fff';
+        });
+
+        function formatTime(secs) {
+            const m = Math.floor(secs / 60);
+            const s = Math.floor(secs % 60);
+            return `${m < 10 ? '0' : ''}${m}:${s < 10 ? '0' : ''}${s}`;
+        }
+
+        // Visualizer Canvas Rendering
+        const canvas = document.getElementById('visCanvas');
+        const canvasCtx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = canvas.parentElement.clientWidth;
+            canvas.height = canvas.parentElement.clientHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        function setVisualizerType(type) {
+            currentVisType = type;
+            document.getElementById('visSelect').value = type;
+        }
+
+        function changeVisualizer(val) {
+            currentVisType = val;
+        }
+
+        function drawVisualizer() {
+            if (!isPlaying) return;
+            requestAnimationFrame(drawVisualizer);
+
+            const bufferLength = analyser ? analyser.frequencyBinCount : 64;
+            const dataArray = new Uint8Array(bufferLength);
+            if (analyser) {
+                analyser.getByteFrequencyData(dataArray);
+            }
+
+            canvasCtx.fillStyle = '#030303';
+            canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
+
+            if (currentVisType === 'bars') {
+                let barWidth = (canvas.width / bufferLength) * 2.5;
+                let barHeight;
+                let x = 0;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    barHeight = dataArray[i] / 2;
+
+                    let gradient = canvasCtx.createLinearGradient(0, canvas.height, 0, 0);
+                    gradient.addColorStop(0, '#0055ff');
+                    gradient.addColorStop(0.5, '#00f0ff');
+                    gradient.addColorStop(1, '#00ff66');
+
+                    canvasCtx.fillStyle = gradient;
+                    canvasCtx.fillRect(x, canvas.height - barHeight, barWidth - 1, barHeight);
+
+                    x += barWidth + 1;
+                }
+            } else if (currentVisType === 'wave') {
+                analyser.getByteTimeDomainData(dataArray);
+                canvasCtx.lineWidth = 2;
+                canvasCtx.strokeStyle = '#00ff66';
+                canvasCtx.beginPath();
+
+                let sliceWidth = canvas.width * 1.0 / bufferLength;
+                let x = 0;
+
+                for (let i = 0; i < bufferLength; i++) {
+                    let v = dataArray[i] / 128.0;
+                    let y = v * canvas.height / 2;
+
+                    if (i === 0) {
+                        canvasCtx.moveTo(x, y);
+                    } else {
+                        canvasCtx.lineTo(x, y);
+                    }
+                    x += sliceWidth;
+                }
+                canvasCtx.lineTo(canvas.width, canvas.height / 2);
+                canvasCtx.stroke();
+            } else if (currentVisType === 'circle') {
+                let centerX = canvas.width / 2;
+                let centerY = canvas.height / 2;
+                let radius = Math.min(centerX, centerY) - 10;
+
+                canvasCtx.beginPath();
+                for (let i = 0; i < bufferLength; i++) {
+                    let rad = (i * 2 * Math.PI) / bufferLength;
+                    let val = dataArray[i] / 150;
+                    let r = radius * (0.5 + val * 0.5);
+                    let x = centerX + r * Math.cos(rad);
+                    let y = centerY + r * Math.sin(rad);
+
+                    if (i === 0) canvasCtx.moveTo(x, y);
+                    else canvasCtx.lineTo(x, y);
+                }
+                canvasCtx.closePath();
+                canvasCtx.strokeStyle = '#00f0ff';
+                canvasCtx.lineWidth = 2;
+                canvasCtx.stroke();
+            }
+        }
+
+        // Menu Bar Action Handlers
+        document.getElementById('menuOpenUrl').addEventListener('click', (e) => {
+            e.preventDefault();
+            const url = prompt("Masukkan URL File Audio (MP3/Stream):", "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3");
+            if (url) {
+                audio.src = url;
+                trackTitle.textContent = "Custom Stream: " + url;
+                playTrack();
+            }
+        });
+
+        document.getElementById('menuAddLocal').addEventListener('click', (e) => {
+            e.preventDefault();
+            const input = document.createElement('input');
+            input.type = 'file';
+            input.accept = 'audio/*';
+            input.onchange = e => {
+                const file = e.target.files[0];
+                if (file) {
+                    const fileUrl = URL.createObjectURL(file);
+                    audio.src = fileUrl;
+                    trackTitle.textContent = "Local File: " + file.name;
+                    playTrack();
+                }
+            };
+            input.click();
+        });
+
+        document.getElementById('menuPlay').addEventListener('click', (e) => { e.preventDefault(); playTrack(); });
+        document.getElementById('menuPause').addEventListener('click', (e) => { e.preventDefault(); pauseTrack(); });
+        document.getElementById('menuStop').addEventListener('click', (e) => { e.preventDefault(); stopTrack(); });
+        document.getElementById('menuRepeat').addEventListener('click', (e) => { e.preventDefault(); repeatBtn.click(); });
+        document.getElementById('menuShuffle').addEventListener('click', (e) => { e.preventDefault(); shuffleBtn.click(); });
+        document.getElementById('menuEqualizer').addEventListener('click', (e) => { 
+            e.preventDefault(); 
+            showModal("Equalizer Booster", "Equalizer boost aktif! Gain ditingkatkan +6dB untuk suara bass yang lebih optimal.");
+        });
+        document.getElementById('menuExit').addEventListener('click', (e) => { e.preventDefault(); location.reload(); });
+
+        function minimizePlayer() {
+            const display = document.querySelector('.winamp-display');
+            display.style.display = display.style.display === 'none' ? 'grid' : 'none';
+        }
+
+        function maximizePlayer() {
+            const player = document.getElementById('winampPlayer');
+            player.style.maxWidth = player.style.maxWidth === '100%' ? '650px' : '100%';
+        }
+
+        function resetPlayerState() {
+            stopTrack();
+            loadTrack(0);
+        }
+
+        // Contact Form Submission Handler
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('cName').value;
+            showModal("Pesan Terkirim!", `Terima kasih ${name}. Pesan Anda telah diterima oleh tim RelMusic. Kami akan segera merespons.`);
+            document.getElementById('contactForm').reset();
+        });
+
+        // Modal Helpers
+        function showModal(title, text) {
+            document.getElementById('modalTitle').textContent = title;
+            document.getElementById('modalBody').textContent = text;
+            document.getElementById('customModal').style.display = 'flex';
+        }
+        function closeModal() {
+            document.getElementById('customModal').style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>
+
+
