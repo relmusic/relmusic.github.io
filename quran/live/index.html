@@ -1216,57 +1216,23 @@
         </label>
 
         <select id="reciterSelect">
-            <option value="ar.alafasy" selected>
-                Mishary Rashid Alafasy
-            </option>
-            <option value="ar.abdulbasitmurattal">
-                Abdul Basit — Murattal
-            </option>
-            <option value="ar.abdulbasitmujawwad">
-                Abdul Basit — Mujawwad
-            </option>
-            <option value="ar.abdulsamad">
-                Abdul Basit Abdul Samad
-            </option>
-            <option value="ar.hudhaify">
-                Ali Al-Hudhaify
-            </option>
-            <option value="ar.minshawi">
-                Muhammad Siddiq Al-Minshawi
-            </option>
-            <option value="ar.minshawimujawwad">
-                Muhammad Siddiq Al-Minshawi — Mujawwad
-            </option>
-            <option value="ar.abdurrahmaansudais">
-                Abdurrahmaan As-Sudais
-            </option>
-            <option value="ar.saoodashuraym">
-                Saud Ash-Shuraim
-            </option>
-            <option value="ar.husary">
-                Mahmoud Khalil Al-Husary
-            </option>
-            <option value="ar.husarymujawwad">
-                Mahmoud Khalil Al-Husary — Mujawwad
-            </option>
-            <option value="ar.mahermuaiqly">
-                Maher Al-Muaiqly
-            </option>
-            <option value="ar.ghamadi">
-                Saad Al-Ghamdi
-            </option>
-            <option value="ar.ahmedajamy">
-                Ahmed Al-Ajmi
-            </option>
-            <option value="ar.yasser">
-                Yasser Ad-Dussary
-            </option>
-            <option value="ar.parhizgar">
-                Parhizgar
-            </option>
-            <option value="ar.muhammadayyoub">
-                Muhammad Ayyoub
-            </option>
+            <option value="ar.alafasy" selected>Mishary Rashid Alafasy</option>
+            <option value="ar.husary">Mahmoud Khalil Al-Husary</option>
+            <option value="ar.husarymujawwad">Mahmoud Khalil Al-Husary — Mujawwad</option>
+            <option value="ar.minshawi">Muhammad Siddiq Al-Minshawi</option>
+            <option value="ar.minshawimujawwad">Muhammad Siddiq Al-Minshawi — Mujawwad</option>
+            <option value="ar.sudais">Abdul Rahman Al-Sudais</option>
+            <option value="ar.shuraim">Saud Al-Shuraim</option>
+            <option value="ar.abdulbasit">Abdul Basit Abdul Samad — Murattal</option>
+            <option value="ar.abdulbasitmujawwad">Abdul Basit Abdul Samad — Mujawwad</option>
+            <option value="ar.abdulsamad">Abdul Samad</option>
+            <option value="ar.ajamy">Ahmed ibn Ali Al-Ajmy</option>
+            <option value="ar.muhammadayoub">Muhammad Ayyoub</option>
+            <option value="ar.hudhaify">Ali Al-Hudhaify</option>
+            <option value="ar.muhammadjibreel">Muhammad Jibreel</option>
+            <option value="ar.parhizgar">Mahmoud Khalil Al-Husary — Muallim</option>
+            <option value="ar.abdullahbasfar">Abdullah Basfar</option>
+            <option value="ar.shaatree">Abu Bakr Ash-Shaatree</option>
         </select>
 
 
@@ -2715,10 +2681,9 @@ function getGlobalAyahNumber(surahNumber, ayahNumber) {
         .reduce((total, [, , ayahCount]) => total + ayahCount, 0) + ayahNumber;
 }
 
-function getQariAudioUrl(surahNumber, ayahNumber, reciter) {
+function getQariAudioUrl(surahNumber, ayahNumber, reciter, bitrate = 128) {
     const globalAyah = getGlobalAyahNumber(surahNumber, ayahNumber);
-    // Native MP3 CDN: works directly with HTMLAudioElement without Web Audio.
-    return `https://cdn.islamic.network/quran/audio/128/${encodeURIComponent(reciter)}/${globalAyah}.mp3`;
+    return `https://cdn.islamic.network/quran/audio/${bitrate}/${encodeURIComponent(reciter)}/${globalAyah}.mp3`;
 }
 
 /* =====================================================
@@ -2753,9 +2718,15 @@ async function fetchAyahData(surahNumber, ayahNumber, reciter, translationEditio
             throw new Error("API returned an invalid translation response.");
         }
 
+        const apiAudioUrl = audioData?.data?.audio || null;
+        // Prefer the URL returned by the selected audio edition. This is important
+        // because different qaris are not necessarily available at the same bitrate.
+        // The CDN documentation confirms the API audio edition is the authoritative source.
+        const fallbackAudioUrl = getQariAudioUrl(surahNumber, ayahNumber, reciter, 128);
+
         return {
-            audioUrl: getQariAudioUrl(surahNumber, ayahNumber, reciter),
-            fallbackAudioUrl: audioData?.data?.audio || null,
+            audioUrl: apiAudioUrl || fallbackAudioUrl,
+            fallbackAudioUrl: apiAudioUrl ? fallbackAudioUrl : null,
             arabicText: arabicData.data.text,
             translationText: translationData.data.text
         };
