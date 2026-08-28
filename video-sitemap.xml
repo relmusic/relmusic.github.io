@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/italia.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/italia.mp4</video:content_loc>
+      <video:title>Italia</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/burung.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/burung.mp4</video:content_loc>
+      <video:title>Burung</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/pesawat.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/pesawat.mp4</video:content_loc>
+      <video:title>Pesawat</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/borobudur.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/borobudur.mp4</video:content_loc>
+      <video:title>Borobudur</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/a.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/a.mp4</video:content_loc>
+      <video:title>A</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/justips.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/justips.mp4</video:content_loc>
+      <video:title>Justips</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/panorama.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/panorama.mp4</video:content_loc>
+      <video:title>Panorama</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/london.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/london.mp4</video:content_loc>
+      <video:title>London</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/dragon.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/dragon.mp4</video:content_loc>
+      <video:title>Dragon</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/cat.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/cat.mp4</video:content_loc>
+      <video:title>Cat</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/ngakak.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/ngakak.mp4</video:content_loc>
+      <video:title>Ngakak</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/naga.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/naga.mp4</video:content_loc>
+      <video:title>Naga</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/swiss.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/swiss.mp4</video:content_loc>
+      <video:title>Swiss</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/dragonworld.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/dragonworld.mp4</video:content_loc>
+      <video:title>Dragon World</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/indah.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/indah.mp4</video:content_loc>
+      <video:title>Indah</video:title>
+    </video:video>
+  </url>
+
+  <url>
+    <loc>https://relmusic.github.io/vidio/bunga.mp4</loc>
+    <video:video>
+      <video:content_loc>https://relmusic.github.io/vidio/bunga.mp4</video:content_loc>
+      <video:title>Bunga</video:title>
+    </video:video>
+  </url>
+
+</urlset>
