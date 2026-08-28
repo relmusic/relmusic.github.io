@@ -1,109 +1,252 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>RealMusic 100+ Country Open Projects Atom Feed</title>
-    <subtitle>Official Atom syndication feed for RealMusic global open-source projects, interactive web tools, cultural databases, and multi-country utilities.</subtitle>
-    <link href="https://relmusic.github.io/atom.xml" rel="self"/>
-    <link href="https://relmusic.github.io/"/>
-    <updated>2026-08-26T10:28:11Z</updated>
-    <id>https://relmusic.github.io/</id>
-    <author>
-        <name>RealMusic Open Projects</name>
-        <email>support@relmusic.github.io</email>
-    </author>
 
-    <entry>
-        <title>Sitemap RealMusic 100+ Country Open Projects - Complete Global Directory</title>
-        <link href="https://relmusic.github.io/sitemap.html"/>
-        <id>https://relmusic.github.io/sitemap.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Explore the comprehensive sitemap and directory of RealMusic 100+ Country Open Projects, featuring interactive tools, AI utilities, and cultural databases.</summary>
-    </entry>
+  <title>RELMUSIC</title>
+  <subtitle>Music, AI, Technology, Tools, Tutorials and Digital Content</subtitle>
+  <id>https://relmusic.github.io/</id>
+  <link href="https://relmusic.github.io/" rel="alternate"/>
+  <link href="https://relmusic.github.io/atom.xml" rel="self"/>
+  <updated>2026-08-28T00:00:00Z</updated>
+  <generator uri="https://relmusic.github.io/">RELMUSIC</generator>
 
-    <entry>
-        <title>IP &amp; Network Tracker Utility</title>
-        <link href="https://relmusic.github.io/ip/index.html"/>
-        <id>https://relmusic.github.io/ip/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Instant network diagnostic and IP geolocation tool for global nodes across 100+ countries.</summary>
-    </entry>
+  <entry>
+    <title>New European Hits 2026</title>
+    <id>https://relmusic.github.io/blog/new-european-hits-2026.html</id>
+    <link href="https://relmusic.github.io/blog/new-european-hits-2026.html"/>
+    <updated>2026-08-28T00:00:00Z</updated>
+    <summary>New European music hits and trending songs in 2026.</summary>
+  </entry>
 
-    <entry>
-        <title>Maps Explorer &amp; Geolocation Tool</title>
-        <link href="https://relmusic.github.io/maps/index.html"/>
-        <id>https://relmusic.github.io/maps/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Interactive mapping utilities for regional and international data mapping and spatial tracking.</summary>
-    </entry>
+  <entry>
+    <title>European Songs Trending</title>
+    <id>https://relmusic.github.io/blog/european-songs-trending.html</id>
+    <link href="https://relmusic.github.io/blog/european-songs-trending.html"/>
+    <updated>2026-08-27T00:00:00Z</updated>
+    <summary>European songs and music that are currently trending.</summary>
+  </entry>
 
-    <entry>
-        <title>Macapat Meter &amp; Poetry Analyzer</title>
-        <link href="https://relmusic.github.io/macapat/index.html"/>
-        <id>https://relmusic.github.io/macapat/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Traditional Javanese poetry cadence and syllable counter suite integrated with modern open web frameworks.</summary>
-    </entry>
+  <entry>
+    <title>AI and Machine Learning</title>
+    <id>https://relmusic.github.io/blog/ai-machine-learning.html</id>
+    <link href="https://relmusic.github.io/blog/ai-machine-learning.html"/>
+    <updated>2026-08-26T00:00:00Z</updated>
+    <summary>Articles and information about artificial intelligence and machine learning.</summary>
+  </entry>
 
-    <entry>
-        <title>Wayang Culture Database &amp; Philosophy</title>
-        <link href="https://relmusic.github.io/wayang/index.html"/>
-        <id>https://relmusic.github.io/wayang/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Character index, philosophy, and history of classical wayang shadow puppetry preservation projects.</summary>
-    </entry>
+  <entry>
+    <title>AI</title>
+    <id>https://relmusic.github.io/blog/ai.html</id>
+    <link href="https://relmusic.github.io/blog/ai.html"/>
+    <updated>2026-08-25T00:00:00Z</updated>
+    <summary>Artificial intelligence, tools, technology and applications.</summary>
+  </entry>
 
-    <entry>
-        <title>Javanese Virtual Keyboard Suite</title>
-        <link href="https://relmusic.github.io/keyboard-jawa/index.html"/>
-        <id>https://relmusic.github.io/keyboard-jawa/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Virtual keyboard supporting special Javanese scripts and international typography layouts.</summary>
-    </entry>
+  <entry>
+    <title>Enterprise AI Integration</title>
+    <id>https://relmusic.github.io/blog/enterprise-ai-integration.html</id>
+    <link href="https://relmusic.github.io/blog/enterprise-ai-integration.html"/>
+    <updated>2026-08-24T00:00:00Z</updated>
+    <summary>Enterprise artificial intelligence integration and digital technology.</summary>
+  </entry>
 
-    <entry>
-        <title>Javanese Weton &amp; Calendar Converter</title>
-        <link href="https://relmusic.github.io/calendar/index.html"/>
-        <id>https://relmusic.github.io/calendar/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Javanese weton and international calendar synchronization utility for chronological research.</summary>
-    </entry>
+  <entry>
+    <title>Music Asset Business</title>
+    <id>https://relmusic.github.io/blog/music-asset-business.html</id>
+    <link href="https://relmusic.github.io/blog/music-asset-business.html"/>
+    <updated>2026-08-23T00:00:00Z</updated>
+    <summary>Music assets, digital content and opportunities in the music business.</summary>
+  </entry>
 
-    <entry>
-        <title>AI Intelligence Engine Suite</title>
-        <link href="https://relmusic.github.io/ai/index.html"/>
-        <id>https://relmusic.github.io/ai/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Cross-disciplinary machine learning generators for global content creation and language synthesis.</summary>
-    </entry>
+  <entry>
+    <title>Music Investment</title>
+    <id>https://relmusic.github.io/blog/music-investment.html</id>
+    <link href="https://relmusic.github.io/blog/music-investment.html"/>
+    <updated>2026-08-22T00:00:00Z</updated>
+    <summary>Music investment and the digital music ecosystem.</summary>
+  </entry>
 
-    <entry>
-        <title>3D Object Visualizer &amp; WebGL Render</title>
-        <link href="https://relmusic.github.io/3d/index.html"/>
-        <id>https://relmusic.github.io/3d/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Interactive WebGL model rendering tool for digital art and cultural asset visualization.</summary>
-    </entry>
+  <entry>
+    <title>Music Theory Tools</title>
+    <id>https://relmusic.github.io/blog/music-theory-tools.html</id>
+    <link href="https://relmusic.github.io/blog/music-theory-tools.html"/>
+    <updated>2026-08-21T00:00:00Z</updated>
+    <summary>Tools and resources for learning music theory.</summary>
+  </entry>
 
-    <entry>
-        <title>Voice Synthesizer &amp; Speech Converter</title>
-        <link href="https://relmusic.github.io/voice/index.html"/>
-        <id>https://relmusic.github.io/voice/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Speech-to-text and text-to-speech modular converter with multi-accent support.</summary>
-    </entry>
+  <entry>
+    <title>Learn JavaScript Music</title>
+    <id>https://relmusic.github.io/blog/learn-javascript-music.html</id>
+    <link href="https://relmusic.github.io/blog/learn-javascript-music.html"/>
+    <updated>2026-08-20T00:00:00Z</updated>
+    <summary>Learn JavaScript for music-related web development projects.</summary>
+  </entry>
 
-    <entry>
-        <title>WhatsApp Direct Link Generator</title>
-        <link href="https://relmusic.github.io/wa/index.html"/>
-        <id>https://relmusic.github.io/wa/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Generate instant WhatsApp chat redirect links without saving contact numbers to your device.</summary>
-    </entry>
+  <entry>
+    <title>Google Play Music Android</title>
+    <id>https://relmusic.github.io/blog/google-play-music-android.html</id>
+    <link href="https://relmusic.github.io/blog/google-play-music-android.html"/>
+    <updated>2026-08-19T00:00:00Z</updated>
+    <summary>Music applications and Android music technology.</summary>
+  </entry>
 
-    <entry>
-        <title>Global Search Engine Directory</title>
-        <link href="https://relmusic.github.io/search/index.html"/>
-        <id>https://relmusic.github.io/search/index.html</id>
-        <updated>2026-08-26T10:28:11Z</updated>
-        <summary>Aggregated internal directory query tool for high-speed content lookup across all RealMusic projects.</summary>
-    </entry>
+  <entry>
+    <title>Stream Music Online Free</title>
+    <id>https://relmusic.github.io/blog/stream-music-online-free.html</id>
+    <link href="https://relmusic.github.io/blog/stream-music-online-free.html"/>
+    <updated>2026-08-18T00:00:00Z</updated>
+    <summary>Information about streaming music online.</summary>
+  </entry>
+
+  <entry>
+    <title>Royalti Musik</title>
+    <id>https://relmusic.github.io/blog/royalti_musik.html</id>
+    <link href="https://relmusic.github.io/blog/royalti_musik.html"/>
+    <updated>2026-08-17T00:00:00Z</updated>
+    <summary>Information about music royalties and the music industry.</summary>
+  </entry>
+
+  <entry>
+    <title>Quran Live</title>
+    <id>https://relmusic.github.io/blog/quran-live.html</id>
+    <link href="https://relmusic.github.io/blog/quran-live.html"/>
+    <updated>2026-08-16T00:00:00Z</updated>
+    <summary>Quran live streaming and related digital resources.</summary>
+  </entry>
+
+  <entry>
+    <title>Learn Live</title>
+    <id>https://relmusic.github.io/blog/learn-live.html</id>
+    <link href="https://relmusic.github.io/blog/learn-live.html"/>
+    <updated>2026-08-15T00:00:00Z</updated>
+    <summary>Live learning resources and digital tools.</summary>
+  </entry>
+
+  <entry>
+    <title>Text to Speech</title>
+    <id>https://relmusic.github.io/blog/tts.html</id>
+    <link href="https://relmusic.github.io/blog/tts.html"/>
+    <updated>2026-08-14T00:00:00Z</updated>
+    <summary>Text-to-speech technology, tools and applications.</summary>
+  </entry>
+
+  <entry>
+    <title>Gemini</title>
+    <id>https://relmusic.github.io/blog/gemini.html</id>
+    <link href="https://relmusic.github.io/blog/gemini.html"/>
+    <updated>2026-08-13T00:00:00Z</updated>
+    <summary>Generative AI and Google Gemini technology.</summary>
+  </entry>
+
+  <entry>
+    <title>OBS</title>
+    <id>https://relmusic.github.io/blog/obs.html</id>
+    <link href="https://relmusic.github.io/blog/obs.html"/>
+    <updated>2026-08-12T00:00:00Z</updated>
+    <summary>OBS and tools for live streaming and video production.</summary>
+  </entry>
+
+  <entry>
+    <title>Visualization</title>
+    <id>https://relmusic.github.io/blog/visualization.html</id>
+    <link href="https://relmusic.github.io/blog/visualization.html"/>
+    <updated>2026-08-11T00:00:00Z</updated>
+    <summary>Visualization, digital graphics and interactive content.</summary>
+  </entry>
+
+  <entry>
+    <title>Social</title>
+    <id>https://relmusic.github.io/blog/social.html</id>
+    <link href="https://relmusic.github.io/blog/social.html"/>
+    <updated>2026-08-10T00:00:00Z</updated>
+    <summary>Social media, digital communication and online platforms.</summary>
+  </entry>
+
+  <entry>
+    <title>Web Development</title>
+    <id>https://relmusic.github.io/blog/web-development.html</id>
+    <link href="https://relmusic.github.io/blog/web-development.html"/>
+    <updated>2026-08-09T00:00:00Z</updated>
+    <summary>Web development, websites and modern web technology.</summary>
+  </entry>
+
+  <entry>
+    <title>HTML Structuring Content</title>
+    <id>https://relmusic.github.io/blog/html-structuring-content.html</id>
+    <link href="https://relmusic.github.io/blog/html-structuring-content.html"/>
+    <updated>2026-08-08T00:00:00Z</updated>
+    <summary>HTML structure and techniques for organizing web content.</summary>
+  </entry>
+
+  <entry>
+    <title>Git Workflow</title>
+    <id>https://relmusic.github.io/blog/git-workflow.html</id>
+    <link href="https://relmusic.github.io/blog/git-workflow.html"/>
+    <updated>2026-08-07T00:00:00Z</updated>
+    <summary>Git workflow, version control and development practices.</summary>
+  </entry>
+
+  <entry>
+    <title>Cybersecurity Zero Trust</title>
+    <id>https://relmusic.github.io/blog/cybersecurity-zero-trust.html</id>
+    <link href="https://relmusic.github.io/blog/cybersecurity-zero-trust.html"/>
+    <updated>2026-08-06T00:00:00Z</updated>
+    <summary>Cybersecurity and Zero Trust security concepts.</summary>
+  </entry>
+
+  <entry>
+    <title>Database Management</title>
+    <id>https://relmusic.github.io/blog/database-management.html</id>
+    <link href="https://relmusic.github.io/blog/database-management.html"/>
+    <updated>2026-08-05T00:00:00Z</updated>
+    <summary>Database management, data and software technology.</summary>
+  </entry>
+
+  <entry>
+    <title>Linux Advanced Guide</title>
+    <id>https://relmusic.github.io/blog/linux-advanced-guide.html</id>
+    <link href="https://relmusic.github.io/blog/linux-advanced-guide.html"/>
+    <updated>2026-08-04T00:00:00Z</updated>
+    <summary>Advanced Linux guides, commands and system administration.</summary>
+  </entry>
+
+  <entry>
+    <title>Windows Optimization</title>
+    <id>https://relmusic.github.io/blog/windows-optimization.html</id>
+    <link href="https://relmusic.github.io/blog/windows-optimization.html"/>
+    <updated>2026-08-03T00:00:00Z</updated>
+    <summary>Windows optimization and performance improvement tips.</summary>
+  </entry>
+
+  <entry>
+    <title>UI UX Trends</title>
+    <id>https://relmusic.github.io/blog/ui-ux-trends.html</id>
+    <link href="https://relmusic.github.io/blog/ui-ux-trends.html"/>
+    <updated>2026-08-02T00:00:00Z</updated>
+    <summary>Latest UI and UX design trends.</summary>
+  </entry>
+
+  <entry>
+    <title>30 Awesome Figma Illustration Templates</title>
+    <id>https://relmusic.github.io/blog/30-awesome-figma-illustration-templates.html</id>
+    <link href="https://relmusic.github.io/blog/30-awesome-figma-illustration-templates.html"/>
+    <updated>2026-08-01T00:00:00Z</updated>
+    <summary>Figma illustration templates and design resources.</summary>
+  </entry>
+
+  <entry>
+    <title>17 Best Clock App UI Design</title>
+    <id>https://relmusic.github.io/blog/17-best-clock-app-ui-design.html</id>
+    <link href="https://relmusic.github.io/blog/17-best-clock-app-ui-design.html"/>
+    <updated>2026-07-31T00:00:00Z</updated>
+    <summary>Clock application UI design inspiration and resources.</summary>
+  </entry>
+
+  <entry>
+    <title>62 New Emojis Arrive</title>
+    <id>https://relmusic.github.io/blog/62-new-emojis-arrive.html</id>
+    <link href="https://relmusic.github.io/blog/62-new-emojis-arrive.html"/>
+    <updated>2026-07-30T00:00:00Z</updated>
+    <summary>New emoji updates, characters and digital communication.</summary>
+  </entry>
+
 </feed>
